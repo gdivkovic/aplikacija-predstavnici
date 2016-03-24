@@ -1,306 +1,34 @@
 <!DOCTYPE html>
-<!-- saved from url=(0099)https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows -->
-<html lang="en-IE"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="hr-HR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Building an iOS signing key for PhoneGap in Windows | Ian Devlin</title>
+<title>Survey</title>
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<link rel="stylesheet" media="screen" href="./Building an iOS signing key for PhoneGap in Windows _ Ian Devlin_files/iandevlin.min.css">
-<link rel="stylesheet" media="print" href="./Building an iOS signing key for PhoneGap in Windows _ Ian Devlin_files/iandevlin-print.min.css">
-<link rel="pingback" href="https://www.iandevlin.com/blog/xmlrpc.php">
-<link rel="me" href="https://twitter.com/iandevlin">
 
-<!-- All in One SEO Pack 2.3.2.3 by Michael Torbert of Semper Fi Web Design[139,210] -->
-<meta name="description" content="One of the tasks I had to overcome when building a hybrid application that I&#39;ve been working on was how to generate an iOS signing key that&#39;s required by">
+<style>
+html,body{
+    margin:0;
+    height:100%;
+    overflow:hidden;
+}
+img{
+    min-height:100%;
+    min-width:100%;
+    height:auto;
+    width:auto;
+    position:absolute;
+    top:-100%; bottom:-100%;
+    left:-100%; right:-100%;
+    margin:auto;
+}
+.fullscreen {min-height: 100%;}
 
-<meta name="keywords" content="ios,phonegap,signing key">
-
-<link rel="canonical" href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows">
-<!-- /all in one seo pack -->
-<link rel="alternate" type="application/rss+xml" title="Ian Devlin » Feed" href="https://www.iandevlin.com/blog/feed">
-<link rel="alternate" type="application/rss+xml" title="Ian Devlin » Comments Feed" href="https://www.iandevlin.com/blog/comments/feed">
-<link rel="alternate" type="application/rss+xml" title="Ian Devlin » Building an iOS signing key for PhoneGap in Windows Comments Feed" href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows/feed">
-
-
-
-
-<link rel="https://api.w.org/" href="https://www.iandevlin.com/blog/wp-json/">
-<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.iandevlin.com/blog/xmlrpc.php?rsd">
-<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.iandevlin.com/blog/wp-includes/wlwmanifest.xml"> 
-<link rel="prev" title="beyond tellerand 2012" href="https://www.iandevlin.com/blog/2012/11/conference/beyond-tellerand-2012">
-<link rel="next" title="On hybrid apps" href="https://www.iandevlin.com/blog/2012/12/opinion/on-hybrid-apps">
-<link rel="shortlink" href="https://www.iandevlin.com/blog/?p=2582">
-<link rel="alternate" type="application/json+oembed" href="https://www.iandevlin.com/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.iandevlin.com%2Fblog%2F2012%2F11%2Fphonegap%2Fbuilding-an-ios-signing-key-for-phonegap-in-windows">
-<link rel="alternate" type="text/xml+oembed" href="https://www.iandevlin.com/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.iandevlin.com%2Fblog%2F2012%2F11%2Fphonegap%2Fbuilding-an-ios-signing-key-for-phonegap-in-windows&amp;format=xml">
-<script type="text/javascript" async="" src="./Building an iOS signing key for PhoneGap in Windows _ Ian Devlin_files/ga.js"></script><script type="text/javascript">
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-2046650-1']);
-_gaq.push(['_trackPageview']);
-(function() {
-var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
-</script>
+</style>
 </head>
  
-<body class="blog other">
-  <header role="banner">
-    <div class="header-wrap">
-      <a class="a11y-hidden" href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows#blog">Skip to content</a>
-      <a href="https://www.iandevlin.com/" class="title" title="Home">ID</a>
-      <nav role="navigation">
-        <ol>
-          <li><a href="https://www.iandevlin.com/about.html">About</a></li>
-          <li><a href="https://www.iandevlin.com/blog/" class="active">Blog</a></li>
-          <li><a href="https://www.iandevlin.com/projects.html">Projects</a></li>
-          <li><a href="https://www.iandevlin.com/writing.html">Writing</a></li>
-          <li><a href="https://www.iandevlin.com/books.html">Books</a></li>
-          <li><a href="https://www.iandevlin.com/contact.html">Contact</a></li>
-        </ol>
-      </nav>
-    </div>
-  </header>
-  
-    
-    <main id="post-2582" class="post-2582 post type-post status-publish format-standard hentry category-phonegap tag-ios tag-phonegap tag-signing-key" role="main">      
-      <header>
-        <h1>Building an iOS signing key for PhoneGap in Windows</h1>
-        <div class="symbol" aria-hidden="true">§</div>
-        <div class="info">
-          <a class="back" href="https://www.iandevlin.com/blog/">?Back to listing</a>
-          <!---->
-          <time datetime="2012-11-29" itemprop="dateCreated">29 November 2012</time>        </div>
-      </header>
-      <p>One of the tasks I had to overcome when building a hybrid application that I’ve been working on was how to generate an iOS signing key that’s required by <a href="https://build.phonegap.com/">PhoneGap Build</a> in order to generate iOS applications, on Windows. The steps to do this are outlined here.<br>
-<span id="more-2582"></span></p>
-<h2>Apple Developer Account</h2>
-<p>The one major thing that I will assume you have is an <a href="https://developer.apple.com/">Apple Developer</a> account. There is no way around this, you <em>must</em> have one. Yes it costs $99 a year, but if you need to build an app for iOS, then you need to pay.</p>
-<h2>OpenSSL</h2>
-<p>You also need to download <a href="http://www.openssl.org/">OpenSSL</a> and install it on your machine. This will end up somewhere like <code>C:\OpenSSL-Win32</code> and it’s worth adding the <code>bin</code> directory to your <code>Path</code> environment variable, which the steps below will assume you have done.</p>
-<h2>The steps</h2>
-<p>The first thing you need to do is generate a private key. Go to the command line and navigate to whatever directory you want to store the generated files in. Then type in the following to generate the key:<br>
-</p><figure class="code-container"><pre><code class="cplusplus">openssl genrsa -des3 -out ios.key 2048</code>
-										</pre>
-										<pre>JURICA: password je JetLee12</pre>
-								</figure><p></p>
-<p>This will generate a key and store it in the file <code>ios.key</code>. You will be prompted to generate a password for this key (once to create and once to verify), which you should take note of as you will require it later.</p>
-<p>Next you need to generate a Certificate Signing Request or <abbr title="Certificate Signing Request">CSR</abbr> file. You can do this by running the following command, which uses the <code>ios.key</code> file generated earlier:<br>
-</p><figure class="code-container"><pre><code class="cplusplus">openssl req -new -key ios.key -out ios.csr -subj "/emailAddress=MY-EMAIL-ADDRESS, CN=COMPANY-NAME, C=COUNTRY-CODE"</code>
-										</pre>
-										<pre>JURICA: OpenSSL> req -new -key ios.key -out ios.csr -subj "/emailAddress=zm
-m, CN=zoranmilas, C=HR" -config C:\OpenSSL-Win32\bin\openssl.cfg</pre>
-								</figure><p></p>
-<p>You will (obviously) need to change the email, company name and country code details to the correct values, e.g. <code>-subj "/emailAddress=test@iandevlin.com, CN=iandevlin, C=DE"</code>. This will generate the required certificate signing request and store it in the file <code>ios.csr</code>.</p>
-<p>Now you need to go to your <a href="https://developer.apple.com/ios/manage/overview/index.action">Apple Developer iOS Provisioning Portal</a> in order to generate an iOS Development Certificate, using the <code>ios.csr</code> file you’ve just generated. Click on “Certificates” in the left hand side, and then “Request”. You will be prompted to upload a <code>.csr</code> file, and then wait for the certificate to be issued, which it will quite quickly, refresh the browser if you need to.</p>
-<p>If you need any help with the portal, the website provides you with all you need to know.</p>
-<p>Now download the development certificate that was issued and save it in the same directory where the other generated files are.</p>
-<p>You now need to convert it to a <abbr title="Privacy-enhanced Electronic Mail">PEM</abbr> file which you can do with:<br>
-</p><figure class="code-container"><pre><code class="cplusplus">openssl x509 -in ios_development.cer -inform DER -out ios_development.pem -outform PEM</code>
-										</pre>
-								</figure><p></p>
-<p>Where <code>ios_development.cer</code> is the name of the development certificate created on the Apple Provisioning Portal and <code>ios_development.pem</code> is the <abbr>PEM</abbr> file that we want to generate.</p>
-<p>The penultimate file to generate is the P12 file, which uses both our private key (<code>ios.key</code>) and the iOS development certificate (<code>ios_development.pem</code>):<br>
-</p><figure class="code-container"><pre><code class="cplusplus">openssl pkcs12 -export -inkey ios.key -in ios_development.pem -out ios_development.p12</code>
-										</pre>
-								</figure><p></p>
-<p>You will be asked to enter the access phrase for the <code>ios.key</code> file (which you noted from earlier) and you will need to generate an export password for the P12 file and verify it. The <code>ios_development.p12</code> file is then generated.</p>
-<p>The last file you need to generate is the provisioning profile, which again requires you to return to the Apple Provisioning Portal. There is plenty of documentation there on how to do this, so I won’t go into it here. Bear in mind that such certificates need to be tied to your iOS testing devices via their <abbr title="Unique Device Identifier">UDID</abbr>s, and again there is documentation on how to do this.</p>
-<p>Once the provisioning profile is generated, download it (e.g. <code>iOS_Development.mobileprovision</code>) and save it in the same place as the other files. This file will also need to be installed on each of your iOS testing devices.</p>
-<p>You should now have everything that you need to generate an iOS signing key for PhoneGap Build:</p>
-<ul>
-<li>P12 certificate file</li>
-<li>provisioning profile</li>
-<li>certificate password</li>
-</ul>
-<p>These steps can also be used to generate a distribution key for the iTunes Store.</p>
-   
-      <footer>
-              </footer>       
-    </main>
-    
-<section class="comments">
-
-
-
-            <h3 id="comments-title">74 Responses</h3>
-
-  <div class="comment-nav top">
-    <a href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows/comment-page-3#comments">? Older Comments</a>      </div>
-<ul>
-        	<li class="pingback even thread-even depth-1" id="comment-344048">
-		<p>Pingback: <a href="http://www.pearltrees.com/johankellen/phonegap-hybridappar/id14040843/item154293685" rel="external nofollow" class="url">Phonegap / hybridappar | Pearltrees</a></p>
-	</li>	<li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-344998">
-		<p>Pingback: <a href="http://www.pearltrees.com/johankellen/phonegap-hybridappar/id14040843/item154567966" rel="external nofollow" class="url">Phonegap / hybridappar | Pearltrees</a></p>
-	</li>	<li class="pingback even thread-even depth-1" id="comment-347227">
-		<p>Pingback: <a href="http://www.blogosfera.co.uk/how-to-install-my-pgb-app-on-ios/" rel="external nofollow" class="url">How to install my PGB app on IOS - BlogoSfera</a></p>
-	</li>	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-348269">
-				<header>
-			<div class="author">
-				Gilberto Nasser			</div>
-						<a href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows/comment-page-4#comment-348269">
-			<time datetime="2015-09-15T00:14:16Z">15 September 2015 at 00:14</time>
-			</a>
-					</header>
-
-		<p>Very good, it worked for me. Thankyou.</p>
-
-			
-	</li>	<li class="comment even thread-even depth-1" id="comment-362022">
-				<header>
-			<div class="author">
-				<a href="https://www.youpunchin.com/" rel="external nofollow" class="url">Michel Tobon</a>			</div>
-						<a href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows/comment-page-4#comment-362022">
-			<time datetime="2015-11-06T23:55:54Z">06 November 2015 at 23:55</time>
-			</a>
-					</header>
-
-		<p>This is the ULTIMATE guide to iOS signing for Phonegap!!! </p>
-<p>Thank you.</p>
-
-			
-	</li>	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-362457">
-				<header>
-			<div class="author">
-				This Man			</div>
-						<a href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows/comment-page-4#comment-362457">
-			<time datetime="2015-11-11T13:09:52Z">11 November 2015 at 13:09</time>
-			</a>
-					</header>
-
-		<p>This is a life saver. Thanks alot.</p>
-
-			
-	</li>	<li class="comment even thread-even depth-1" id="comment-364193">
-				<header>
-			<div class="author">
-				McNab			</div>
-						<a href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows/comment-page-4#comment-364193">
-			<time datetime="2015-11-30T21:08:36Z">30 November 2015 at 21:08</time>
-			</a>
-					</header>
-
-		<p>Thanks very much for taking the time to put this together.  To say I’d have struggled without this is something of an understatement.  </p>
-<p>One point is that I found the openssl site and the downloads there a bit of a nightmare.  I used the zip file in the Google Code openssl-for-windows which had the .cnf file easily found and I added the path for it using the command OPENSSL_CONF=C:\Users\your-user-name\openssl\openssl.cnf</p>
-
-			
-	</li>	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-364227">
-				<header>
-			<div class="author">
-				Saeid			</div>
-						<a href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows/comment-page-4#comment-364227">
-			<time datetime="2015-12-01T10:57:09Z">01 December 2015 at 10:57</time>
-			</a>
-					</header>
-
-		<p>Thanks !</p>
-
-			
-	</li>	<li class="comment even thread-even depth-1" id="comment-367934">
-				<header>
-			<div class="author">
-				nactalivan			</div>
-						<a href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows/comment-page-4#comment-367934">
-			<time datetime="2016-01-29T09:33:33Z">29 January 2016 at 09:33</time>
-			</a>
-					</header>
-
-		<p>Thank you so much, you make this internet a better place!<br>
-For those who struggle downloading openSSL for windows, you can find non-official binaries here : <a href="https://wiki.openssl.org/index.php/Binaries" rel="nofollow">https://wiki.openssl.org/index.php/Binaries</a> -worked perfectly for me.</p>
-
-			
-	</li>	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-368237">
-				<header>
-			<div class="author">
-				Tom Austin			</div>
-						<a href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows/comment-page-4#comment-368237">
-			<time datetime="2016-02-03T17:45:44Z">03 February 2016 at 17:45</time>
-			</a>
-					</header>
-
-		<p>Thanks! Really appreciate such a great post.</p>
-
-			
-	</li>	<li class="pingback even thread-even depth-1" id="comment-368297">
-		<p>Pingback: <a href="http://www.mariqueras.com/2015/10/27/instalar-phonegap-windows-desarrolladores/" rel="external nofollow" class="url">Instalar Phonegap en Windows para desarrolladores</a></p>
-	</li>	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-368470">
-				<header>
-			<div class="author">
-				Michael			</div>
-						<a href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows/comment-page-4#comment-368470">
-			<time datetime="2016-02-12T11:59:35Z">12 February 2016 at 11:59</time>
-			</a>
-					</header>
-
-		<p>Thanks a lot, this saved me so much pain not having to use Keychain on a Mac which is really confusing when managing a huge number of certificates.</p>
-
-			
-	</li>	<li class="comment even thread-even depth-1" id="comment-368610">
-				<header>
-			<div class="author">
-				Gijs			</div>
-						<a href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows/comment-page-4#comment-368610">
-			<time datetime="2016-02-16T22:42:17Z">16 February 2016 at 22:42</time>
-			</a>
-					</header>
-
-		<p>Just a tip, when uploading .csr with IE11 the ‘generate’ button never enables…</p>
-
-			
-	</li>	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-368904">
-				<header>
-			<div class="author">
-				<a href="http://www.noovop.com/" rel="external nofollow" class="url">Tidiane SIDIBE</a>			</div>
-						<a href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows/comment-page-4#comment-368904">
-			<time datetime="2016-03-01T21:11:18Z">01 March 2016 at 21:11</time>
-			</a>
-					</header>
-
-		<p>Very usefull, you can also use cygwin on windows to have openssh in linux like command prompt</p>
-
-			
-	</li></ul>
-  <div class="comment-nav bottom">
-    <a href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows/comment-page-3#comments">? Older Comments</a>      </div>
-
-
-				<div id="respond" class="comment-respond">
-			<h3 id="reply-title" class="comment-reply-title">Make a comment <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows#respond" style="display:none;">Cancel reply</a></small></h3>				<form action="https://www.iandevlin.com/blog/wp-comments-post.php" method="post" id="commentform" class="comment-form">
-					<p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name</label> <input id="author" name="author" type="text" value="" size="30" aria-required="true"></p>
-<p class="comment-form-email"><label for="email">Email</label> <input id="email" name="email" type="email" value="" size="30" aria-required="true"></p>
-<p class="comment-form-url"><label for="url">Website</label><input id="url" name="url" type="url" value="" size="30"></p>
-<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="2582" id="comment_post_ID">
-<input type="hidden" name="comment_parent" id="comment_parent" value="0">
-</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="5ba0119290"></p><div id="commentPreview"></div><p style="display: none;"></p>				<input type="hidden" id="ak_js" name="ak_js" value="1458803799047"></form>
-					</div><!-- #respond -->
-		
-</section>
-
-
-  <aside role="search">
-    <ul>
-
-<li><form method="get" id="searchform" action="https://www.iandevlin.com/blog/" role="search">
-  <label for="s" class="a11y-hidden">Search articles</label>
-  <input type="search" class="field" name="s" id="s">
-  <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search">
-</form>
-</li>    </ul>
-
-  
-  </aside>  <footer role="contentinfo">
-        <small>Copyright © <a href="http://twitter.com/iandevlin">Ian Devlin</a> <time datetime="2004">MMIV</time> - <time datetime="2016">MMXVI</time></small>
-  </footer>
-
-<script type="text/javascript" src="./Building an iOS signing key for PhoneGap in Windows _ Ian Devlin_files/wp-embed.min.js"></script>
-<script defer="" type="text/javascript" src="./Building an iOS signing key for PhoneGap in Windows _ Ian Devlin_files/default.include-footer.675270.js"></script>
-
-
-<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
-
-Minified using disk
-Page Caching using disk: enhanced
-Database Caching 1/22 queries in 0.007 seconds using disk
-Object Caching 894/971 objects using disk
-
- Served from: www.iandevlin.com @ 2016-03-24 07:27:13 by W3 Total Cache --></body></html>
+<body>
+<div class="fullscreen slika0" data-id="0">
+<img src="splash.png" alt="">
+</div>
+</body>
+</html>
