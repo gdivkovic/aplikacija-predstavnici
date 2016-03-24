@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="hr-HR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<head>
 <meta name="viewport" content="user-scalable=no, initial-scale=1, width=device-width, height=device-height, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi">
+<meta name="format-detection" content="telephone=no">
 <title>Survey</title>
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 
@@ -50,7 +51,20 @@ user-drag: none;
   width: 100%;
   height: 100%;
 }
-.fullscreen {min-height: 100%;}
+.fullscreen {min-height: 100%;position:relative;}
+
+.slika0 {
+	display:none;
+}
+
+.zapocni {
+position:absolute;
+top:1720px;
+bottom:1040px;
+width:300px;
+height:300px;
+background-color:#ffffff;
+}
 
 </style>
 
@@ -58,20 +72,31 @@ user-drag: none;
 </head>
  
 <body>
+<div class="fullscreen slika1" data-id="0">
+<img src="splash.png" class="img red0" alt="">
+</div>
 <div class="fullscreen slika0" data-id="0">
-<img src="splash.png" class="img" alt="">
+<img src="pitanje1.png" class="img red1" alt="">
 </div>
 
+
+
+
+<script type='application/javascript' src='lib/jquery.js'></script>
+<script type='application/javascript' src='lib/fastclick.js'></script>
 <script>
+var trenutno=0;
 $(function() {
     FastClick.attach(document.body);
+	
+	$('.img').click(function(){
+		$(this).parent().hide(0,function(){
+			trenutno++;
+			$('.red'+trenutno).parent().show();
+		});
+	});
 });
 </script>
-
-<script type='application/javascript' src='/lib/jquery.js'></script>
-<script type='application/javascript' src='/lib/fastclick.js'></script>
-
-
 
 </body>
 </html>
