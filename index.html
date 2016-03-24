@@ -1,308 +1,306 @@
 <!DOCTYPE html>
-<!-- saved from url=(0049)https://guides.github.com/activities/hello-world/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta charset="UTF-8">
-  <title>
-    
-      Hello World ¬∑ GitHub Guides
-    
-  </title>
-  <link rel="icon" type="image/x-icon" href="https://guides.github.com/favicon.ico">
+<!-- saved from url=(0099)https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows -->
+<html lang="en-IE"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Building an iOS signing key for PhoneGap in Windows | Ian Devlin</title>
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<link rel="stylesheet" media="screen" href="./Building an iOS signing key for PhoneGap in Windows _ Ian Devlin_files/iandevlin.min.css">
+<link rel="stylesheet" media="print" href="./Building an iOS signing key for PhoneGap in Windows _ Ian Devlin_files/iandevlin-print.min.css">
+<link rel="pingback" href="https://www.iandevlin.com/blog/xmlrpc.php">
+<link rel="me" href="https://twitter.com/iandevlin">
 
-  <link rel="stylesheet" href="./files/gridism.css">
-  <link rel="stylesheet" href="./files/markdown.css">
-  <link rel="stylesheet" href="./files/octicons.css">
-  <link href="./files/main.css" rel="stylesheet">
-  <link href="./files/pygments.css" rel="stylesheet">
+<!-- All in One SEO Pack 2.3.2.3 by Michael Torbert of Semper Fi Web Design[139,210] -->
+<meta name="description" content="One of the tasks I had to overcome when building a hybrid application that I&#39;ve been working on was how to generate an iOS signing key that&#39;s required by">
 
-  <script type="text/javascript" async="" src="./files/ga.js"></script><script src="./files/jquery.js" type="text/javascript"></script>
-  <script src="./files/snap.svg-min.js" type="text/javascript"></script>
-  <script src="./files/application.js" type="text/javascript"></script>
+<meta name="keywords" content="ios,phonegap,signing key">
 
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-3769691-29']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
+<link rel="canonical" href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows">
+<!-- /all in one seo pack -->
+<link rel="alternate" type="application/rss+xml" title="Ian Devlin ª Feed" href="https://www.iandevlin.com/blog/feed">
+<link rel="alternate" type="application/rss+xml" title="Ian Devlin ª Comments Feed" href="https://www.iandevlin.com/blog/comments/feed">
+<link rel="alternate" type="application/rss+xml" title="Ian Devlin ª Building an iOS signing key for PhoneGap in Windows Comments Feed" href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows/feed">
 
+
+
+
+<link rel="https://api.w.org/" href="https://www.iandevlin.com/blog/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.iandevlin.com/blog/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.iandevlin.com/blog/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="beyond tellerand 2012" href="https://www.iandevlin.com/blog/2012/11/conference/beyond-tellerand-2012">
+<link rel="next" title="On hybrid apps" href="https://www.iandevlin.com/blog/2012/12/opinion/on-hybrid-apps">
+<link rel="shortlink" href="https://www.iandevlin.com/blog/?p=2582">
+<link rel="alternate" type="application/json+oembed" href="https://www.iandevlin.com/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.iandevlin.com%2Fblog%2F2012%2F11%2Fphonegap%2Fbuilding-an-ios-signing-key-for-phonegap-in-windows">
+<link rel="alternate" type="text/xml+oembed" href="https://www.iandevlin.com/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.iandevlin.com%2Fblog%2F2012%2F11%2Fphonegap%2Fbuilding-an-ios-signing-key-for-phonegap-in-windows&amp;format=xml">
+<script type="text/javascript" async="" src="./Building an iOS signing key for PhoneGap in Windows _ Ian Devlin_files/ga.js"></script><script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-2046650-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
 </head>
-<body>
-
-  <header>
-    <div class="wrap">
-      <ul class="links">
-        <li><a href="https://www.youtube.com/githubguides">Video Guides</a></li>
-        <li><a href="https://help.github.com/">GitHub Help</a></li>
-        <li class="nav-github"><a href="https://github.com/">GitHub.com</a></li>
-        <li class="nav-rss"><a href="https://guides.github.com/feed/index.xml"><span class="octicon octicon-rss"></span></a></li>
-      </ul>
-
-      <a href="https://guides.github.com/"><img src="./files/logo@2x.png" width="136" height="25" alt="GitHub Guides logo"></a>
+ 
+<body class="blog other">
+  <header role="banner">
+    <div class="header-wrap">
+      <a class="a11y-hidden" href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows#blog">Skip to content</a>
+      <a href="https://www.iandevlin.com/" class="title" title="Home">ID</a>
+      <nav role="navigation">
+        <ol>
+          <li><a href="https://www.iandevlin.com/about.html">About</a></li>
+          <li><a href="https://www.iandevlin.com/blog/" class="active">Blog</a></li>
+          <li><a href="https://www.iandevlin.com/projects.html">Projects</a></li>
+          <li><a href="https://www.iandevlin.com/writing.html">Writing</a></li>
+          <li><a href="https://www.iandevlin.com/books.html">Books</a></li>
+          <li><a href="https://www.iandevlin.com/contact.html">Contact</a></li>
+        </ol>
+      </nav>
     </div>
   </header>
-
-  <article class="full">
-  <div class="article-heading js-article-heading js-geopattern" style="background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NDAiIGhlaWdodD0iNDQwIj48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJyZ2IoMTI3LCA1NCwgNjApIiAgLz48cmVjdCB4PSIwIiB5PSI1IiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxNSIgb3BhY2l0eT0iMC4xMDY2NjY2NjY2NjY2NjY2NyIgZmlsbD0iI2RkZCIgIC8+PHJlY3QgeD0iMCIgeT0iMjkiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjE4IiBvcGFjaXR5PSIwLjEzMjY2NjY2NjY2NjY2NjY1IiBmaWxsPSIjMjIyIiAgLz48cmVjdCB4PSIwIiB5PSI1NyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAiIG9wYWNpdHk9IjAuMDYzMzMzMzMzMzMzMzMzMzQiIGZpbGw9IiMyMjIiICAvPjxyZWN0IHg9IjAiIHk9IjgyIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMyIgb3BhY2l0eT0iMC4wODkzMzMzMzMzMzMzMzMzMyIgZmlsbD0iI2RkZCIgIC8+PHJlY3QgeD0iMCIgeT0iMTEzIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMiIgb3BhY2l0eT0iMC4wODA2NjY2NjY2NjY2NjY2NiIgZmlsbD0iIzIyMiIgIC8+PHJlY3QgeD0iMCIgeT0iMTM3IiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMyIgb3BhY2l0eT0iMC4wODkzMzMzMzMzMzMzMzMzMyIgZmlsbD0iI2RkZCIgIC8+PHJlY3QgeD0iMCIgeT0iMTY5IiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMCIgb3BhY2l0eT0iMC4wNjMzMzMzMzMzMzMzMzMzNCIgZmlsbD0iIzIyMiIgIC8+PHJlY3QgeD0iMCIgeT0iMTg0IiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSI3IiBvcGFjaXR5PSIwLjAzNzMzMzMzMzMzMzMzMzMzIiBmaWxsPSIjZGRkIiAgLz48cmVjdCB4PSIwIiB5PSIxOTgiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjIwIiBvcGFjaXR5PSIwLjE1IiBmaWxsPSIjMjIyIiAgLz48cmVjdCB4PSIwIiB5PSIyMzMiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjE2IiBvcGFjaXR5PSIwLjExNTMzMzMzMzMzMzMzMzM0IiBmaWxsPSIjMjIyIiAgLz48cmVjdCB4PSIwIiB5PSIyNjEiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjUiIG9wYWNpdHk9IjAuMDIiIGZpbGw9IiNkZGQiICAvPjxyZWN0IHg9IjAiIHk9IjI3MiIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTQiIG9wYWNpdHk9IjAuMDk4IiBmaWxsPSIjMjIyIiAgLz48cmVjdCB4PSIwIiB5PSIyOTgiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEyIiBvcGFjaXR5PSIwLjA4MDY2NjY2NjY2NjY2NjY2IiBmaWxsPSIjMjIyIiAgLz48cmVjdCB4PSIwIiB5PSIzMjciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwIiBvcGFjaXR5PSIwLjA2MzMzMzMzMzMzMzMzMzM0IiBmaWxsPSIjMjIyIiAgLz48cmVjdCB4PSIwIiB5PSIzNTUiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEzIiBvcGFjaXR5PSIwLjA4OTMzMzMzMzMzMzMzMzMzIiBmaWxsPSIjZGRkIiAgLz48cmVjdCB4PSIwIiB5PSIzNzciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjUiIG9wYWNpdHk9IjAuMDIiIGZpbGw9IiNkZGQiICAvPjxyZWN0IHg9IjAiIHk9IjM5OCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTYiIG9wYWNpdHk9IjAuMTE1MzMzMzMzMzMzMzMzMzQiIGZpbGw9IiMyMjIiICAvPjxyZWN0IHg9IjAiIHk9IjQzMSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iOSIgb3BhY2l0eT0iMC4wNTQ2NjY2NjY2NjY2NjY2NyIgZmlsbD0iI2RkZCIgIC8+PHJlY3QgeD0iNSIgeT0iMCIgd2lkdGg9IjE1IiBoZWlnaHQ9IjEwMCUiIG9wYWNpdHk9IjAuMTA2NjY2NjY2NjY2NjY2NjciIGZpbGw9IiNkZGQiICAvPjxyZWN0IHg9IjI5IiB5PSIwIiB3aWR0aD0iMTgiIGhlaWdodD0iMTAwJSIgb3BhY2l0eT0iMC4xMzI2NjY2NjY2NjY2NjY2NSIgZmlsbD0iIzIyMiIgIC8+PHJlY3QgeD0iNTciIHk9IjAiIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMDAlIiBvcGFjaXR5PSIwLjA2MzMzMzMzMzMzMzMzMzM0IiBmaWxsPSIjMjIyIiAgLz48cmVjdCB4PSI4MiIgeT0iMCIgd2lkdGg9IjEzIiBoZWlnaHQ9IjEwMCUiIG9wYWNpdHk9IjAuMDg5MzMzMzMzMzMzMzMzMzMiIGZpbGw9IiNkZGQiICAvPjxyZWN0IHg9IjExMyIgeT0iMCIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEwMCUiIG9wYWNpdHk9IjAuMDgwNjY2NjY2NjY2NjY2NjYiIGZpbGw9IiMyMjIiICAvPjxyZWN0IHg9IjEzNyIgeT0iMCIgd2lkdGg9IjEzIiBoZWlnaHQ9IjEwMCUiIG9wYWNpdHk9IjAuMDg5MzMzMzMzMzMzMzMzMzMiIGZpbGw9IiNkZGQiICAvPjxyZWN0IHg9IjE2OSIgeT0iMCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwMCUiIG9wYWNpdHk9IjAuMDYzMzMzMzMzMzMzMzMzMzQiIGZpbGw9IiMyMjIiICAvPjxyZWN0IHg9IjE4NCIgeT0iMCIgd2lkdGg9IjciIGhlaWdodD0iMTAwJSIgb3BhY2l0eT0iMC4wMzczMzMzMzMzMzMzMzMzMyIgZmlsbD0iI2RkZCIgIC8+PHJlY3QgeD0iMTk4IiB5PSIwIiB3aWR0aD0iMjAiIGhlaWdodD0iMTAwJSIgb3BhY2l0eT0iMC4xNSIgZmlsbD0iIzIyMiIgIC8+PHJlY3QgeD0iMjMzIiB5PSIwIiB3aWR0aD0iMTYiIGhlaWdodD0iMTAwJSIgb3BhY2l0eT0iMC4xMTUzMzMzMzMzMzMzMzMzNCIgZmlsbD0iIzIyMiIgIC8+PHJlY3QgeD0iMjYxIiB5PSIwIiB3aWR0aD0iNSIgaGVpZ2h0PSIxMDAlIiBvcGFjaXR5PSIwLjAyIiBmaWxsPSIjZGRkIiAgLz48cmVjdCB4PSIyNzIiIHk9IjAiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxMDAlIiBvcGFjaXR5PSIwLjA5OCIgZmlsbD0iIzIyMiIgIC8+PHJlY3QgeD0iMjk4IiB5PSIwIiB3aWR0aD0iMTIiIGhlaWdodD0iMTAwJSIgb3BhY2l0eT0iMC4wODA2NjY2NjY2NjY2NjY2NiIgZmlsbD0iIzIyMiIgIC8+PHJlY3QgeD0iMzI3IiB5PSIwIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAwJSIgb3BhY2l0eT0iMC4wNjMzMzMzMzMzMzMzMzMzNCIgZmlsbD0iIzIyMiIgIC8+PHJlY3QgeD0iMzU1IiB5PSIwIiB3aWR0aD0iMTMiIGhlaWdodD0iMTAwJSIgb3BhY2l0eT0iMC4wODkzMzMzMzMzMzMzMzMzMyIgZmlsbD0iI2RkZCIgIC8+PHJlY3QgeD0iMzc3IiB5PSIwIiB3aWR0aD0iNSIgaGVpZ2h0PSIxMDAlIiBvcGFjaXR5PSIwLjAyIiBmaWxsPSIjZGRkIiAgLz48cmVjdCB4PSIzOTgiIHk9IjAiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxMDAlIiBvcGFjaXR5PSIwLjExNTMzMzMzMzMzMzMzMzM0IiBmaWxsPSIjMjIyIiAgLz48cmVjdCB4PSI0MzEiIHk9IjAiIHdpZHRoPSI5IiBoZWlnaHQ9IjEwMCUiIG9wYWNpdHk9IjAuMDU0NjY2NjY2NjY2NjY2NjciIGZpbGw9IiNkZGQiICAvPjwvc3ZnPg==);">
-    <div class="wrap">
-      <div class="icon-container">
-        <span class="mega-octicon octicon-globe"></span>
-      </div>
-      <h1>Hello World</h1>
-      <span class="article-read-time article-meta">
-        <span class="octicon octicon-clock"></span> 10 minute read
-      </span>
-      
-    </div>
-  </div>
-
-
-  <div class="wrap">
+  
     
-    <div class="toc-wrapper">
-      <ol class="toc js-toc sticky"><li><a href="https://guides.github.com/activities/hello-world/#intro" class="">Intro</a></li><li><a href="https://guides.github.com/activities/hello-world/#what" class="">What is GitHub?</a></li><li><a href="https://guides.github.com/activities/hello-world/#repository" class="">Create a Repository</a></li><li><a href="https://guides.github.com/activities/hello-world/#branch" class="">Create a Branch</a></li><li><a href="https://guides.github.com/activities/hello-world/#commit" class="">Make a Commit</a></li><li><a href="https://guides.github.com/activities/hello-world/#pr" class="">Open a Pull Request</a></li><li><a href="https://guides.github.com/activities/hello-world/#merge" class="active">Merge Pull Request</a></li></ol>
-    </div>
+    <main id="post-2582" class="post-2582 post type-post status-publish format-standard hentry category-phonegap tag-ios tag-phonegap tag-signing-key" role="main">      
+      <header>
+        <h1>Building an iOS signing key for PhoneGap in Windows</h1>
+        <div class="symbol" aria-hidden="true">ß</div>
+        <div class="info">
+          <a class="back" href="https://www.iandevlin.com/blog/">?Back to listing</a>
+          <!---->
+          <time datetime="2012-11-29" itemprop="dateCreated">29 November 2012</time>        </div>
+      </header>
+      <p>One of the tasks I had to overcome when building a hybrid application that Iíve been working on was how to generate an iOS signing key thatís required by <a href="https://build.phonegap.com/">PhoneGap Build</a> in order to generate iOS applications, on Windows. The steps to do this are outlined here.<br>
+<span id="more-2582"></span></p>
+<h2>Apple Developer Account</h2>
+<p>The one major thing that I will assume you have is an <a href="https://developer.apple.com/">Apple Developer</a> account. There is no way around this, you <em>must</em> have one. Yes it costs $99 a year, but if you need to build an app for iOS, then you need to pay.</p>
+<h2>OpenSSL</h2>
+<p>You also need to download <a href="http://www.openssl.org/">OpenSSL</a> and install it on your machine. This will end up somewhere like <code>C:\OpenSSL-Win32</code> and itís worth adding the <code>bin</code> directory to your <code>Path</code> environment variable, which the steps below will assume you have done.</p>
+<h2>The steps</h2>
+<p>The first thing you need to do is generate a private key. Go to the command line and navigate to whatever directory you want to store the generated files in. Then type in the following to generate the key:<br>
+</p><figure class="code-container"><pre><code class="cplusplus">openssl genrsa -des3 -out ios.key 2048</code>
+										</pre>
+										<pre>JURICA: password je JetLee12</pre>
+								</figure><p></p>
+<p>This will generate a key and store it in the file <code>ios.key</code>. You will be prompted to generate a password for this key (once to create and once to verify), which you should take note of as you will require it later.</p>
+<p>Next you need to generate a Certificate Signing Request or <abbr title="Certificate Signing Request">CSR</abbr> file. You can do this by running the following command, which uses the <code>ios.key</code> file generated earlier:<br>
+</p><figure class="code-container"><pre><code class="cplusplus">openssl req -new -key ios.key -out ios.csr -subj "/emailAddress=MY-EMAIL-ADDRESS, CN=COMPANY-NAME, C=COUNTRY-CODE"</code>
+										</pre>
+										<pre>JURICA: OpenSSL> req -new -key ios.key -out ios.csr -subj "/emailAddress=zm
+m, CN=zoranmilas, C=HR" -config C:\OpenSSL-Win32\bin\openssl.cfg</pre>
+								</figure><p></p>
+<p>You will (obviously) need to change the email, company name and country code details to the correct values, e.g. <code>-subj "/emailAddress=test@iandevlin.com, CN=iandevlin, C=DE"</code>. This will generate the required certificate signing request and store it in the file <code>ios.csr</code>.</p>
+<p>Now you need to go to your <a href="https://developer.apple.com/ios/manage/overview/index.action">Apple Developer iOS Provisioning Portal</a> in order to generate an iOS Development Certificate, using the <code>ios.csr</code> file youíve just generated. Click on ìCertificatesî in the left hand side, and then ìRequestî. You will be prompted to upload a <code>.csr</code> file, and then wait for the certificate to be issued, which it will quite quickly, refresh the browser if you need to.</p>
+<p>If you need any help with the portal, the website provides you with all you need to know.</p>
+<p>Now download the development certificate that was issued and save it in the same directory where the other generated files are.</p>
+<p>You now need to convert it to a <abbr title="Privacy-enhanced Electronic Mail">PEM</abbr> file which you can do with:<br>
+</p><figure class="code-container"><pre><code class="cplusplus">openssl x509 -in ios_development.cer -inform DER -out ios_development.pem -outform PEM</code>
+										</pre>
+								</figure><p></p>
+<p>Where <code>ios_development.cer</code> is the name of the development certificate created on the Apple Provisioning Portal and <code>ios_development.pem</code> is the <abbr>PEM</abbr> file that we want to generate.</p>
+<p>The penultimate file to generate is the P12 file, which uses both our private key (<code>ios.key</code>) and the iOS development certificate (<code>ios_development.pem</code>):<br>
+</p><figure class="code-container"><pre><code class="cplusplus">openssl pkcs12 -export -inkey ios.key -in ios_development.pem -out ios_development.p12</code>
+										</pre>
+								</figure><p></p>
+<p>You will be asked to enter the access phrase for the <code>ios.key</code> file (which you noted from earlier) and you will need to generate an export password for the P12 file and verify it. The <code>ios_development.p12</code> file is then generated.</p>
+<p>The last file you need to generate is the provisioning profile, which again requires you to return to the Apple Provisioning Portal. There is plenty of documentation there on how to do this, so I wonít go into it here. Bear in mind that such certificates need to be tied to your iOS testing devices via their <abbr title="Unique Device Identifier">UDID</abbr>s, and again there is documentation on how to do this.</p>
+<p>Once the provisioning profile is generated, download it (e.g. <code>iOS_Development.mobileprovision</code>) and save it in the same place as the other files. This file will also need to be installed on each of your iOS testing devices.</p>
+<p>You should now have everything that you need to generate an iOS signing key for PhoneGap Build:</p>
+<ul>
+<li>P12 certificate file</li>
+<li>provisioning profile</li>
+<li>certificate password</li>
+</ul>
+<p>These steps can also be used to generate a distribution key for the iTunes Store.</p>
+   
+      <footer>
+              </footer>       
+    </main>
     
+<section class="comments">
 
-    <div class="markdown-body content-body ">
-      <p><a id="intro" title="Intro" class="toc-item"></a></p>
 
-<p>The <strong>Hello World</strong> project is a time-honored tradition in computer programming. It is a simple exercise that gets you started when learning something new. Let‚Äôs get started with GitHub!</p>
 
-<p><strong>You‚Äôll learn how to:</strong></p>
+            <h3 id="comments-title">74 Responses</h3>
 
+  <div class="comment-nav top">
+    <a href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows/comment-page-3#comments">? Older Comments</a>      </div>
 <ul>
-<li>Create and use a repository</li>
-<li>Start and manage a new branch</li>
-<li>Make changes to a file and push them to GitHub as commits</li>
-<li>Open and merge a pull request</li>
-</ul>
-
-
-<p><a id="what" title="What is GitHub?" class="toc-item"></a></p>
-
-<h2>What is GitHub?</h2>
-
-<p>GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.</p>
-
-<p>This tutorial teaches you GitHub essentials like <em>repositories</em>, <em>branches</em>, <em>commits</em>, and <em>pull requests</em>. You‚Äôll create your own Hello World repository and learn GitHub‚Äôs pull request workflow, a popular way to create and review code.</p>
-
-<h4>No coding necessary</h4>
-
-<p>To complete this tutorial, you need a <a href="http://github.com/">GitHub.com account</a> and Internet access. You don‚Äôt need to know how to code, use the command line, or install Git (the version control software GitHub is built on).</p>
-
-<blockquote><p><strong>Tip:</strong> Open this guide in a separate browser window (or tab) so you can see it while you complete the steps in the tutorial.</p></blockquote>
-
-<p><a id="repository" title="Create a Repository" class="toc-item"></a></p>
-
-<h2>Step 1. Create a Repository</h2>
-
-<p>A <strong>repository</strong> is usually used to organize a single project. Repositories can contain folders and files, images, videos, spreadsheets, and data sets ‚Äì anything your project needs. We recommend including a <em>README</em>, or a file with information about your project. GitHub makes it easy to add one at the same time you create your new repository. <em>It also offers other common options such as a license file.</em></p>
-
-<p>Your <code>hello-world</code> repository can be a place where you store ideas, resources, or even share and discuss things with others.</p>
-
-<h3>To create a new repository</h3>
-
-<ol>
-<li>In the upper right corner, next to your username, click <span class="octicon octicon-plus"></span> and then click <strong>New repository</strong>.</li>
-<li>Name your repository <code>hello-world</code>.</li>
-<li>Write a short description.</li>
-<li>Select <strong>Initialize this repository with a README</strong>.</li>
-</ol>
-
-
-<p><img src="./files/create-new-repo.png" alt="new-repo-form"></p>
-
-<p>Click <strong>Create repository</strong>. <img class="emoji" title=":tada:" alt=":tada:" src="./files/1f389.png" height="20" width="20" align="absmiddle"></p>
-
-<p><a id="branch" title="Create a Branch" class="toc-item"></a></p>
-
-<h2>Step 2. Create a Branch</h2>
-
-<p><strong>Branching</strong> is the way to work on different versions of a repository at one time.</p>
-
-<p>By default your repository has one branch named <code>master</code> which is considered to be the definitive branch. We use branches to experiment and make edits before committing them to <code>master</code>.</p>
-
-<p>When you create a branch off the <code>master</code> branch, you‚Äôre making a copy, or snapshot, of <code>master</code> as it was at that point in time. If someone else made changes to the <code>master</code> branch while you were working on your branch, you could pull in those updates.</p>
-
-<p>This diagram shows:</p>
-
-<ul>
-<li>The <code>master</code> branch</li>
-<li>A new branch called <code>feature</code> (because we‚Äôre doing ‚Äòfeature work‚Äô on this branch)</li>
-<li>The journey that <code>feature</code> takes before it‚Äôs merged into <code>master</code></li>
-</ul>
-
-
-<p><img src="./files/branching.png" alt="a branch"></p>
-
-<p>Have you ever saved different versions of a file? Something like:</p>
-
-<ul>
-<li><code>story.txt</code></li>
-<li><code>story-joe-edit.txt</code></li>
-<li><code>story-joe-edit-reviewed.txt</code></li>
-</ul>
-
-
-<p>Branches accomplish similar goals in GitHub repositories.</p>
-
-<p>Here at GitHub, our developers, writers, and designers use branches for keeping bug fixes and feature work separate from our <code>master</code> (production) branch. When a change is ready, they merge their branch into <code>master</code>.</p>
-
-<h3>To create a new branch</h3>
-
-<ol>
-<li>Go to your new repository <code>hello-world</code>.</li>
-<li>Click the drop down at the top of the file list that says <strong>branch: master</strong>.</li>
-<li>Type a branch name, <code>readme-edits</code>, into the new branch text box.</li>
-<li>Select the blue <strong>Create branch</strong> box or hit ‚ÄúEnter‚Äù on your keyboard.</li>
-</ol>
-
-
-<p><img src="./files/readme-edits.gif" alt="branch gif"></p>
-
-<p>Now you have two branches, <code>master</code> and <code>readme-edits</code>. They look exactly the same, but not for long! Next we‚Äôll add our changes to the new branch.</p>
-
-<p><a id="commit" title="Make a Commit" class="toc-item"></a></p>
-
-<h2>Step 3. Make and commit changes</h2>
-
-<p>Bravo! Now, you‚Äôre on the code view for your <code>readme-edits</code> branch, which is a copy of <code>master</code>. Let‚Äôs make some edits.</p>
-
-<p>On GitHub, saved changes are called <em>commits</em>. Each commit has an associated <em>commit message</em>, which is a description explaining why a particular change was made. Commit messages capture the history of your changes, so other contributors can understand what you‚Äôve done and why.</p>
-
-<h4>Make and commit changes</h4>
-
-<ol>
-<li>Click the <code>README.md</code> file.</li>
-<li>Click the <span class="octicon octicon-pencil"></span> pencil icon in the upper right corner of the file view to edit.</li>
-<li>In the editor, write a bit about yourself.</li>
-<li>Write a commit message that describes your changes.</li>
-<li>Click <strong>Commit changes</strong> button.</li>
-</ol>
-
-
-<p><img src="./files/commit.png" alt="commit"></p>
-
-<p>These changes will be made to just the README file on your <code>readme-edits</code> branch, so now this branch contains content that‚Äôs different from <code>master</code>.</p>
-
-<p><a id="pr" title="Open a Pull Request" class="toc-item"></a></p>
-
-<h2>Step 4. Open a Pull Request</h2>
-
-<p>Nice edits! Now that you have changes in a branch off of <code>master</code>, you can open a <em>pull request</em>.</p>
-
-<p>Pull Requests are the heart of collaboration on GitHub. When you open a <em>pull request</em>, you‚Äôre proposing your changes and requesting that someone review and pull in your contribution and merge them into their branch. Pull requests show <em>diffs</em>, or differences, of the content from both branches. The changes, additions, and subtractions are shown in green and red.</p>
-
-<p>As soon as you make a commit, you can open a pull request and start a discussion, even before the code is finished.</p>
-
-<p>By using GitHub‚Äôs <a href="https://help.github.com/articles/about-writing-and-formatting-on-github/#text-formatting-toolbar">@mention system</a> in your pull request message, you can ask for feedback from specific people or teams, whether they‚Äôre down the hall or 10 time zones away.</p>
-
-<p>You can even open pull requests in your own repository and merge them yourself. It‚Äôs a great way to learn the GitHub Flow before working on larger projects.</p>
-
-<h4>Open a Pull Request for changes to the README</h4>
-
-<p><em>Click on the image for a larger version</em></p>
-
-<table>
-<thead>
-<tr>
-<th> Step </th>
-<th> Screenshot </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td> Click the <span class="octicon octicon-git-pull-request"></span> <strong>Pull Request</strong> tab, then from the Pull Request page, click the green <strong>New pull request</strong> button. </td>
-<td> <img src="./files/pr-tab.gif" alt="pr-tab"> </td>
-</tr>
-<tr>
-<td> Select the branch you made, <code>readme-edits</code>, to compare with <code>master</code> (the original). </td>
-<td> <a href="./files/pick-branch.png"><img src="./files/pick-branch.png" alt="branch"></a> </td>
-</tr>
-<tr>
-<td> Look over your changes in the diffs on the Compare page, make sure they‚Äôre what you want to submit. </td>
-<td> <a href="./files/diff.png"><img src="./files/diff.png" alt="diff"></a> </td>
-</tr>
-<tr>
-<td> When you‚Äôre satisfied that these are the changes you want to submit, click the big green <strong>Create Pull Request</strong> button. </td>
-<td> <a href="./files/create-pr.png"><img src="./files/create-pr.png" alt="create-pull"></a> </td>
-</tr>
-<tr>
-<td> Give your pull request a title and write a brief description of your changes. </td>
-<td> <img src="./files/pr-form.png" alt="pr-form"></td>
-</tr>
-</tbody>
-</table>
-
-
-<p>When you‚Äôre done with your message, click <strong>Create pull request</strong>!</p>
-
-<hr>
-
-<blockquote><p><strong>Tip</strong>: You can use <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/#using-emoji">emoji</a> and <a href="https://help.github.com/articles/file-attachments-on-issues-and-pull-requests/">drag and drop images and gifs</a> onto comments and Pull Requests.</p></blockquote>
-
-<p><a id="merge" title="Merge Pull Request" class="toc-item"></a></p>
-
-<h2>Step 5. Merge your Pull Request</h2>
-
-<p>In this final step, it‚Äôs time to bring your changes together ‚Äì merging your <code>readme-edits</code> branch into the <code>master</code> branch.</p>
-
-<ol>
-<li>Click the green <strong>Merge pull request</strong> button to merge the changes into <code>master</code>.</li>
-<li>Click <strong>Confirm merge</strong>.</li>
-<li>Go ahead and delete the branch, since its changes have been incorporated, with the <strong>Delete branch</strong> button in the purple box.</li>
-</ol>
-
-
-<p><img src="./files/merge-button.png" alt="merge">
-<img src="./files/delete-button.png" alt="delete"></p>
-
-<h3>Celebrate!</h3>
-
-<p>By completing this tutorial, you‚Äôve learned to create a project and make a pull request on GitHub! <img class="emoji" title=":tada:" alt=":tada:" src="./files/1f389.png" height="20" width="20" align="absmiddle"> <img class="emoji" title=":octocat:" alt=":octocat:" src="./files/octocat.png" height="20" width="20" align="absmiddle"> <img class="emoji" title=":zap:" alt=":zap:" src="./files/26a1.png" height="20" width="20" align="absmiddle"></p>
-
-<p>Here‚Äôs what you accomplished in this tutorial:</p>
-
-<ul>
-<li>Created an open source repository</li>
-<li>Started and managed a new branch</li>
-<li>Changed a file and committed those changes to GitHub</li>
-<li>Opened and merged a Pull Request</li>
-</ul>
-
-
-<p>Take a look at your GitHub profile and you‚Äôll see your new <a href="https://help.github.com/articles/viewing-contributions">contribution squares</a>!</p>
-
-<p>If you want to learn more about the power of pull requests, we recommend reading the <a href="http://guides.github.com/overviews/flow/">GitHub Flow Guide</a>. You might also visit <a href="http://github.com/explore">GitHub Explore</a> and get involved in an Open Source project <img class="emoji" title=":octocat:" alt=":octocat:" src="./files/octocat.png" height="20" width="20" align="absmiddle"></p>
-
-<hr>
-
-<blockquote><p><strong>Tip</strong>: Check out our other <a href="http://guides.github.com/">Guides</a> and <a href="http://youtube.com/githubguides">YouTube Channel</a> for more GitHub how-tos.</p></blockquote>
-
-
-      <p class="last-updated">Last updated February, 2016</p>
-    </div>
-  </div>
-</article>
-
-
-  <footer>
-    <div class="wrap">
-      <span class="mega-octicon octicon-mark-github"></span>
-      <p>
-        <a href="https://github.com/">GitHub</a> is the best way to build and ship software.<br>
-        Powerful collaboration, code review, and code management for open source and private projects.
-      </p>
-    </div>
+        	<li class="pingback even thread-even depth-1" id="comment-344048">
+		<p>Pingback: <a href="http://www.pearltrees.com/johankellen/phonegap-hybridappar/id14040843/item154293685" rel="external nofollow" class="url">Phonegap / hybridappar | Pearltrees</a></p>
+	</li>	<li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-344998">
+		<p>Pingback: <a href="http://www.pearltrees.com/johankellen/phonegap-hybridappar/id14040843/item154567966" rel="external nofollow" class="url">Phonegap / hybridappar | Pearltrees</a></p>
+	</li>	<li class="pingback even thread-even depth-1" id="comment-347227">
+		<p>Pingback: <a href="http://www.blogosfera.co.uk/how-to-install-my-pgb-app-on-ios/" rel="external nofollow" class="url">How to install my PGB app on IOS - BlogoSfera</a></p>
+	</li>	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-348269">
+				<header>
+			<div class="author">
+				Gilberto Nasser			</div>
+						<a href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows/comment-page-4#comment-348269">
+			<time datetime="2015-09-15T00:14:16Z">15 September 2015 at 00:14</time>
+			</a>
+					</header>
+
+		<p>Very good, it worked for me. Thankyou.</p>
+
+			
+	</li>	<li class="comment even thread-even depth-1" id="comment-362022">
+				<header>
+			<div class="author">
+				<a href="https://www.youpunchin.com/" rel="external nofollow" class="url">Michel Tobon</a>			</div>
+						<a href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows/comment-page-4#comment-362022">
+			<time datetime="2015-11-06T23:55:54Z">06 November 2015 at 23:55</time>
+			</a>
+					</header>
+
+		<p>This is the ULTIMATE guide to iOS signing for Phonegap!!! </p>
+<p>Thank you.</p>
+
+			
+	</li>	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-362457">
+				<header>
+			<div class="author">
+				This Man			</div>
+						<a href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows/comment-page-4#comment-362457">
+			<time datetime="2015-11-11T13:09:52Z">11 November 2015 at 13:09</time>
+			</a>
+					</header>
+
+		<p>This is a life saver. Thanks alot.</p>
+
+			
+	</li>	<li class="comment even thread-even depth-1" id="comment-364193">
+				<header>
+			<div class="author">
+				McNab			</div>
+						<a href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows/comment-page-4#comment-364193">
+			<time datetime="2015-11-30T21:08:36Z">30 November 2015 at 21:08</time>
+			</a>
+					</header>
+
+		<p>Thanks very much for taking the time to put this together.  To say Iíd have struggled without this is something of an understatement.  </p>
+<p>One point is that I found the openssl site and the downloads there a bit of a nightmare.  I used the zip file in the Google Code openssl-for-windows which had the .cnf file easily found and I added the path for it using the command OPENSSL_CONF=C:\Users\your-user-name\openssl\openssl.cnf</p>
+
+			
+	</li>	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-364227">
+				<header>
+			<div class="author">
+				Saeid			</div>
+						<a href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows/comment-page-4#comment-364227">
+			<time datetime="2015-12-01T10:57:09Z">01 December 2015 at 10:57</time>
+			</a>
+					</header>
+
+		<p>Thanks !</p>
+
+			
+	</li>	<li class="comment even thread-even depth-1" id="comment-367934">
+				<header>
+			<div class="author">
+				nactalivan			</div>
+						<a href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows/comment-page-4#comment-367934">
+			<time datetime="2016-01-29T09:33:33Z">29 January 2016 at 09:33</time>
+			</a>
+					</header>
+
+		<p>Thank you so much, you make this internet a better place!<br>
+For those who struggle downloading openSSL for windows, you can find non-official binaries here : <a href="https://wiki.openssl.org/index.php/Binaries" rel="nofollow">https://wiki.openssl.org/index.php/Binaries</a> -worked perfectly for me.</p>
+
+			
+	</li>	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-368237">
+				<header>
+			<div class="author">
+				Tom Austin			</div>
+						<a href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows/comment-page-4#comment-368237">
+			<time datetime="2016-02-03T17:45:44Z">03 February 2016 at 17:45</time>
+			</a>
+					</header>
+
+		<p>Thanks! Really appreciate such a great post.</p>
+
+			
+	</li>	<li class="pingback even thread-even depth-1" id="comment-368297">
+		<p>Pingback: <a href="http://www.mariqueras.com/2015/10/27/instalar-phonegap-windows-desarrolladores/" rel="external nofollow" class="url">Instalar Phonegap en Windows para desarrolladores</a></p>
+	</li>	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-368470">
+				<header>
+			<div class="author">
+				Michael			</div>
+						<a href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows/comment-page-4#comment-368470">
+			<time datetime="2016-02-12T11:59:35Z">12 February 2016 at 11:59</time>
+			</a>
+					</header>
+
+		<p>Thanks a lot, this saved me so much pain not having to use Keychain on a Mac which is really confusing when managing a huge number of certificates.</p>
+
+			
+	</li>	<li class="comment even thread-even depth-1" id="comment-368610">
+				<header>
+			<div class="author">
+				Gijs			</div>
+						<a href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows/comment-page-4#comment-368610">
+			<time datetime="2016-02-16T22:42:17Z">16 February 2016 at 22:42</time>
+			</a>
+					</header>
+
+		<p>Just a tip, when uploading .csr with IE11 the ëgenerateí button never enablesÖ</p>
+
+			
+	</li>	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-368904">
+				<header>
+			<div class="author">
+				<a href="http://www.noovop.com/" rel="external nofollow" class="url">Tidiane SIDIBE</a>			</div>
+						<a href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows/comment-page-4#comment-368904">
+			<time datetime="2016-03-01T21:11:18Z">01 March 2016 at 21:11</time>
+			</a>
+					</header>
+
+		<p>Very usefull, you can also use cygwin on windows to have openssh in linux like command prompt</p>
+
+			
+	</li></ul>
+  <div class="comment-nav bottom">
+    <a href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows/comment-page-3#comments">? Older Comments</a>      </div>
+
+
+				<div id="respond" class="comment-respond">
+			<h3 id="reply-title" class="comment-reply-title">Make a comment <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://www.iandevlin.com/blog/2012/11/phonegap/building-an-ios-signing-key-for-phonegap-in-windows#respond" style="display:none;">Cancel reply</a></small></h3>				<form action="https://www.iandevlin.com/blog/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+					<p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name</label> <input id="author" name="author" type="text" value="" size="30" aria-required="true"></p>
+<p class="comment-form-email"><label for="email">Email</label> <input id="email" name="email" type="email" value="" size="30" aria-required="true"></p>
+<p class="comment-form-url"><label for="url">Website</label><input id="url" name="url" type="url" value="" size="30"></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="2582" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="5ba0119290"></p><div id="commentPreview"></div><p style="display: none;"></p>				<input type="hidden" id="ak_js" name="ak_js" value="1458803799047"></form>
+					</div><!-- #respond -->
+		
+</section>
+
+
+  <aside role="search">
+    <ul>
+
+<li><form method="get" id="searchform" action="https://www.iandevlin.com/blog/" role="search">
+  <label for="s" class="a11y-hidden">Search articles</label>
+  <input type="search" class="field" name="s" id="s">
+  <input type="submit" class="submit" name="submit" id="searchsubmit" value="Search">
+</form>
+</li>    </ul>
+
+  
+  </aside>  <footer role="contentinfo">
+        <small>Copyright © <a href="http://twitter.com/iandevlin">Ian Devlin</a> <time datetime="2004">MMIV</time> - <time datetime="2016">MMXVI</time></small>
   </footer>
 
+<script type="text/javascript" src="./Building an iOS signing key for PhoneGap in Windows _ Ian Devlin_files/wp-embed.min.js"></script>
+<script defer="" type="text/javascript" src="./Building an iOS signing key for PhoneGap in Windows _ Ian Devlin_files/default.include-footer.675270.js"></script>
 
 
-</body></html>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Minified using disk
+Page Caching using disk: enhanced
+Database Caching 1/22 queries in 0.007 seconds using disk
+Object Caching 894/971 objects using disk
+
+ Served from: www.iandevlin.com @ 2016-03-24 07:27:13 by W3 Total Cache --></body></html>
