@@ -124,6 +124,12 @@ top:462.5px;
 left:55px;
 }
 
+.kraj {
+	left: 600px;
+    top: 480px;
+	width: 300px;
+}
+
 </style>
 
 
@@ -198,8 +204,9 @@ left:55px;
 <div class="fullscreen slika0 rezultat" data-id="9">
 <img src="email.png" class="img red9" alt="">
 <input type="text" value="" name="name" class="ime" />
-<input type="text" value="" name="email" class="email" />
+<input type="email" value="" name="email" class="email" />
 <input type="checkbox" name="asd" class="check" />
+<div class="zapocni kraj"></div>
 </div>
 
 
@@ -217,6 +224,12 @@ $(function() {
 	
 		$(this).parent().hide(0,function(){
 			trenutno++;
+			if(trenutno==10){
+				trenutno=0;
+				$('.check').attr('checked', false);
+				$('.ime').val('');
+				$('.email').val('');
+			}
 			$('.red'+trenutno).parent().show();			
 		});
 	});
@@ -225,10 +238,14 @@ $(function() {
 		$(this).parent().hide(0,function(){
 			trenutno++;
 			$('.red'+trenutno).parent().show();	
-			if(trenutno==8){$('.red8').attr('src','rezultat1.png');}
+			if(trenutno==8){
+				$('.red8').attr('src','rezultat1.png');
+				}
 		});
 	
 	});
+	
+	window.plugins.insomnia.keepAwake();
 });
 </script>
 
