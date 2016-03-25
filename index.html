@@ -54,7 +54,7 @@ user-drag: none;
 
 .fullscreen {min-height: 100%;position:relative;}
 
-.slika1 {
+.slika0 {
 	display:none;
 }
 
@@ -64,7 +64,6 @@ left:860px;
 top:520px;
 width:150px;
 height:150px;
-background-color:#ffffff;
 }
 
 .pitanje {
@@ -99,8 +98,55 @@ position:absolute;
 <img src="splash.png" class="img red0" alt="">
 <div class="zapocni"></div>
 </div>
-<div class="fullscreen slika0" data-id="0">
+
+<div class="fullscreen slika0" data-id="1">
 <img src="pitanje1.png" class="img red1" alt="">
+<a class="pitanje pit1" data-pitanje="1" data-odgovor="1"></a>
+<a class="pitanje pit2" data-pitanje="2" data-odgovor="2"></a>
+<a class="pitanje pit3" data-pitanje="3" data-odgovor="3"></a>
+<a class="pitanje pit4" data-pitanje="4" data-odgovor="4"></a>
+</div>
+
+<div class="fullscreen slika0" data-id="2">
+<img src="pitanje2.png" class="img red2" alt="">
+<a class="pitanje pit1" data-pitanje="1" data-odgovor="1"></a>
+<a class="pitanje pit2" data-pitanje="2" data-odgovor="2"></a>
+<a class="pitanje pit3" data-pitanje="3" data-odgovor="3"></a>
+<a class="pitanje pit4" data-pitanje="4" data-odgovor="4"></a>
+</div>
+
+<div class="fullscreen slika0" data-id="3">
+<img src="pitanje3.png" class="img red3" alt="">
+<a class="pitanje pit1" data-pitanje="1" data-odgovor="1"></a>
+<a class="pitanje pit2" data-pitanje="2" data-odgovor="2"></a>
+<a class="pitanje pit3" data-pitanje="3" data-odgovor="3"></a>
+<a class="pitanje pit4" data-pitanje="4" data-odgovor="4"></a>
+</div>
+
+<div class="fullscreen slika0" data-id="4">
+<img src="pitanje4.png" class="img red4" alt="">
+<a class="pitanje pit2" data-pitanje="2" data-odgovor="2"></a>
+<a class="pitanje pit3" data-pitanje="3" data-odgovor="3"></a>
+</div>
+
+<div class="fullscreen slika0" data-id="5">
+<img src="pitanje5.png" class="img red5" alt="">
+<a class="pitanje pit1" data-pitanje="1" data-odgovor="1"></a>
+<a class="pitanje pit2" data-pitanje="2" data-odgovor="2"></a>
+<a class="pitanje pit3" data-pitanje="3" data-odgovor="3"></a>
+<a class="pitanje pit4" data-pitanje="4" data-odgovor="4"></a>
+</div>
+
+<div class="fullscreen slika0" data-id="6">
+<img src="pitanje6.png" class="img red6" alt="">
+<a class="pitanje pit1" data-pitanje="1" data-odgovor="1"></a>
+<a class="pitanje pit2" data-pitanje="2" data-odgovor="2"></a>
+<a class="pitanje pit3" data-pitanje="3" data-odgovor="3"></a>
+<a class="pitanje pit4" data-pitanje="4" data-odgovor="4"></a>
+</div>
+
+<div class="fullscreen slika0" data-id="7">
+<img src="pitanje7.png" class="img red7" alt="">
 <a class="pitanje pit1" data-pitanje="1" data-odgovor="1"></a>
 <a class="pitanje pit2" data-pitanje="2" data-odgovor="2"></a>
 <a class="pitanje pit3" data-pitanje="3" data-odgovor="3"></a>
@@ -118,11 +164,21 @@ $(function() {
     FastClick.attach(document.body);
 	
 	$('.zapocni').click(function(){
+	
 		$(this).parent().hide(0,function(){
 			trenutno++;
-			$('.red'+trenutno).parent().show();
-			
+			$('.red'+trenutno).parent().show();			
 		});
+	});
+	
+	$('.pitanje').click(function(){
+		$(this).parent().hide(0,function(){
+			trenutno++;
+			$('.red'+trenutno).parent().show();			
+		});
+	trenutno++;
+	$(this).parent().fadeOut('fast');
+	$('.red'+trenutno).parent().fadeIn('fast');
 	});
 });
 </script>
