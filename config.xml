@@ -3,6 +3,8 @@
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "com.dedal.takedaanketa"
         version     = "1.0.0" >
+		
+		
 
     <name>Survey</name>
 
@@ -13,6 +15,18 @@
     <author href="https://dedal.hr" email="info@dedal.hr">
         Zoran Milas
     </author>
+	
+	
+	<plugin name="nl.x-services.plugins.insomnia" spec="4.0.1" source="pgb" />
+	
+	<!-- for iOS -->
+	<feature name="Insomnia">
+	  <param name="ios-package" value="Insomnia" />
+	</feature>
+	<!-- for Android -->
+	<feature name="Insomnia">
+	  <param name="android-package" value="nl.xservices.plugins.Insomnia" />
+	</feature>
 	
 	<platform name="ios" />
 	

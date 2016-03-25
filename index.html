@@ -87,6 +87,43 @@ position:absolute;
 .pit5 {top:472.5px;}
 .pit6 {top:550px;}
 
+.pozadina {
+	background:url(cont.png) no-repeat;
+	background-size: 150px 150px;
+	left: 812px;
+    top: 511px;
+}
+
+.ime, .email, .check {
+display:block;
+position:absolute;
+font-size: 28px;
+color:#5d6d75;
+}
+
+.ime, .email {
+width:310px;
+height:32px;
+left:165px;
+border-width:0px;
+background:transparent;
+}
+
+.ime {
+top:322px;
+}
+
+.email {
+top:400px;
+}
+
+.check {
+width:30px;
+height:30px;
+top:462.5px;
+left:55px;
+}
+
 </style>
 
 
@@ -153,6 +190,19 @@ position:absolute;
 <a class="pitanje pit4" data-pitanje="4" data-odgovor="4"></a>
 </div>
 
+<div class="fullscreen slika0 rezultat" data-id="8">
+<img src="" class="img red8" alt="">
+<div class="zapocni pozadina"></div>
+</div>
+
+<div class="fullscreen slika0 rezultat" data-id="9">
+<img src="email.png" class="img red9" alt="">
+<input type="text" value="" name="name" class="ime" />
+<input type="text" value="" name="email" class="email" />
+<input type="checkbox" name="asd" class="check" />
+</div>
+
+
 
 
 
@@ -171,14 +221,13 @@ $(function() {
 		});
 	});
 	
-	$('.pitanje').click(function(){
+	$('.pitanje').click(function(){	
 		$(this).parent().hide(0,function(){
 			trenutno++;
-			$('.red'+trenutno).parent().show();			
+			$('.red'+trenutno).parent().show();	
+			if(trenutno==8){$('.red8').attr('src','rezultat1.png');}
 		});
-	trenutno++;
-	$(this).parent().fadeOut('fast');
-	$('.red'+trenutno).parent().fadeIn('fast');
+	
 	});
 });
 </script>
