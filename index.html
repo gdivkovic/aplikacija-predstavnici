@@ -51,20 +51,42 @@ user-drag: none;
   width: 100%;
   height: 100%;
 }
+
 .fullscreen {min-height: 100%;position:relative;}
 
-.slika0 {
+.slika1 {
 	display:none;
 }
 
 .zapocni {
 position:absolute;
-left:1720px;
-top:1040px;
-width:300px;
-height:300px;
+left:860px;
+top:520px;
+width:150px;
+height:150px;
 background-color:#ffffff;
 }
+
+.pitanje {
+height:77.5px;
+width:380px;
+left:601.5px;
+position:absolute;
+}
+
+.pitanje:hover, .pitanje:active {
+	background:url('crveni.png') no-repeat 0 0;
+	background-size: 79.5px 77.5px;
+    background-repeat: no-repeat;
+	display:block;
+}
+
+.pit1 {top:162.5px;}
+.pit2 {top:239px;}
+.pit3 {top:314.5px;}
+.pit4 {top:390px;}
+.pit5 {top:472.5px;}
+.pit6 {top:550px;}
 
 </style>
 
@@ -72,12 +94,17 @@ background-color:#ffffff;
 </head>
  
 <body>
+<!-- <a href="verge/index.html">Verge</a> -->
 <div class="fullscreen slika1" data-id="0">
 <img src="splash.png" class="img red0" alt="">
-<div class="zapocni"><a href="verge/index.html">Verge</a></div>
+<div class="zapocni"></div>
 </div>
 <div class="fullscreen slika0" data-id="0">
 <img src="pitanje1.png" class="img red1" alt="">
+<a class="pitanje pit1" data-pitanje="1" data-odgovor="1"></a>
+<a class="pitanje pit2" data-pitanje="2" data-odgovor="2"></a>
+<a class="pitanje pit3" data-pitanje="3" data-odgovor="3"></a>
+<a class="pitanje pit4" data-pitanje="4" data-odgovor="4"></a>
 </div>
 
 
@@ -90,13 +117,12 @@ var trenutno=0;
 $(function() {
     FastClick.attach(document.body);
 	
-	$('.img').click(function(){
-	$('.zapocni').css({top:"100px", left:"100px"});
-		//$(this).parent().hide(0,function(){
-			//trenutno++;
-			//$('.red'+trenutno).parent().show();
+	$('.zapocni').click(function(){
+		$(this).parent().hide(0,function(){
+			trenutno++;
+			$('.red'+trenutno).parent().show();
 			
-		//});
+		});
 	});
 });
 </script>
