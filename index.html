@@ -12,6 +12,7 @@ html,body{
     height:100%;
 	width:100%;
     overflow:hidden;
+	font-family: Arial,"Hiragino Kaku Gothic Pro",sans-serif,Helvetica,Geneva;
 }
 
 *
@@ -130,14 +131,86 @@ left:55px;
 	width: 300px;
 }
 
+h1,h2,h3 {
+color: #357f8a;
+}
+
+.rezult {
+	padding:20px;
+}
+
+.scroll {
+width:900px;
+height:400px; 
+padding:20px;
+overflow:auto;
+border:1px solid #aaa;
+}
+
+.poslati, .aplikacija {
+	border:1px solid #aaa;
+	background-color:#eee;
+	margin:20px 10px 10px 0px;
+	float:left;
+	width:400px;
+	height:200px;
+}
+
+.aplikacija {float:right;}
+
+
 </style>
+
+<script src="phonegap.js"></script>
 
 
 </head>
  
 <body>
 <!-- <a href="verge/index.html">Verge</a> -->
-<div class="fullscreen slika1" data-id="0">
+<div class="fullscreen slika1 rezult">
+<h2>Administracija</h2>
+<div class="scroll">
+	<h3>Ukupno odgovorilo: <span class="ukupno"></span></h3>
+	<h3>Osobnosti:</h3>
+	<ul>
+		<li>DRIVE: <span class="drive"></span></li>
+		<li>PERCEPTION: <span class="perception"></span></li>
+		<li>KNOWLEDGE: <span class="knowledge"></span></li>
+		<li>INSIGHT: <span class="insight"></span></li>
+	</ul>
+	<h3>Stručna pitanja:</h3>
+	<p>What % of patients admitted to hospital with acute coronary syndromes have diabetes?</p>
+	<p>A. 22% - <span class="a1"></span> <br>
+	B. 33% - <span class="a2"></span> <br>
+	C. 46% - <span class="a3"></span> <br>
+	D. 69% - <span class="a4"></span> </p>
+	<p>How often do you think healthcare professionals consider a patient’s cardiovascular history and/or risk when making a diabetes treatment decision? </p>
+	<p>A. All of the time - <span class="b1"></span> <br>
+	B. Sometimes - <span class="b2"></span> <br>
+	C. Often - <span class="b3"></span> <br>
+	D. Rarely - <span class="b4"></span> </p>
+	<p>To what extent are you aware of the differences between the completed diabetes CVOT trials (TECOS, SAVOR-TIMI, ELIXA, EXAMINE, EMPA-REG)? </p>
+	<p>A. Very aware - <span class="c1"></span><br>
+	B. Somewhat aware - <span class="c2"></span><br>
+	C. Not sure - <span class="c3"></span><br>
+	D. Not aware - <span class="c4"></span></p>
+	
+	<h3>Prijave za mailing</h3>
+	
+	<div class="mejling"></div>
+	
+
+	
+</div>
+
+<button class="poslati">OČISTI REZULTATE</button>
+<button class="aplikacija">Ulaz	 u aplikaciju</button>
+<div style="clear:both;"></div>
+
+</div>
+
+<div class="fullscreen slika0 splash" data-id="0">
 <img src="splash.png" class="img red0" alt="">
 <div class="zapocni"></div>
 </div>
@@ -216,15 +289,52 @@ left:55px;
 <script type='application/javascript' src='lib/jquery.js'></script>
 <script type='application/javascript' src='lib/fastclick.js'></script>
 <script>
+
+
+$(function(){
+	for(x=1;x<5;x++){
+		$('.a'+x).html(localStorage.getItem("a"+x));
+		$('.b'+x).html(localStorage.getItem("b"+x));
+		$('.c'+x).html(localStorage.getItem("c"+x));
+	}
+	$('.ukupno').html(localStorage.getItem("ukupno"));
+	$('.drive').html(localStorage.getItem("drive"));
+	$('.knowledge').html(localStorage.getItem("knowledge"));
+	$('.perception').html(localStorage.getItem("perception"));
+	$('.insight').html(localStorage.getItem("insight"));
+	$('.mejling').html(localStorage.getItem("mejling"));
+});
+
+
+
 var trenutno=0;
+var bodova=[0,0,0,0,0,0];
+var zadnjaperc='';
 $(function() {
     FastClick.attach(document.body);
+	
+	$('.aplikacija').click(function(){
+		$('.rezult').hide();
+		$('.splash').show();
+	});
 	
 	$('.zapocni').click(function(){
 	
 		$(this).parent().hide(0,function(){
 			trenutno++;
 			if(trenutno==10){
+				if($('.email').val()!=''){
+					if ($('input.check').is(':checked')) {check='✓';}else{ckeck='';}
+					if (localStorage.mejling) {
+						localStorage.mejling = localStorage.mejling + '<br>' + $('.ime').val() + ' <strong>'+ $('.email').val() + '</strong> ' + zadnjaperc + ' ' +check;
+					} else {
+						localStorage.mejling = $('.ime').val() + ' <strong>'+ $('.email').val() + '</strong> ' + zadnjaperc+ ' '+check;
+					}
+				}
+				bodova[1]=0;
+				bodova[2]=0;
+				bodova[3]=0;
+				bodova[4]=0;
 				trenutno=0;
 				$('.check').attr('checked', false);
 				$('.ime').val('');
@@ -235,17 +345,230 @@ $(function() {
 	});
 	
 	$('.pitanje').click(function(){	
-		$(this).parent().hide(0,function(){
+		
+			
+			switch(trenutno) {
+					case 1:	
+						switch($(this).data('odgovor')){
+							case 1:
+							bodova[2]++;
+							break;
+							case 2:
+							bodova[1]++;
+							break;
+							case 3:
+							bodova[3]++;
+							break;
+							case 4:
+							bodova[4]++;
+							break;
+						}
+						break;
+					case 2:
+						switch($(this).data('odgovor')){
+							case 1:
+							bodova[2]++;
+							break;
+							case 2:
+							bodova[4]++;
+							break;
+							case 3:
+							bodova[1]++;
+							break;
+							case 4:
+							bodova[3]++;
+							break;
+						}
+						break;
+					case 3:
+						switch($(this).data('odgovor')){
+							case 1:
+							bodova[2]++;
+							break;
+							case 2:
+							bodova[3]++;
+							break;
+							case 3:
+							bodova[1]++;
+							break;
+							case 4:
+							bodova[4]++;
+							break;
+						}
+						break;
+					case 4:
+						switch($(this).data('odgovor')){
+							case 2:
+							bodova[1]++;
+							bodova[3]++;
+							break;
+							case 3:
+							bodova[2]++;
+							bodova[4]++;
+							break;
+						}
+						break;
+					case 5:
+						switch($(this).data('odgovor')){
+							case 1:
+							if (localStorage.a1) {
+								localStorage.a1 = Number(localStorage.a1) + 1;
+							} else {
+								localStorage.a1 = 1;
+							}
+							break;
+							case 2:
+							if (localStorage.a2) {
+								localStorage.a2 = Number(localStorage.a2) + 1;
+							} else {
+								localStorage.a2 = 1;
+							}
+							break;
+							case 3:
+							if (localStorage.a3) {
+								localStorage.a3 = Number(localStorage.a3) + 1;
+							} else {
+								localStorage.a3 = 1;
+							}
+							break;
+							case 4:
+							if (localStorage.a4) {
+								localStorage.a4 = Number(localStorage.a4) + 1;
+							} else {
+								localStorage.a4 = 1;
+							}
+							break;
+						}
+						break;
+					case 6:
+						switch($(this).data('odgovor')){
+							case 1:
+							if (localStorage.b1) {
+								localStorage.b1 = Number(localStorage.b1) + 1;
+							} else {
+								localStorage.b1 = 1;
+							}
+							break;
+							case 2:
+							if (localStorage.b2) {
+								localStorage.b2 = Number(localStorage.b2) + 1;
+							} else {
+								localStorage.b2 = 1;
+							}
+							break;
+							case 3:
+							if (localStorage.b3) {
+								localStorage.b3 = Number(localStorage.b3) + 1;
+							} else {
+								localStorage.b3 = 1;
+							}
+							break;
+							case 4:
+							if (localStorage.b4) {
+								localStorage.b4 = Number(localStorage.b4) + 1;
+							} else {
+								localStorage.b4 = 1;
+							}
+							break;
+						}
+						break;
+					case 7:
+						switch($(this).data('odgovor')){
+							case 1:
+							if (localStorage.c1) {
+								localStorage.c1 = Number(localStorage.c1) + 1;
+							} else {
+								localStorage.c1 = 1;
+							}
+							break;
+							case 2:
+							if (localStorage.c2) {
+								localStorage.c2 = Number(localStorage.c2) + 1;
+							} else {
+								localStorage.c2 = 1;
+							}
+							break;
+							case 3:
+							if (localStorage.c3) {
+								localStorage.c3 = Number(localStorage.c3) + 1;
+							} else {
+								localStorage.c3 = 1;
+							}
+							break;
+							case 4:
+							if (localStorage.c4) {
+								localStorage.c4 = Number(localStorage.c4) + 1;
+							} else {
+								localStorage.c4 = 1;
+							}
+							break;
+						}
+						break;
+				}
+			
 			trenutno++;
+		$(this).parent().hide(0,function(){
 			$('.red'+trenutno).parent().show();	
 			if(trenutno==8){
-				$('.red8').attr('src','rezultat1.png');
+				var rezaj=bodova.indexOf(Math.max.apply(window,bodova));
+				$('.red8').attr('src','rezultat'+rezaj+'.png');
+				
+				if (localStorage.ukupno) {
+					localStorage.ukupno = Number(localStorage.ukupno) + 1;
+				} else {
+					localStorage.ukupno = 1;
+					}
+				
+					switch(rezaj){
+							case 1:
+							if (localStorage.drive) {
+								localStorage.drive = Number(localStorage.drive) + 1;
+							} else {
+								localStorage.drive = 1;
+							}
+							zadnjaperc='DRIVE';
+							break;
+							case 2:
+							if (localStorage.knowledge) {
+								localStorage.knowledge = Number(localStorage.knowledge) + 1;
+							} else {
+								localStorage.knowledge = 1;
+							}
+							zadnjaperc='KNOWLEDGE';
+							break;
+							case 3:
+							if (localStorage.perception) {
+								localStorage.perception = Number(localStorage.perception) + 1;
+							} else {
+								localStorage.perception = 1;
+							}
+							zadnjaperc='PERCEPTION';
+							break;
+							case 4:
+							if (localStorage.insight) {
+								localStorage.insight = Number(localStorage.insight) + 1;
+							} else {
+								localStorage.insight = 1;
+							}
+							zadnjaperc='INSIGHT';
+							break;
+						}
+				
+				
 				}
 		});
 	
 	});
 	
+	$('.poslati').click(function(){alert('');
+		if(confirm('Jeste li sigurni da želite očistiti SVE podatke? Bit će izbrisani i zauvijek izgubljeni!'))window.localStorage.clear();
+	});
+
+	
 	window.plugins.insomnia.keepAwake();
+	
+	
+	
 });
 </script>
 

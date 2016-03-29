@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="hr-HR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+<meta name="viewport" content="user-scalable=no, initial-scale=1, width=device-width, height=device-height, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi">
+<meta name="format-detection" content="telephone=no">
+<title>Survey</title>
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<style>
+html,body{
+    margin:0;
+    height:100%;
+	width:100%;
+    overflow:hidden;
+}
+
+*
+{
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+input
+{
+-webkit-user-select: auto !important;
+-khtml-user-select: auto !important;
+-moz-user-select: auto !important;
+-ms-user-select: auto !important;
+user-select: auto !important;
+}
+
+*
+{
+-webkit-touch-callout: none;
+-moz-touch-callout: none;
+-ms-touch-callout: none;
+touch-callout: none;
+}
+
+*{
+-webkit-user-drag: none;
+-moz-user-drag: none;
+-ms-user-drag: none;
+user-drag: none;
+}
+
+.img{
+  width: 100%;
+  height: 100%;
+}
+
+.fullscreen {min-height: 100%;position:relative;}
+
+.slika0 {
+	display:none;
+}
+
+.zapocni {
+position:absolute;
+left:860px;
+top:520px;
+width:150px;
+height:150px;
+}
+
+.pitanje {
+height:77.5px;
+width:380px;
+left:601.5px;
+position:absolute;
+}
+
+.pitanje:hover, .pitanje:active {
+	background:url('crveni.png') no-repeat 5px 5px;
+	background-size: 69.5px 67.5px;
+    background-repeat: no-repeat;
+	display:block;
+}
+
+.pit1 {top:162.5px;}
+.pit2 {top:239px;}
+.pit3 {top:314.5px;}
+.pit4 {top:390px;}
+.pit5 {top:472.5px;}
+.pit6 {top:550px;}
+
+.pozadina {
+	background:url(cont.png) no-repeat;
+	background-size: 150px 150px;
+	left: 812px;
+    top: 511px;
+}
+
+.ime, .email, .check {
+display:block;
+position:absolute;
+font-size: 28px;
+color:#5d6d75;
+}
+
+.ime, .email {
+width:310px;
+height:32px;
+left:165px;
+border-width:0px;
+background:transparent;
+}
+
+.ime {
+top:322px;
+}
+
+.email {
+top:400px;
+}
+
+.check {
+width:30px;
+height:30px;
+top:462.5px;
+left:55px;
+}
+
+.kraj {
+	left: 600px;
+    top: 480px;
+	width: 300px;
+}
+
+</style>
+
+
+</head>
+ 
+<body>
+<!-- <a href="verge/index.html">Verge</a> -->
+<div class="fullscreen slika1" data-id="0">
+<img src="splash.png" class="img red0" alt="">
+<div class="zapocni"></div>
+</div>
+
+<div class="fullscreen slika0" data-id="1">
+<img src="pitanje1.png" class="img red1" alt="">
+<a class="pitanje pit1" data-pitanje="1" data-odgovor="1"></a>
+<a class="pitanje pit2" data-pitanje="2" data-odgovor="2"></a>
+<a class="pitanje pit3" data-pitanje="3" data-odgovor="3"></a>
+<a class="pitanje pit4" data-pitanje="4" data-odgovor="4"></a>
+</div>
+
+<div class="fullscreen slika0" data-id="2">
+<img src="pitanje2.png" class="img red2" alt="">
+<a class="pitanje pit1" data-pitanje="1" data-odgovor="1"></a>
+<a class="pitanje pit2" data-pitanje="2" data-odgovor="2"></a>
+<a class="pitanje pit3" data-pitanje="3" data-odgovor="3"></a>
+<a class="pitanje pit4" data-pitanje="4" data-odgovor="4"></a>
+</div>
+
+<div class="fullscreen slika0" data-id="3">
+<img src="pitanje3.png" class="img red3" alt="">
+<a class="pitanje pit1" data-pitanje="1" data-odgovor="1"></a>
+<a class="pitanje pit2" data-pitanje="2" data-odgovor="2"></a>
+<a class="pitanje pit3" data-pitanje="3" data-odgovor="3"></a>
+<a class="pitanje pit4" data-pitanje="4" data-odgovor="4"></a>
+</div>
+
+<div class="fullscreen slika0" data-id="4">
+<img src="pitanje4.png" class="img red4" alt="">
+<a class="pitanje pit2" data-pitanje="2" data-odgovor="2"></a>
+<a class="pitanje pit3" data-pitanje="3" data-odgovor="3"></a>
+</div>
+
+<div class="fullscreen slika0" data-id="5">
+<img src="pitanje5.png" class="img red5" alt="">
+<a class="pitanje pit1" data-pitanje="1" data-odgovor="1"></a>
+<a class="pitanje pit2" data-pitanje="2" data-odgovor="2"></a>
+<a class="pitanje pit3" data-pitanje="3" data-odgovor="3"></a>
+<a class="pitanje pit4" data-pitanje="4" data-odgovor="4"></a>
+</div>
+
+<div class="fullscreen slika0" data-id="6">
+<img src="pitanje6.png" class="img red6" alt="">
+<a class="pitanje pit1" data-pitanje="1" data-odgovor="1"></a>
+<a class="pitanje pit2" data-pitanje="2" data-odgovor="2"></a>
+<a class="pitanje pit3" data-pitanje="3" data-odgovor="3"></a>
+<a class="pitanje pit4" data-pitanje="4" data-odgovor="4"></a>
+</div>
+
+<div class="fullscreen slika0" data-id="7">
+<img src="pitanje7.png" class="img red7" alt="">
+<a class="pitanje pit1" data-pitanje="1" data-odgovor="1"></a>
+<a class="pitanje pit2" data-pitanje="2" data-odgovor="2"></a>
+<a class="pitanje pit3" data-pitanje="3" data-odgovor="3"></a>
+<a class="pitanje pit4" data-pitanje="4" data-odgovor="4"></a>
+</div>
+
+<div class="fullscreen slika0 rezultat" data-id="8">
+<img src="" class="img red8" alt="">
+<div class="zapocni pozadina"></div>
+</div>
+
+<div class="fullscreen slika0 rezultat" data-id="9">
+<img src="email.png" class="img red9" alt="">
+<input type="text" value="" name="name" class="ime" />
+<input type="email" value="" name="email" class="email" />
+<input type="checkbox" name="asd" class="check" />
+<div class="zapocni kraj"></div>
+</div>
+
+
+
+
+
+<script type='application/javascript' src='lib/jquery.js'></script>
+<script type='application/javascript' src='lib/fastclick.js'></script>
+<script>
+var trenutno=0;
+$(function() {
+    FastClick.attach(document.body);
+	
+	$('.zapocni').click(function(){
+	
+		$(this).parent().hide(0,function(){
+			trenutno++;
+			if(trenutno==10){
+				trenutno=0;
+				$('.check').attr('checked', false);
+				$('.ime').val('');
+				$('.email').val('');
+			}
+			$('.red'+trenutno).parent().show();			
+		});
+	});
+	
+	$('.pitanje').click(function(){	
+		$(this).parent().hide(0,function(){
+			trenutno++;
+			$('.red'+trenutno).parent().show();	
+			if(trenutno==8){
+				$('.red8').attr('src','rezultat1.png');
+				}
+		});
+	
+	});
+	
+	window.plugins.insomnia.keepAwake();
+});
+</script>
+
+</body>
+</html>
