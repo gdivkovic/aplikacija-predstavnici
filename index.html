@@ -158,6 +158,7 @@ border:1px solid #aaa;
 
 .aplikacija {float:right;}
 
+.exe {display:none;}
 
 </style>
 
@@ -200,8 +201,11 @@ border:1px solid #aaa;
 	
 	<div class="mejling"></div>
 	
-
+	<button class="aplod">Upload rezultata na server</button>
 	
+	<div id="exe"></div>
+	
+
 </div>
 
 <button class="poslati">OČISTI REZULTATE</button>
@@ -291,18 +295,33 @@ border:1px solid #aaa;
 <script>
 
 
+var ukupnjaca=''; 
 $(function(){
+
 	for(x=1;x<5;x++){
 		$('.a'+x).html(localStorage.getItem("a"+x));
 		$('.b'+x).html(localStorage.getItem("b"+x));
 		$('.c'+x).html(localStorage.getItem("c"+x));
+		
+		ukupnjaca=ukupnjaca+'a'+x+':'+localStorage.getItem("a"+x)+';';
+		ukupnjaca=ukupnjaca+'b'+x+':'+localStorage.getItem("b"+x)+';';
+		ukupnjaca=ukupnjaca+'c'+x+':'+localStorage.getItem("c"+x)+';';
 	}
+	
 	$('.ukupno').html(localStorage.getItem("ukupno"));
 	$('.drive').html(localStorage.getItem("drive"));
 	$('.knowledge').html(localStorage.getItem("knowledge"));
 	$('.perception').html(localStorage.getItem("perception"));
 	$('.insight').html(localStorage.getItem("insight"));
 	$('.mejling').html(localStorage.getItem("mejling"));
+	
+	ukupnjaca=ukupnjaca+'ukupno:'+localStorage.getItem("ukupno")+';';
+	ukupnjaca=ukupnjaca+'drive:'+localStorage.getItem("drive")+';';
+	ukupnjaca=ukupnjaca+'knowledge:'+localStorage.getItem("knowledge")+';';
+	ukupnjaca=ukupnjaca+'perception:'+localStorage.getItem("perception")+';';
+	ukupnjaca=ukupnjaca+'insight:'+localStorage.getItem("insight")+';';
+	ukupnjaca=ukupnjaca+'mejling:'+localStorage.getItem("mejling")+';';
+	
 });
 
 
@@ -324,7 +343,7 @@ $(function() {
 			trenutno++;
 			if(trenutno==10){
 				if($('.email').val()!=''){
-					if ($('input.check').is(':checked')) {check='✓';}else{ckeck='';}
+					if ($('input.check').is(':checked')) {check='✓';}else{check=' ';}
 					if (localStorage.mejling) {
 						localStorage.mejling = localStorage.mejling + '<br>' + $('.ime').val() + ' <strong>'+ $('.email').val() + '</strong> ' + zadnjaperc + ' ' +check;
 					} else {
@@ -560,12 +579,19 @@ $(function() {
 	
 	});
 	
-	$('.poslati').click(function(){alert('');
+	$('.poslati').click(function(){
 		if(confirm('Jeste li sigurni da želite očistiti SVE podatke? Bit će izbrisani i zauvijek izgubljeni!'))window.localStorage.clear();
 	});
+	
+	$('.aplod').click(function(){
+		$( "#exe" ).load( "http://www.dedal.hr/takedaapp/index.php", { data: ukupnjaca });
+	});
+	
 
 	
-	window.plugins.insomnia.keepAwake();
+	window.plugins.insomnia.keepAwake(
+			function(msg) {alert(msg);}
+		);
 	
 	
 	
