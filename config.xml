@@ -17,7 +17,7 @@
     </author>
 	
 	
-	<plugin name="nl.x-services.plugins.insomnia" spec="4.0.1" source="pgb" />
+	<plugin name="cordova-plugin-insomnia" version="4.1.0" source="npm" />
 	
 	<!-- for iOS -->
 	<feature name="Insomnia">
