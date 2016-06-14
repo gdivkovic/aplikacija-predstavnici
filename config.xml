@@ -29,6 +29,7 @@
 	</feature>
 	
 	<platform name="ios" />
+	<platform name="android" />
 	
 	<preference name="orientation" value="portrait" />
 	
