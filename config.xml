@@ -18,7 +18,7 @@
 	
 	
 	<plugin name="cordova-plugin-insomnia" version="4.1.0" source="npm" />
-	<plugin name="phonegap-googlemaps-plugin" spec="1.2.4" source="pgb" />
+	<!--<plugin name="phonegap-googlemaps-plugin" spec="1.2.4" source="pgb" />-->
 	
 	<!-- for iOS 
 	<feature name="Insomnia">
