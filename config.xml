@@ -18,7 +18,7 @@
 	
 	
 	<plugin name="cordova-plugin-insomnia" version="4.1.0" source="npm" />
-	<plugin name="plugin.google.maps.menusito" spec="1.2.5" source="pgb" />
+	<plugin name="plugin.google.maps.menusito" spec="1.2.4" source="pgb" />
 	
 	<!-- for iOS 
 	<feature name="Insomnia">
@@ -28,7 +28,7 @@
 	<feature name="Insomnia">
 	  <param name="android-package" value="nl.xservices.plugins.Insomnia" />
 	</feature>
-	<gap:plugin name="plugin.google.maps" source="plugins.cordova.io" version="~1.2.5">
+	<gap:plugin name="plugin.google.maps" source="plugins.cordova.io" version="~1.2.4">
 		<param name="API_KEY_FOR_ANDROID" value="AIzaSyCLCGYyPrNQVSVNJMw563V98r7DnXXQaRI" />
 		<!--<param name="API_KEY_FOR_IOS" value="123" />-->
 	  </gap:plugin>
