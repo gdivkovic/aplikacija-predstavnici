@@ -21,7 +21,7 @@
 	<!--<plugin name="plugin.google.maps.menusito" spec="1.2.5" source="pgb">
 		<param name="API_KEY_FOR_ANDROID" value="AIzaSyCLCGYyPrNQVSVNJMw563V98r7DnXXQaRI" />
 	</plugin>-->
-	<gap:plugin name="cordova-plugin-googlemaps" source="npm" version="1.2.5">
+	<gap:plugin name="cordova-plugin-googlemaps" source="npm" version="1.3.4">
 		<param name="API_KEY_FOR_ANDROID" value="AIzaSyCLCGYyPrNQVSVNJMw563V98r7DnXXQaRI" />
 		<!--<param name="API_KEY_FOR_IOS" value="123" />-->
     </gap:plugin>
