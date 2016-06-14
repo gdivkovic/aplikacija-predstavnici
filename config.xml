@@ -6,10 +6,10 @@
 		
 		
 
-    <name>Survey</name>
+    <name>Memorijalni centar Vukovar</name>
 
     <description>
-       On site survey by Takeda.
+       Memorijalni centar Domovinskog rata Vukovar
     </description>
 
     <author href="https://dedal.hr" email="info@dedal.hr">
@@ -17,12 +17,12 @@
     </author>
 	
 	
-	<plugin name="nl.x-services.plugins.insomnia" spec="4.0.1" source="pgb" />
+	<plugin name="cordova-plugin-insomnia" version="4.1.0" source="npm" />
 	
-	<!-- for iOS -->
+	<!-- for iOS 
 	<feature name="Insomnia">
 	  <param name="ios-package" value="Insomnia" />
-	</feature>
+	</feature>-->
 	<!-- for Android -->
 	<feature name="Insomnia">
 	  <param name="android-package" value="nl.xservices.plugins.Insomnia" />
@@ -30,7 +30,7 @@
 	
 	<platform name="ios" />
 	
-	<preference name="orientation" value="landscape" />
+	<preference name="orientation" value="portrait" />
 	
 	<icon src="icon.png" />
 	<splash src="splash.png" />
