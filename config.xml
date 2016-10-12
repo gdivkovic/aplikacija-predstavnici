@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.dedal.takedaanketa"
+        version     = "1.0.0" >
+		
+		
+
+    <name>Survey</name>
+
+    <description>
+       On site survey by Takeda.
+    </description>
+
+    <author href="https://dedal.hr" email="info@dedal.hr">
+        Zoran Milas
+    </author>
+	
+	<gap:plugin name="cordova-plugin-whitelist" version="1.1.0" source="npm" />
+	<allow-navigation href="*" />
+	<allow-intent href="*" />
+	<access origin="*" />
+	
+	
+	<plugin name="nl.x-services.plugins.insomnia" spec="4.0.1" source="pgb" />
+	
+	
+	
+	<platform name="ios" />
+	
+	<preference name="orientation" value="landscape" />
+	
+	<icon src="icon.png" />
+	<splash src="splash.png" />
+	
+	<meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no' />
+	<preference name="AllowInlineMediaPlayback" value="true"/>
+	<preference name="KeyboardDisplayRequiresUserAction" value="false"/>
+	<preference name="Fullscreen" value="true" />
+	<preference name="DisallowOverscroll" value="true"/>
+	<preference name="BackgroundColor" value="0xffffffff"/>
+	<preference name="HideKeyboardFormAccessoryBar" value="true"/>
+	
+
+</widget>
