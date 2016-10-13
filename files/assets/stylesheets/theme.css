@@ -19,7 +19,7 @@ body {
 	line-height: 22px;
 	margin: 0;
 	font-size: 13px;
-	overflow-x: hidden;
+	overflow-x: scroll;
 	overflow-y: scroll;
 }
 
