@@ -22,6 +22,9 @@
 	
 	<icon src="icon.png" />
 	<splash src="splash.png" />
+
+	<plugin name="cordova-plugin-file" source="npm" />
+	<plugin name="cordova-plugin-geolocation" source="npm" />	
 	
 	<meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no' />
 	<preference name="AllowInlineMediaPlayback" value="true"/>
