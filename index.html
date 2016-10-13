@@ -267,6 +267,15 @@ function kolbekica(){
 }
 
 
+
+
+
+
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    console.log(cordova.file);
+    alert('Cordova');
+}
 		</script>
 		<style>
 		th{width:auto !important;}
