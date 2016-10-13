@@ -16,12 +16,7 @@
         Zoran Milas
     </author>
 	
-	<gap:plugin name="cordova-plugin-whitelist" version="1.1.0" source="npm" />
-	<allow-navigation href="*" />
-	<allow-intent href="*" />
-	<access origin="*" />
-	
-		<platform name="ios" />
+	<platform name="ios" />
 	
 	<preference name="orientation" value="landscape" />
 	
