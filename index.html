@@ -50,7 +50,7 @@
 
 				<section role="main" class="content-body">
 					<header class="page-header">
-						<h2>Prod. predst. app</h2>
+						<h2>Sanofi kampanja</h2>
 					
 						<div class="right-wrapper pull-right">
 							<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -58,7 +58,7 @@
 					</header>
 
 					<!-- start: page -->
-						<div class="row">
+						<div class="row  popis">
 							<div class="col-lg-12">
 								<section class="panel">
 									<header class="panel-heading">
@@ -73,12 +73,20 @@
 										<table class="table table-bordered table-striped" id="datatable-ajax">
 											<thead>
 												<tr>
-													<th>Ime i Prezime</th>
+													<th>Rb</th>
+                          <th>Ime</th>
+                          <th>Prezime</th>
 													<th>Županija</th>
 													<th>Grad</th>
 													<th>Adresa</th>
-													<th>Ustanova</th>
-													<th>Datum zadnje posjete</th>
+                          <th>Ustanova</th>
+                          <th>Ugovor./Privat.</th>
+													<th>Radno vrijeme</th>
+                          <th>Zanimanje</th>
+                          <th>Specijalizacija</th>
+                          <th>E-medikus</th>
+                          <th>Segment</th>
+                          <th>Posjećen</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -94,8 +102,186 @@
 						
 							</div>
 						</div>
+
+            <span class="detalji" style="display:none;"><aside>
+              <form class="form-horizontal form-bordered" method="get">
+                
+                <div class="col-md-6">
+                  <section class="panel">
+                    <header class="panel-heading">
+                      <div class="panel-actions">
+                        <a href="#" class="fa fa-caret-down"></a>
+                      </div>
+                      <h2 class="panel-title">O doktoru</h2>
+                    </header>
+                    <div class="panel-body">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Ime</label>
+                            <input type="text" name="ime" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Prezime</label>
+                            <input type="text" name="prezime" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Posjećen</label>
+                            <input type="email" name="posjecen" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Segment</label>
+                            <input  name="segment" class="form-control">
+                          </div>
+                        </div>                       
+                      </div>
+                      <div class="row">
+                       <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Emedikus član</label>
+                            <input  name="emedikus" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                    </div>                  
+                  </section>
+                </div>
+
+
+                <div class="col-md-6">
+                 <section class="panel">
+                    <header class="panel-heading">
+                      <div class="panel-actions">
+                        <a href="#" class="fa fa-caret-down"></a>
+                      </div>
+                      <h2 class="panel-title">O doktoru</h2>
+                    </header>
+                    <div class="panel-body">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Županija</label>
+                            <input type="text" name="zupanija" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Grad</label>
+                            <input type="text" name="grad" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Adresa</label>
+                            <input type="email" name="adresa" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Ustanova</label>
+                            <input  name="ustanova" class="form-control">
+                          </div>
+                        </div> 
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Radno vrijeme</label>
+                            <input  name="radnovrijeme" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Ugovorni</label>
+                            <input  name="ugovorni" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Zanimanje</label>
+                            <input  name="zanimanje" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Specijalizacija</label>
+                            <select  name="specijalizacija" class="form-control">
+                              <option>  Specijalizacija </option>
+                              <option>  Abdominalna kirurgija </option>
+                              <option>  Alergologija i klinička imunologija </option>
+                              <option>  Anesteziologija, reanimatologija i intenzivna medicina  </option>
+                              <option>  Citologija  </option>
+                              <option>  Dermatologija i venerologija  </option>
+                              <option>  Dječja i adolescentna psihijatrija  </option>
+                              <option>  Dječja kirurgija  </option>
+                              <option>  Endokrinologija i dijabetologija  </option>
+                              <option>  Epidemiologija  </option>
+                              <option>  Farmacija </option>
+                              <option>  Fizikalna medicina i rehabilitacija </option>
+                              <option>  Gastroenterologija  </option>
+                              <option>  Ginekologija i opstetricija </option>
+                              <option>  Hematologija  </option>
+                              <option>  Hitna medicina  </option>
+                              <option>  Infektologija </option>
+                              <option>  Internistička onkologija  </option>
+                              <option>  Javnozdravstvena medicina </option>
+                              <option>  Kardiologija  </option>
+                              <option>  Kardiotorakalna kirurgija </option>
+                              <option>  Kirurgija i anesteziologija </option>
+                              <option>  Klinička farmakologija s toksikologijom </option>
+                              <option>  Klinička mikrobiologija </option>
+                              <option>  Klinička radiologija  </option>
+                              <option>  Laboratorijska imunologija  </option>
+                              <option>  Maksilofacijalna kirurgija  </option>
+                              <option>  Medicina rada i športa  </option>
+                              <option>  Medicinska biokemija  </option>
+                              <option>  Nefrologija </option>
+                              <option>  Neurokirurgija  </option>
+                              <option>  Neurologija </option>
+                              <option>  Nuklearna medicina  </option>
+                              <option>  Oftalmologija </option>
+                              <option>  Oftalmologija i optometrija </option>
+                              <option>  Onkologija i radioterapija  </option>
+                              <option>  Opća interna medicina </option>
+                              <option>  Opća kirurgija  </option>
+                              <option>  Opća/Obiteljska medicina  </option>
+                              <option>  Ortopedija i traumatologija </option>
+                              <option>  Otorinolaringologija  </option>
+                              <option>  Patologija  </option>
+                              <option>  Pedijatrija </option>
+                              <option>  Plastična, rekonstrukcijska i estetska kirurgija  </option>
+                              <option>  Psihijatrija  </option>
+                              <option>  Psihologija </option>
+                              <option>  Pulmologija </option>
+                              <option>  Radiologija </option>
+                              <option>  Reumatologija </option>
+                              <option>  Stomatologija </option>
+                              <option>  Sudska medicina </option>
+                              <option>  Školska i adolescentna medicina </option>
+                              <option>  Transfuzijska medicina  </option>
+                              <option>  Urologija </option>
+                              <option>  Vaskularna kirurgija  </option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>                  
+                  </section>
+                </div>
+
+
+                  <div style="position:fixed; bottom:20px; right:20px;">
+                      <button class="btn btn-primary">SPREMI</button>
+                    </div>
+
+              </form>
+            </aside>
+            </span>
 						
-					
 				</section>
 			</div>
 
@@ -105,70 +291,16 @@
 						<a href="#" class="mobile-close visible-xs">
 							Collapse <i class="fa fa-chevron-right"></i>
 						</a>
-			
+			       
 						<div class="sidebar-right-wrapper">
-			
-							<div class="sidebar-widget widget-calendar">
-								<h6>Upcoming Tasks</h6>
-								<div data-plugin-datepicker data-plugin-skin="dark" ></div>
-			
-								<ul>
-									<li>
-										<time datetime="2014-04-19T00:00+00:00">04/19/2014</time>
-										<span>Company Meeting</span>
-									</li>
-								</ul>
-							</div>
-			
-							<!--<div class="sidebar-widget widget-friends">
-								<h6>Friends</h6>
-								<ul>
-									<li class="status-online">
-										<figure class="profile-picture">
-											<img src="files/assets/images/!sample-user.jpg" alt="Joseph Doe" class="img-circle">
-										</figure>
-										<div class="profile-info">
-											<span class="name">Joseph Doe Junior</span>
-											<span class="title">Hey, how are you?</span>
-										</div>
-									</li>
-									<li class="status-online">
-										<figure class="profile-picture">
-											<img src="files/assets/images/!sample-user.jpg" alt="Joseph Doe" class="img-circle">
-										</figure>
-										<div class="profile-info">
-											<span class="name">Joseph Doe Junior</span>
-											<span class="title">Hey, how are you?</span>
-										</div>
-									</li>
-									<li class="status-offline">
-										<figure class="profile-picture">
-											<img src="files/assets/images/!sample-user.jpg" alt="Joseph Doe" class="img-circle">
-										</figure>
-										<div class="profile-info">
-											<span class="name">Joseph Doe Junior</span>
-											<span class="title">Hey, how are you?</span>
-										</div>
-									</li>
-									<li class="status-offline">
-										<figure class="profile-picture">
-											<img src="files/assets/images/!sample-user.jpg" alt="Joseph Doe" class="img-circle">
-										</figure>
-										<div class="profile-info">
-											<span class="name">Joseph Doe Junior</span>
-											<span class="title">Hey, how are you?</span>
-										</div>
-									</li>
-								</ul>
-							</div>-->
-			
+              <h4>Za sljedeće radnje iPad mora biti spojen na internet ili ništa neće raditi (učitava popis sa servera ili sejva napravljeno, opet na server).</h4>
+              <p><a href="#" class="btn btn-lg btn-primary spremi">Spremi na server</a></p>
+              <p><a href="#" class="btn btn-lg btn-primary nemoj">SVE IZBRIŠI<br> i počni ispočetka!</a></p>
 						</div>
 					</div>
 				</div>
 			</aside>
 		</section>
-
-
 
     <div id="exe" style="display:none;"></div>
 		
@@ -178,7 +310,6 @@
 		<script src="files/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
 		<script src="files/assets/vendor/bootstrap/js/bootstrap.js"></script>
 		<script src="files/assets/vendor/nanoscroller/nanoscroller.js"></script>
-		<script src="files/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 		<script src="files/assets/vendor/magnific-popup/magnific-popup.js"></script>
 		<script src="files/assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
     <script type='application/javascript' src='files/assets/fastclick.js'></script>
@@ -200,82 +331,97 @@
 		<!-- Theme Initialization Files -->
 		<script src="files/assets/javascripts/theme.init.js"></script>
 
-		<!-- Examples -->
+	
 		<script>
 
-var jsonPop;
+    var jsonPop;
+    if(localStorage.getItem('jsonPop') !== null){jsonPop=JSON.parse(localStorage.getItem('jsonPop'))}
+    var brojUpisa;
+    //localStorage.setItem("dr2", '["2", "Ime", "Prezime", "gdje", "tko", "ušto", "lalal", "asd"]');
+     brojUpisa=localStorage.getItem("brojUpisa");
 
-$(document).ready(function () {
-    /* prvo učitavanje */
-    function start(){
-     /* $.getJSON('https://www.dedal.hr/predstavnici/popis.js',
-      function (json) {alert('');
-          for (var i = 0; i < json.aaData.length; i++) {
-              json.aaData[i].push('jebimater');
-          }
-          jsonPop=json;
-          kolbekica();
-      });*/
-      $('#exe').load('https://www.dedal.hr/predstavnici/popis.php');
+    $(document).ready(function () {
+        /* prvo učitavanje */
+        $('.nemoj').click(function(){
+          if (confirm("OPREZ!!! Izbrisat ćeš SVE podatke i bit će kao da ništa nisi radio/radila! Klikaj samo ako si 110% siguran/sigurna da znaš što radiš!") == true) {
+              start();
+            } else {
+            }
+        });
+        function start(){
+          localStorage.clear();
+          $('#exe').load('https://www.dedal.hr/predstavnici/popis.php');
+        }
+
+      //start();
+
+      obrada();
+
+
+         /* klikanje */
+        $('#datatable-ajax').on('click', 'td', function(){
+          $('.popis').hide();
+          $('.detalji').show();
+        	console.log($(this).parent().children('td:first').html());
+        });
+
+        $('.redraw').click(function(){
+        	kolbekica();
+        });
+    });
+
+    function obrada(){
+      for(x=0;x<brojUpisa;x++){
+        if (localStorage.getItem("dr"+x) !== null) {
+           jsonPop.aaData[x]=JSON.parse(localStorage.getItem("dr"+x));
+        }
+      }
+      kolbekica();  
     }
 
-    start();
-
-
-     /* klikanje */
-    $('#datatable-ajax').on('click', 'td', function(){
-    	alert($(this).parent().children('td:first').html());
-    });
-
-    $('.redraw').click(function(){
-    	jsonPop.aaData.push(["gurica", "durica", "kragujevačka", "jebaonica", "šupak 13", "ovo ono"]);
-    	kolbekica();
-    });
-});
-
-function kolbekica(){
-			var $table = $('#datatable-ajax');
-			$table.dataTable().fnDestroy();
-			$table.children('th').removeAttr('style');
-			$('.filteri').html('');
-			$table.dataTable({
-				bProcessing: true,
-				bDestroy: true,
-				aaData: jsonPop.aaData,
-				initComplete: function () {
-			            this.api().columns().every( function () {
-			                var column = this;
-			                console.log($(column.footer()));
-			                var select = $('<select><option value=""></option></select>')
-			                    .appendTo( $('.filteri') ) /*$(column.footer()).empty()*/
-			                    .on( 'change', function () {
-			                        var val = $.fn.dataTable.util.escapeRegex(
-			                            $(this).val()
-			                        );
-			 
-			                        column
-			                            .search( val ? '^'+val+'$' : '', true, false )
-			                            .draw();
-			                    } );
-			 
-			                column.data().unique().sort().each( function ( d, j ) {
-			                    select.append( '<option value="'+d+'">'+d+'</option>' )
-			                } );
-			            } );
-			        }
-			});
-}
+    function kolbekica(){
+    			var $table = $('#datatable-ajax');
+    			$table.dataTable().fnDestroy();
+    			$table.children('th').removeAttr('style');
+    			$('.filteri').html('');
+    			$table.dataTable({
+    				bProcessing: true,
+    				bDestroy: true,
+    				aaData: jsonPop.aaData,
+    				initComplete: function () {
+    			            this.api().columns().every( function () {
+    			                var column = this;
+    			                console.log($(column.footer()));
+    			                var select = $('<select><option value=""></option></select>')
+    			                    .appendTo( $('.filteri') ) /*$(column.footer()).empty()*/
+    			                    .on( 'change', function () {
+    			                        var val = $.fn.dataTable.util.escapeRegex(
+    			                            $(this).val()
+    			                        );
+    			 
+    			                        column
+    			                            .search( val ? '^'+val+'$' : '', true, false )
+    			                            .draw();
+    			                    } );
+    			 
+    			                column.data().unique().sort().each( function ( d, j ) {
+    			                    select.append( '<option value="'+d+'">'+d+'</option>' )
+    			                } );
+    			            } );
+    			        }
+    			});
+    }
 
 
 
 
 
 
-document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady() {
-    console.log(cordova.file);
-    alert('Cordova');
-}
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+        console.log(cordova.file);
+        alert('Cordova');
+    }
 		</script>
 		<style>
 		th{width:auto !important;}
