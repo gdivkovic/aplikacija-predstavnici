@@ -21,12 +21,7 @@
 	<allow-intent href="*" />
 	<access origin="*" />
 	
-	
-	<plugin name="nl.x-services.plugins.insomnia" spec="4.0.1" source="pgb" />
-	
-	
-	
-	<platform name="ios" />
+		<platform name="ios" />
 	
 	<preference name="orientation" value="landscape" />
 	
