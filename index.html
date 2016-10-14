@@ -74,8 +74,8 @@
 										<h2 class="panel-title">Kontakti</h2>
 									</header>
 									<div class="panel-body">
-									<div>Filteri: <span class="filteri"></span></div>
-										<div style="width:900px; overflow:auto;">
+									<div>Filteri: <br><span class="filteri"></span></div>
+										<div style="width:900px; overflow:auto;"><br>
                       <table class="table table-bordered table-striped" id="datatable-ajax">
   											<thead>
   												<tr>
@@ -99,10 +99,8 @@
   											</tbody>
   										</table>
                       <div>
-                        <a href="#" class="redraw">Redraw</a>
-                        <a href="#" class="test1">Proba sa A</a>
-                        <span class="test2">Proba sa SPAN</span>
-                        <div class="test3">Proba sa DIV</div>
+                        <a href="#" class="redraw">Refresh</a>
+                       
                       </div>
 
                     </div>
@@ -118,7 +116,7 @@
 						</div>
 
             <span class="detalji" style="display:none;"><aside>
-              <form class="form-horizontal form-bordered" method="get">
+              <form class="form-horizontal form-bordered" method="get" action="." id="detaljforma">
                 
                 <div class="col-md-6">
                   <section class="panel">
@@ -126,7 +124,7 @@
                       <div class="panel-actions">
                         <a href="#" class="fa fa-caret-down"></a>
                       </div>
-                      <h2 class="panel-title">O doktoru</h2>
+                      <h2 class="panel-title">1. o doktoru</h2>
                     </header>
                     <div class="panel-body">
                       <div class="row">
@@ -145,13 +143,20 @@
                         <div class="col-sm-6">
                           <div class="form-group">
                             <label class="control-label">Posjećen</label>
-                            <input type="email" name="posjecen" class="form-control">
+                            <input type="text" name="posjecen" class="form-control posjecen">
                           </div>
                         </div>
                         <div class="col-sm-6">
                           <div class="form-group">
                             <label class="control-label">Segment</label>
-                            <input  name="segment" class="form-control">
+                            <select name="segment" class="form-control">
+                              <option></option>
+                              <option>A</option>
+                              <option>B</option>
+                              <option>C</option>
+                              <option>D</option>
+                              <option>0</option>                              
+                            </select>
                           </div>
                         </div>                       
                       </div>
@@ -159,7 +164,11 @@
                        <div class="col-sm-6">
                           <div class="form-group">
                             <label class="control-label">Emedikus član</label>
-                            <input  name="emedikus" class="form-control">
+                            <select name="emedikus" class="form-control">
+                              <option></option>
+                              <option value="1">DA</option>
+                              <option value="0">NE</option>
+                            </select>
                           </div>
                         </div>
                       </div>
@@ -174,14 +183,36 @@
                       <div class="panel-actions">
                         <a href="#" class="fa fa-caret-down"></a>
                       </div>
-                      <h2 class="panel-title">O doktoru</h2>
+                      <h2 class="panel-title">2. o doktoru</h2>
                     </header>
                     <div class="panel-body">
                       <div class="row">
                         <div class="col-sm-6">
                           <div class="form-group">
                             <label class="control-label">Županija</label>
-                            <input type="text" name="zupanija" class="form-control">
+                            <select name="zupanija" class="form-control">
+                              <option value=""></option>
+                              <option value="Bjelovarsko-bilogorska - 043">Bjelovarsko-bilogorska - 043</option>
+                              <option value="Brodsko-posavska - 035">Brodsko-posavska - 035</option>
+                              <option value="Dubrovačko-neretvanska - 020">Dubrovačko-neretvanska - 020</option>
+                              <option value="Grad Zagreb - 01">Grad Zagreb - 01</option>
+                              <option value="Istarska - 052">Istarska - 052</option>
+                              <option value="Karlovačka - 047">Karlovačka - 047</option>
+                              <option value="Koprivničko-križevačka - 048">Koprivničko-križevačka - 048</option>
+                              <option value="Krapinsko-zagorska - 049">Krapinsko-zagorska - 049</option>
+                              <option value="Ličko-senjska - 053">Ličko-senjska - 053</option>
+                              <option value="Međimurska - 040">Međimurska - 040</option>
+                              <option value="Osječko-baranjska - 031">Osječko-baranjska - 031</option>
+                              <option value="Požeško-slavonska - 034">Požeško-slavonska - 034</option>
+                              <option value="Primorsko-goranska - 051">Primorsko-goranska - 051</option>
+                              <option value="Sisačko-moslavačka - 044">Sisačko-moslavačka - 044</option>
+                              <option value="Splitsko-dalmatinska - 021">Splitsko-dalmatinska - 021</option>
+                              <option value="Varaždinska - 042">Varaždinska - 042</option>
+                              <option value="Virovitičko-podravska - 033">Virovitičko-podravska - 033</option>
+                              <option value="Vukovarsko-srijemska - 032">Vukovarsko-srijemska - 032</option>
+                              <option value="Zadarska - 023">Zadarska - 023</option>
+                              <option value="Zagrebačka - 01">Zagrebačka - 01</option>
+                            </select>
                           </div>
                         </div>
                         <div class="col-sm-6">
@@ -193,92 +224,229 @@
                         <div class="col-sm-6">
                           <div class="form-group">
                             <label class="control-label">Adresa</label>
-                            <input type="email" name="adresa" class="form-control">
+                            <input  type="text" name="adresa" class="form-control">
                           </div>
                         </div>
                         <div class="col-sm-6">
                           <div class="form-group">
                             <label class="control-label">Ustanova</label>
-                            <input  name="ustanova" class="form-control">
+                            <input  type="text" name="ustanova" class="form-control">
                           </div>
                         </div> 
                         <div class="col-sm-6">
                           <div class="form-group">
                             <label class="control-label">Radno vrijeme</label>
-                            <input  name="radnovrijeme" class="form-control">
+                            <select name="radnovrijeme" class="form-control">
+                              <option value=""></option>                              
+                              <option value="Parni popodne / Neparni ujutro">Parni popodne / Neparni ujutro</option>
+                              <option value="Parni ujutro / Neparni popodne">Parni ujutro / Neparni popodne</option>
+                              <option value="Pon / Sri / Pet - Popodne">Pon / Sri / Pet - Popodne</option>
+                              <option value="Pon / Sri / Pet - Ujutro">Pon / Sri / Pet - Ujutro</option>
+                              <option value="Tjedan ujutro / Tjedan popodne">Tjedan ujutro / Tjedan popodne</option>
+                              <option value="Ostalo">Ostalo</option>
+                            </select>
                           </div>
                         </div>
                         <div class="col-sm-6">
                           <div class="form-group">
                             <label class="control-label">Ugovorni</label>
-                            <input  name="ugovorni" class="form-control">
+                            <select name="ugovorni" class="form-control">
+                              <option></option>
+                              <option>Ugovor s HZZO</option>
+                              <option>Bez ugovora</option>
+                              <option>Privatna praksa sa ugovorom</option>
+                            </select>
                           </div>
                         </div>
                         <div class="col-sm-6">
                           <div class="form-group">
                             <label class="control-label">Zanimanje</label>
-                            <input  name="zanimanje" class="form-control">
+                            <select class="form-control" name="zanimanje">
+                                    <option></option>
+                                    <option>Liječnik</option>
+                                    <option>Ljekarnik</option>
+                                    <option>Medicinska sestra / tehničar</option>
+                                    <option>Medicinski biokemičar</option>
+                                    <option>Stomatolog</option>
+                                    <option>Ostalo</option>
+                             </select>
                           </div>
                         </div>
                         <div class="col-sm-6">
                           <div class="form-group">
                             <label class="control-label">Specijalizacija</label>
                             <select  name="specijalizacija" class="form-control">
-                              <option>  Specijalizacija </option>
-                              <option>  Abdominalna kirurgija </option>
-                              <option>  Alergologija i klinička imunologija </option>
-                              <option>  Anesteziologija, reanimatologija i intenzivna medicina  </option>
-                              <option>  Citologija  </option>
-                              <option>  Dermatologija i venerologija  </option>
-                              <option>  Dječja i adolescentna psihijatrija  </option>
-                              <option>  Dječja kirurgija  </option>
-                              <option>  Endokrinologija i dijabetologija  </option>
-                              <option>  Epidemiologija  </option>
-                              <option>  Farmacija </option>
-                              <option>  Fizikalna medicina i rehabilitacija </option>
-                              <option>  Gastroenterologija  </option>
-                              <option>  Ginekologija i opstetricija </option>
-                              <option>  Hematologija  </option>
-                              <option>  Hitna medicina  </option>
-                              <option>  Infektologija </option>
-                              <option>  Internistička onkologija  </option>
-                              <option>  Javnozdravstvena medicina </option>
-                              <option>  Kardiologija  </option>
-                              <option>  Kardiotorakalna kirurgija </option>
-                              <option>  Kirurgija i anesteziologija </option>
-                              <option>  Klinička farmakologija s toksikologijom </option>
-                              <option>  Klinička mikrobiologija </option>
-                              <option>  Klinička radiologija  </option>
-                              <option>  Laboratorijska imunologija  </option>
-                              <option>  Maksilofacijalna kirurgija  </option>
-                              <option>  Medicina rada i športa  </option>
-                              <option>  Medicinska biokemija  </option>
-                              <option>  Nefrologija </option>
-                              <option>  Neurokirurgija  </option>
-                              <option>  Neurologija </option>
-                              <option>  Nuklearna medicina  </option>
-                              <option>  Oftalmologija </option>
-                              <option>  Oftalmologija i optometrija </option>
-                              <option>  Onkologija i radioterapija  </option>
-                              <option>  Opća interna medicina </option>
-                              <option>  Opća kirurgija  </option>
-                              <option>  Opća/Obiteljska medicina  </option>
-                              <option>  Ortopedija i traumatologija </option>
-                              <option>  Otorinolaringologija  </option>
-                              <option>  Patologija  </option>
-                              <option>  Pedijatrija </option>
-                              <option>  Plastična, rekonstrukcijska i estetska kirurgija  </option>
-                              <option>  Psihijatrija  </option>
-                              <option>  Psihologija </option>
-                              <option>  Pulmologija </option>
-                              <option>  Radiologija </option>
-                              <option>  Reumatologija </option>
-                              <option>  Stomatologija </option>
-                              <option>  Sudska medicina </option>
-                              <option>  Školska i adolescentna medicina </option>
-                              <option>  Transfuzijska medicina  </option>
-                              <option>  Urologija </option>
-                              <option>  Vaskularna kirurgija  </option>
+                              <option> </option>
+                              <option>Abdominalna kirurgija</option>
+                              <option>Alergologija i klinička imunologija</option>
+                              <option>Anesteziologija, reanimatologija i intenzivna medicina</option>
+                              <option>Citologija</option>
+                              <option>Dermatologija i venerologija</option>
+                              <option>Dječja i adolescentna psihijatrija</option>
+                              <option>Dječja kirurgija</option>
+                              <option>Endokrinologija i dijabetologija</option>
+                              <option>Epidemiologija</option>
+                              <option>Farmacija</option>
+                              <option>Fizikalna medicina i rehabilitacija</option>
+                              <option>Gastroenterologija</option>
+                              <option>Ginekologija i opstetricija</option>
+                              <option>Hematologija</option>
+                              <option>Hitna medicina</option>
+                              <option>Infektologija</option>
+                              <option>Internistička onkologija</option>
+                              <option>Javnozdravstvena medicina</option>
+                              <option>Kardiologija</option>
+                              <option>Kardiotorakalna kirurgija</option>
+                              <option>Kirurgija i anesteziologija</option>
+                              <option>Klinička farmakologija s toksikologijom</option>
+                              <option>Klinička mikrobiologija</option>
+                              <option>Klinička radiologija</option>
+                              <option>Laboratorijska imunologija</option>
+                              <option>Maksilofacijalna kirurgija</option>
+                              <option>Medicina rada i športa</option>
+                              <option>Medicinska biokemija</option>
+                              <option>Nefrologija</option>
+                              <option>Neurokirurgija</option>
+                              <option>Neurologija</option>
+                              <option>Nuklearna medicina</option>
+                              <option>Oftalmologija</option>
+                              <option>Oftalmologija i optometrija</option>
+                              <option>Onkologija i radioterapija</option>
+                              <option>Opća interna medicina</option>
+                              <option>Opća kirurgija</option>
+                              <option>Opća/Obiteljska medicina</option>
+                              <option>Ortopedija i traumatologija</option>
+                              <option>Otorinolaringologija</option>
+                              <option>Patologija</option>
+                              <option>Pedijatrija</option>
+                              <option>Plastična, rekonstrukcijska i estetska kirurgija</option>
+                              <option>Psihijatrija</option>
+                              <option>Psihologija</option>
+                              <option>Pulmologija</option>
+                              <option>Radiologija</option>
+                              <option>Reumatologija</option>
+                              <option>Stomatologija</option>
+                              <option>Sudska medicina</option>
+                              <option>Školska i adolescentna medicina</option>
+                              <option>Transfuzijska medicina</option>
+                              <option>Urologija</option>
+                              <option>Vaskularna kirurgija</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>                  
+                  </section>
+                </div>
+
+                <div class="col-md-6">
+                  <section class="panel">
+                    <header class="panel-heading">
+                      <div class="panel-actions">
+                        <a href="#" class="fa fa-caret-down"></a>
+                      </div>
+                      <h2 class="panel-title">3. o doktoru</h2>
+                    </header>
+                    <div class="panel-body">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Spol</label>
+                            <select name="spol" class="form-control">
+                              <option></option>
+                              <option>Muško</option>
+                              <option>Žensko</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Datum rođ.</label>
+                            <input type="text" name="datum_rod" class="form-control datum_rod">
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">E-mail</label>
+                            <input type="text" name="email" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Telefon</label>
+                            <input  type="text" name="telefon" class="form-control">
+                          </div>
+                        </div>                       
+                     
+                       <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Ime sestre</label>
+                            <input  type="text" name="sestra" class="form-control">
+                          </div>
+                        </div>
+                      
+                       <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Broj pacijenata</label>
+                            <input  type="text" name="br_pacijenata" class="form-control">
+                          </div>
+                        </div>
+                      
+                       <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Kanali komunikacije</label>
+                            <select name="kanali_kom" class="form-control">
+                              <option></option>
+                              <option>F2F</option>
+                              <option>telefon</option>
+                              <option>SMS</option>
+                              <option>e-mail</option>
+                              <option>web stranica</option>
+                              <option>društvene mreže</option>
+                              <option>Viber/WhatsApp</option>
+                              <option>direktna pošta</option>
+                              <option>mobilne aplikacije</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Područja interesa</label>
+                            <select name="podrucja_interesa" class="form-control">
+                              <option></option>
+                                <option>Alergologija i imunologija</option>                 
+                                <option>Citologija</option>                 
+                                <option>Dermatologija</option>                  
+                                <option>Endokrinologija</option>                  
+                                <option>Epidemiologija i javno zdravstvo</option>                 
+                                <option>Farmacija</option>                  
+                                <option>Fizikalna medicina i reumatologija</option>                 
+                                <option>Gastroenterologija</option>                 
+                                <option>Ginekologija i porodništvo</option>                 
+                                <option>Hitna medicina</option>                  
+                                <option>Infektologija i mikrobiologija</option>                  
+                                <option>Kardiologija</option>                  
+                                <option>Kirurgija i anesteziologija</option>                 
+                                <option>Klinička farmakologija</option>                  
+                                <option>Medicina rada i športa</option>                  
+                                <option>Medicinska biokemija</option>                  
+                                <option>Nefrologija</option>                 
+                                <option>Neurologija</option>                 
+                                <option>Nuklearna medicina</option>                  
+                                <option>Obiteljska medicina</option>                 
+                                <option>Oftalmologija</option>                 
+                                <option>Onkologija i hematologija</option>                 
+                                <option>Ortopedija i sportska medicina</option>                  
+                                <option>Otorinolaringologija</option>                  
+                                <option>Patologija</option>                  
+                                <option>Pedijatrija</option>                 
+                                <option>Psihijatrija</option>                  
+                                <option>Pulmologija</option>                 
+                                <option>Radiologija</option>                 
+                                <option>Školska medicina</option>                  
+                                <option>Stomatologija</option>                 
+                                <option>Urologija</option>                 
+                              
                             </select>
                           </div>
                         </div>
@@ -288,8 +456,225 @@
                 </div>
 
 
+
+                <div class="col-md-6">
+                  <section class="panel">
+                    <header class="panel-heading">
+                      <div class="panel-actions">
+                        <a href="#" class="fa fa-caret-down"></a>
+                      </div>
+                      <h2 class="panel-title">4. o doktoru</h2>
+                    </header>
+                    <div class="panel-body">
+                      <div class="row">
+                          <div class="form-group">
+                            <label class="control-label">Konkurencija u ordinaciji</label>
+                            <select name="konkurencija_ord" class="form-control">
+                              <option>Abbott</option>
+                              <option>AbbVie</option>
+                              <option>Actavis</option>
+                              <option>Alcon</option>
+                              <option>Alkaloid</option>
+                              <option>Amgen</option>
+                              <option>Astellas</option>
+                              <option>AstraZeneca</option>
+                              <option>Bauerfeind</option>
+                              <option>Baxter</option>
+                              <option>Bayer</option>
+                              <option>Belupo</option>
+                              <option>Berlin Chemie</option>
+                              <option>Biogen Idec</option>
+                              <option>Boehringer Ingelheim</option>
+                              <option>Bristol-Myers Squibb</option>
+                              <option>Daiichi Sankyo</option>
+                              <option>Eisai</option>
+                              <option>EvoPharma</option>
+                              <option>Farmal</option>
+                              <option>Fresenius Kabi</option>
+                              <option>Genera</option>
+                              <option>Genzyme</option>
+                              <option>Gilead Sciences</option>
+                              <option>GlaxoSmithKline</option>
+                              <option>GM Pharma</option>
+                              <option>Hartmann</option>
+                              <option>Jadran Galenski Laboratorij</option>
+                              <option>Janssen Cilag</option>
+                              <option>Johnson & Johnson</option>
+                              <option>Karl Storz</option>
+                              <option>Krka</option>
+                              <option>Lilly</option>
+                              <option>Lohman &Rauscher</option>
+                              <option>Lundbeck</option>
+                              <option>Medilab</option>
+                              <option>Medis Adria</option>
+                              <option>Merck & Co.</option>
+                              <option>Merck KGaA</option>
+                              <option>Mylan</option>
+                              <option>Novartis</option>
+                              <option>Novo Nordisk</option>
+                              <option>Oktal Pharma</option>
+                              <option>Otsuka</option>
+                              <option>Pfizer</option>
+                              <option>PharmaS</option>
+                              <option>PharmaSwiss</option>
+                              <option>Pliva</option>
+                              <option>Roche</option>
+                              <option>Salvus</option>
+                              <option>Sandoz</option>
+                              <option>Sanofi</option>
+                              <option>Servier</option>
+                              <option>Shire</option>
+                              <option>Stada</option>
+                              <option>Stoma Medical</option>
+                              <option>Takeda</option>
+                              <option>Teva</option>
+                              <option>Unimed Pharma</option>
+
+                            </select>
+                        </div>
+                        
+                          <div class="form-group">
+                            <label class="control-label">Napomene</label>
+                            <textarea name="prezime" class="form-control"></textarea>
+                          </div>
+                        
+                                            
+                      </div>
+                     
+                    </div>                  
+                  </section>
+                </div>
+
+
+
+                <div class="col-md-12">
+                  <section class="panel">
+                    <header class="panel-heading">
+                      <div class="panel-actions">
+                        <a href="#" class="fa fa-caret-down"></a>
+                      </div>
+                      <h2 class="panel-title">O kampanji</h2>
+                    </header>
+                    <div class="panel-body">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Kanal</label>
+                            <select name="kanal" class="form-control">
+                              <option></option>
+                              <option>F2F</option>
+                              <option>telefon</option>
+                              <option>SMS</option>
+                              <option>e-mail</option>
+                              <option>web stranica</option>
+                              <option>društvene mreže</option>
+                              <option>Viber/WhatsApp</option>
+                              <option>direktna pošta</option>
+                              <option>mobilne aplikacije</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Zainteresiran</label>
+                            <select name="zainteresiran" class="form-control">
+                              <option></option>
+                              <option>DA</option>
+                              <option>NE</option>
+                            </select>
+                          </div>
+                        </div>
+                                          
+                      </div>
+
+
+                      <div class="row">
+                       <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Poznati lijekovi</label>
+                            <select name="poznati_l" class="form-control">
+                              <option></option>
+                              <option>DA</option>
+                              <option>NE</option>
+                            </select>
+                          </div>
+                        </div>
+                    
+                       <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Povezuje s kompanijom</label>
+                            <select name="poznati_l" class="form-control">
+                              <option></option>
+                              <option>DA</option>
+                              <option>NE</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>                  
+                  </section>
+                </div>
+
+                 <div class="col-md-12">
+                  <section class="panel">
+                    <header class="panel-heading">
+                      <div class="panel-actions">
+                        <a href="#" class="fa fa-caret-down"></a>
+                      </div>
+                      <h2 class="panel-title">O lijekovima</h2>
+                    </header>
+                    <div class="panel-body">
+                      
+
+
+                      <div class="row">
+                       <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Tritace poruke</label>
+                            <select name="tritace_poruke" class="form-control">
+                              <option></option>
+                              <option>DA</option>
+                              <option>NE</option>
+                            </select>
+                          </div>
+                        </div>
+                     
+                       <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Lasix poruke</label>
+                            <select name="lasix_poruke" class="form-control">
+                              <option></option>
+                              <option>DA</option>
+                              <option>NE</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                        <div class="row">
+                       <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Tritace komentar</label>
+                            <textarea name="tritace_komentar" class="form-control">
+                            </textarea>
+                          </div>
+                        </div>
+                     
+                       <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Lasix komentar</label>
+                            <textarea name="lasix_komentar" class="form-control">
+                            </textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>                  
+                  </section>
+                </div>
+
+
                   <div style="position:fixed; bottom:20px; right:20px;">
-                      <button class="btn btn-primary">SPREMI</button>
+                      <button class="btn btn-primary spremidetalj">SPREMI</button>
                     </div>
 
               </form>
@@ -310,12 +695,7 @@
               <h4>Za sljedeće radnje iPad mora biti spojen na internet ili ništa neće raditi (učitava popis sa servera ili sejva napravljeno, opet na server).</h4>
               <p><a href="#" class="btn btn-lg btn-primary spremi">Spremi na server</a></p>
               <p><a href="#" class="btn btn-lg btn-primary nemoj">SVE IZBRIŠI<br> i počni ispočetka!</a></p>
-              <a href="#" class="test1">Proba sa A</a>
-                      <span class="test2">Proba sa SPAN</span>
-                      <div class="test3">Proba sa DIV</div>
-                       <a href="#" class="test1">Proba sa A</a>
-                        <span class="test2">Proba sa SPAN</span>
-                        <div class="test3">Proba sa DIV</div>
+              
 						</div>
 					</div>
 				</div>
@@ -332,14 +712,10 @@
 		<script src="files/assets/vendor/nanoscroller/nanoscroller.js"></script>
 		<script src="files/assets/vendor/magnific-popup/magnific-popup.js"></script>
 		<script src="files/assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
-    <!--<script type='application/javascript' src='files/assets/fastclick.js'></script>
-      
-    <script>
-      $(function() {
-          FastClick.attach(document.body);
-      });
-    </script>
-		-->
+    <script type='application/javascript' src='files/assets/fastclick.js'></script>
+    <script src="files/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+  
+		
 		<!-- Specific Page Vendor -->
 		<script src="files/assets/vendor/jquery-autosize/jquery.autosize.js"></script>
 		<script src="files/assets/vendor/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
@@ -379,13 +755,10 @@
           $('#exe').load('https://www.dedal.hr/predstavnici/popis.php');
         }
 
-      //start();
-
-      obrada();
-
 
          /* klikanje */
-        $('#datatable-ajax').on('click touchstart tap', 'td', function(){
+        $('#datatable-ajax').on('click tap', 'td', function(){
+          populiraj($(this).parent().children('td:first').html());
           $('.popis').hide();
           $('.detalji').show();
         	console.log($(this).parent().children('td:first').html());
@@ -394,6 +767,19 @@
         $('.redraw').click(function(){
         	kolbekica();
         });
+
+        /*ono spremanje*/
+        $("#detaljforma").submit(function(){
+          return false;
+        });
+
+        /* datepickeri */
+        $('.posjecen').datepicker({
+                  format: 'yyyy-mm-dd'
+              });
+        $('.datum_rod').datepicker({
+                  format: 'yyyy-mm-dd'
+              });
     });
 
     function obrada(){
@@ -415,7 +801,8 @@
     				bDestroy: true,
     				aaData: jsonPop.aaData,
     				initComplete: function () {
-    			            this.api().columns().every( function () {
+    			            this.api().columns().every( function (a) {
+                        if(a==3||a==4||a==8||a==12||a==13){
     			                var column = this;
     			                console.log($(column.footer()));
     			                var select = $('<select><option value=""></option></select>')
@@ -433,38 +820,92 @@
     			                column.data().unique().sort().each( function ( d, j ) {
     			                    select.append( '<option value="'+d+'">'+d+'</option>' )
     			                } );
+                        }
     			            } );
     			        }
     			});
     }
 
 
+    function populiraj(ajdi){
+      ajdi=parseInt(ajdi);
+      if (localStorage.getItem("dr"+ajdi) !== null) {
+           redak=JSON.parse(localStorage.getItem("dr"+(-1+ajdi)));
+        }else{
+          redak=jsonPop.aaData[-1+ajdi];
+        }
+      $.each(redak, function(ulaz, izlaz){
+        switch(ulaz) {
+          case 1:
+              $('input[name=ime]').val(izlaz);
+              break;
+          case 2:
+              $('input[name=prezime]').val(izlaz);
+              break;
+          case 3:
+              $('select[name=zupanija] option').filter(function () { return $(this).val() == izlaz; }).attr('selected','selected');
+              break;
+           case 4:
+              $('input[name=grad]').val(izlaz);
+              break;
+           case 5:
+              $('input[name=adresa]').val(izlaz);
+              break;
+           case 6:
+              $('input[name=ustanova]').val(izlaz);
+              break;
+           case 7:
+              $('select[name=ugovorni] option').filter(function () { return $(this).html() == izlaz; }).attr('selected','selected');
+              break;
+           case 8:
+              $('select[name=radnovrijeme] option').filter(function () { return $(this).html() == izlaz; }).attr('selected','selected');
+              break;
+           case 9:
+               $('select[name=zanimanje] option').filter(function () { return $(this).html() == izlaz; }).attr('selected','selected');
+              break;
+           case 10:
+               $('select[name=specijalizacija] option').filter(function () { return $(this).html() == izlaz; }).attr('selected','selected');
+              break;
+           case 11:
+               $('select[name=emedikus] option').filter(function () { return $(this).val() == izlaz; }).attr('selected','selected');
+              break;
+           case 12:
+               $('select[name=segment] option').filter(function () { return $(this).val() == izlaz; }).attr('selected','selected');
+              break;
+           case 13:
+               $('input[name=posjecen]').val(izlaz);
+              break;
+           case 14:
+               $('select[name=spol] option').filter(function () { return $(this).val() == izlaz; }).attr('selected','selected');
+              break;
+           case 15:
+               $('select[name=email] option').filter(function () { return $(this).val() == izlaz; }).attr('selected','selected');
+              break;
+           case 16:
+               $('select[name=telefon] option').filter(function () { return $(this).val() == izlaz; }).attr('selected','selected');
+              break;
+      
+      }
+      console.log(ulaz+'  = '+ izlaz);
+      });
+      
+    }
 
 
 
 
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
-        console.log(cordova.file);
-        
+        $(function(){
+          obrada();
+        });
     }
 		</script>
 
-    <script>
-                        $(function(){
-                          $('.test1').on('click touchstart tap', function(){
-                            alert('KUL');
-                          });
-                          $('.test2').on('click touchstart', function(){
-                            alert('KUL');
-                          });
-                          $('.test3').on('click tap', function(){
-                            alert('KUL');
-                          });
-                        });
-                      </script>
+   
 		<style>
 		th{width:auto !important;}
+    .form-control, .control-label {width:80%; margin-left:10px;}
 		</style>
 
 
