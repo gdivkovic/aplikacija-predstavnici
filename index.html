@@ -37,8 +37,14 @@
 
 		<!-- Head Libs -->
 		<script src="files/assets/vendor/modernizr/modernizr.js"></script>
-    <script src="files/assets/vendor/jquery/jquery.js"></script>
+    <script src="files/assets/vendor/jquery/jquery.js"></script>    
     <script src="phonegap.js"></script>
+    <script type='application/javascript' src='files/assets/fastclick.js'></script>
+    <script>
+       window.addEventListener('load', function() {
+            FastClick.attach(document.body);
+        }, false);
+    </script>
 
     <style>
     td {cursor: pointer;}
@@ -117,7 +123,7 @@
 
             <span class="detalji" style="display:none;"><aside>
               <form class="form-horizontal form-bordered" method="get" action="." id="detaljforma">
-                
+                <input type="hidden" name="rdbr" val="0">
                 <div class="col-md-6">
                   <section class="panel">
                     <header class="panel-heading">
@@ -263,12 +269,14 @@
                             <label class="control-label">Zanimanje</label>
                             <select class="form-control" name="zanimanje">
                                     <option></option>
-                                    <option>Liječnik</option>
-                                    <option>Ljekarnik</option>
-                                    <option>Medicinska sestra / tehničar</option>
-                                    <option>Medicinski biokemičar</option>
-                                    <option>Stomatolog</option>
-                                    <option>Ostalo</option>
+                                    <option>liječnik</option>
+                                    <option>med.sestra/tehničar</option>
+                                    <option>ljekarnik</option>
+                                    <option>medicinski biokemičar</option>
+                                    <option>stomatolog</option>
+                                    <option>psiholog</option>
+                                    <option>patronažna sestra</option>
+                                    <option>zaposlenik farma industrije</option>
                              </select>
                           </div>
                         </div>
@@ -470,6 +478,7 @@
                           <div class="form-group">
                             <label class="control-label">Konkurencija u ordinaciji</label>
                             <select name="konkurencija_ord" class="form-control">
+                              <option></option>
                               <option>Abbott</option>
                               <option>AbbVie</option>
                               <option>Actavis</option>
@@ -535,7 +544,7 @@
                         
                           <div class="form-group">
                             <label class="control-label">Napomene</label>
-                            <textarea name="prezime" class="form-control"></textarea>
+                            <textarea name="napomene" class="form-control"></textarea>
                           </div>
                         
                                             
@@ -604,7 +613,7 @@
                        <div class="col-sm-6">
                           <div class="form-group">
                             <label class="control-label">Povezuje s kompanijom</label>
-                            <select name="poznati_l" class="form-control">
+                            <select name="povezuje_komp" class="form-control">
                               <option></option>
                               <option>DA</option>
                               <option>NE</option>
@@ -713,7 +722,6 @@
 		<script src="files/assets/vendor/nanoscroller/nanoscroller.js"></script>
 		<script src="files/assets/vendor/magnific-popup/magnific-popup.js"></script>
 		<script src="files/assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
-    <script type='application/javascript' src='files/assets/fastclick.js'></script>
     <script src="files/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
   
 		
@@ -755,13 +763,15 @@
           localStorage.clear();
           $('#exe').load('https://www.dedal.hr/predstavnici/popis.php');
         }
-        $('.odustanidetalj').click(function(){
+        $('.odustanidetalj').click(function(e){
+          e.preventDefault();
           if(confirm("Jesi li siguran/sigurna da ne želiš sačuvati unesene podatke?") == true){
             $('.detalji').hide();
             $('.popis').show();
           }else{
 
           }
+          return false;
         });
 
          /* klikanje */
@@ -769,15 +779,44 @@
           populiraj($(this).parent().children('td:first').html());
           $('.popis').hide();
           $('.detalji').show();
-        	console.log($(this).parent().children('td:first').html());
         });
 
         $('.redraw').click(function(){
-        	kolbekica();
+        	obrada();
         });
-
         /*ono spremanje*/
-        $("#detaljforma").submit(function(){
+        $("#detaljforma").submit(function(e){
+          e.preventDefault();
+          var arej=[
+             $('input[name=rdbr]').val(),
+             $('input[name=ime]').val(),
+             $('input[name=prezime]').val(),
+             $('select[name=zupanija]').val(),
+             $('input[name=grad]').val(),
+             $('input[name=adresa]').val(),
+             $('input[name=ustanova]').val(),
+             $('select[name=ugovorni] option:selected').html(),
+             $('select[name=radnovrijeme] option:selected').html(),
+             $('select[name=zanimanje] option').val(),
+             $('select[name=specijalizacija] option').val(),
+             $('select[name=emedikus] option:selected').attr('value'),
+             $('select[name=segment] option:selected').html(),
+             $('input[name=posjecen]').val(),
+             $('select[name=spol] option').val(),
+             $('input[name=email]').val(),
+             $('input[name=telefon]').val(),
+             $('input[name=datum_rod]').val(),
+             $('input[name=br_pacijenata]').val(),
+             $('input[name=sestra]').val(),
+             $('select[name=podrucja_interesa] option').val(),
+             $('select[name=kanal] option').val(),
+             $('select[name=konkurencija_ord] option:selected').html(),
+             $('textarea[name=napomene]').val()
+          ];
+          localStorage.setItem("dr"+(-1+parseInt($('input[name=rdbr]').val())), JSON.stringify(arej));
+          obrada();
+          $('.detalji').hide();
+          $('.popis').show();
           return false;
         });
 
@@ -812,7 +851,6 @@
     			            this.api().columns().every( function (a) {
                         if(a==3||a==4||a==8||a==12||a==13){
     			                var column = this;
-    			                console.log($(column.footer()));
     			                var select = $('<select><option value=""></option></select>')
     			                    .appendTo( $('.filteri') ) /*$(column.footer()).empty()*/
     			                    .on( 'change', function () {
@@ -832,20 +870,25 @@
     			            } );
     			        }
     			});
+
+          $('#detaljforma option:selected').removeAttr('selected');
+          $('#detaljforma input').val('');
+          $('#detaljforma textarea').val('');
     }
 
 
     function populiraj(ajdi){
-      $('#detaljforma input').val('');
-      $('#detaljforma select').removeAttr('selected');
       ajdi=parseInt(ajdi);
-      if (localStorage.getItem("dr"+ajdi) !== null) {
+      if (localStorage.getItem("dr"+(-1+ajdi)) !== null) {
            redak=JSON.parse(localStorage.getItem("dr"+(-1+ajdi)));
         }else{
-          redak=jsonPop.aaData[-1+ajdi];
+          redak=jsonPop.aaData[-1+parseInt(ajdi)];
         }
       $.each(redak, function(ulaz, izlaz){
         switch(ulaz) {
+           case 0:
+              $('input[name=rdbr]').val(izlaz);
+              break;
           case 1:
               $('input[name=ime]').val(izlaz);
               break;
@@ -853,7 +896,7 @@
               $('input[name=prezime]').val(izlaz);
               break;
           case 3:
-              $('select[name=zupanija] option').filter(function () { return $(this).val() == izlaz; }).attr('selected','selected');
+              $('select[name=zupanija] option').filter(function () { return $(this).val() == izlaz; }).attr('selected','selected').prop('selected','selected');
               break;
            case 4:
               $('input[name=grad]').val(izlaz);
@@ -865,28 +908,28 @@
               $('input[name=ustanova]').val(izlaz);
               break;
            case 7:
-              $('select[name=ugovorni] option').filter(function () { return $(this).html() == izlaz; }).attr('selected','selected');
+              $('select[name=ugovorni] option').filter(function () { return $(this).html() == izlaz; }).attr('selected','selected').prop('selected','selected');
               break;
            case 8:
-              $('select[name=radnovrijeme] option').filter(function () { return $(this).html() == izlaz; }).attr('selected','selected');
+              $('select[name=radnovrijeme] option').filter(function () { return $(this).html() == izlaz; }).attr('selected','selected').prop('selected','selected');
               break;
            case 9:
-               $('select[name=zanimanje] option').filter(function () { return $(this).html() == izlaz; }).attr('selected','selected');
+               $('select[name=zanimanje] option').filter(function () { return $(this).html() == izlaz; }).attr('selected','selected').prop('selected','selected');
               break;
            case 10:
-               $('select[name=specijalizacija] option').filter(function () { return $(this).html() == izlaz; }).attr('selected','selected');
+               $('select[name=specijalizacija] option').filter(function () { return $(this).html() == izlaz; }).attr('selected','selected').prop('selected','selected');
               break;
            case 11:
-               $('select[name=emedikus] option').filter(function () { return $(this).val() == izlaz; }).attr('selected','selected');
+               $('select[name=emedikus] option').filter(function () { return $(this).val() == izlaz; }).attr('selected','selected').prop('selected','selected');
               break;
            case 12:
-               $('select[name=segment] option').filter(function () { return $(this).val() == izlaz; }).attr('selected','selected');
+               $('select[name=segment] option').filter(function () { return $(this).val() == izlaz; }).attr('selected','selected').prop('selected','selected');
               break;
            case 13:
                $('input[name=posjecen]').val(izlaz);
               break;
            case 14:
-               $('select[name=spol] option').filter(function () { return $(this).val() == izlaz; }).attr('selected','selected');
+               $('select[name=spol] option').filter(function () { return $(this).val() == izlaz; }).attr('selected','selected').prop('selected','selected');
               break;
            case 15:
                $('input[name=email]').val(izlaz);
@@ -900,23 +943,29 @@
            case 18:
                $('input[name=br_pacijenata]').val(izlaz);
               break;
-           case 18:
+           case 19:
                $('input[name=sestra]').val(izlaz);
               break;
-           case 14:
-               $('select[name=podrucja_interesa] option').filter(function () { return $(this).html() == izlaz; }).attr('selected','selected');
+           case 20:
+               $('select[name=podrucja_interesa] option').filter(function () { return $(this).html() == izlaz; }).attr('selected','selected').prop('selected','selected');
+              break;
+           case 21:
+               $('select[name=kanal] option').filter(function () { return $(this).html() == izlaz; }).attr('selected','selected').prop('selected','selected');
+              break;
+           case 22:
+               $('select[name=konkurencija_ord] option').filter(function () { return $(this).html() == izlaz; }).attr('selected','selected').prop('selected','selected');
+              break;
+           case 23:
+               $('textarea[name=napomene]').val(izlaz);
               break;
       
       }
-      console.log(ulaz+'  = '+ izlaz);
       });
       
     }
 
 
-$(function() {
-    FastClick.attach(document.body);
-});
+
 
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
