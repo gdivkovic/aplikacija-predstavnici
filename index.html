@@ -674,7 +674,8 @@
 
 
                   <div style="position:fixed; bottom:20px; right:20px;">
-                      <button class="btn btn-primary spremidetalj">SPREMI</button>
+                      <button class="btn btn-primary btn-sm odustanidetalj">Odustani</button> &nbsp;
+                      <button class="btn btn-primary btn-lg spremidetalj">SPREMI</button>
                     </div>
 
               </form>
@@ -754,7 +755,14 @@
           localStorage.clear();
           $('#exe').load('https://www.dedal.hr/predstavnici/popis.php');
         }
+        $('.odustanidetalj').click(function(){
+          if(confirm("Jesi li siguran/sigurna da ne želiš sačuvati unesene podatke?") == true){
+            $('.detalji').hide();
+            $('.popis').show();
+          }else{
 
+          }
+        });
 
          /* klikanje */
         $('#datatable-ajax').on('click tap', 'td', function(){
@@ -828,6 +836,8 @@
 
 
     function populiraj(ajdi){
+      $('#detaljforma input').val('');
+      $('#detaljforma select').removeAttr('selected');
       ajdi=parseInt(ajdi);
       if (localStorage.getItem("dr"+ajdi) !== null) {
            redak=JSON.parse(localStorage.getItem("dr"+(-1+ajdi)));
@@ -879,10 +889,22 @@
                $('select[name=spol] option').filter(function () { return $(this).val() == izlaz; }).attr('selected','selected');
               break;
            case 15:
-               $('select[name=email] option').filter(function () { return $(this).val() == izlaz; }).attr('selected','selected');
+               $('input[name=email]').val(izlaz);
               break;
            case 16:
-               $('select[name=telefon] option').filter(function () { return $(this).val() == izlaz; }).attr('selected','selected');
+               $('input[name=telefon]').val(izlaz);
+              break;
+           case 17:
+               $('input[name=datum_rod]').val(izlaz);
+              break;
+           case 18:
+               $('input[name=br_pacijenata]').val(izlaz);
+              break;
+           case 18:
+               $('input[name=sestra]').val(izlaz);
+              break;
+           case 14:
+               $('select[name=podrucja_interesa] option').filter(function () { return $(this).html() == izlaz; }).attr('selected','selected');
               break;
       
       }
