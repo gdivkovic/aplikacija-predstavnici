@@ -385,7 +385,7 @@
 
 
          /* klikanje */
-        $('#datatable-ajax').on('click', 'td', function(){
+        $('#datatable-ajax').on('click touchstart tap', 'td', function(){
           $('.popis').hide();
           $('.detalji').show();
         	console.log($(this).parent().children('td:first').html());
@@ -452,13 +452,13 @@
 
     <script>
                         $(function(){
-                          $('.test1').click(function(){
+                          $('.test1').on('click touchstart tap', function(){
                             alert('KUL');
                           });
-                          $('.test2').click(function(){
+                          $('.test2').on('click touchstart tap', function(){
                             alert('KUL');
                           });
-                          $('.test3').click(function(){
+                          $('.test3').on('click touchstart tap', function(){
                             alert('KUL');
                           });
                         });
