@@ -39,6 +39,15 @@
 		<script src="files/assets/vendor/modernizr/modernizr.js"></script>
 
     <script src="phonegap.js"></script>
+
+    <style>
+    td {cursor: pointer;}
+    </style>
+    <script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+    </script>>
 	</head>
 	<body>
 		<section class="body">
@@ -70,7 +79,7 @@
 									</header>
 									<div class="panel-body">
 									<div>Filteri: <span class="filteri"></span></div>
-										<div style="width:500px; overflow:auto;">
+										<div style="width:950px; overflow:auto;">
                       <table class="table table-bordered table-striped" id="datatable-ajax">
   											<thead>
   												<tr>
@@ -93,6 +102,9 @@
   											<tbody>
   											</tbody>
   										</table><a href="#" class="redraw">Redraw</a>
+                      <a href="#" class="test1">Proba sa A</a>
+                      <span class="test2">Proba sa SPAN</span>
+                      <div class="test3">Proba sa DIV</div>
                     </div>
 
 
