@@ -19,7 +19,7 @@
 		<link rel="stylesheet" href="files/assets/vendor/bootstrap/css/bootstrap.css" />
 		<link rel="stylesheet" href="files/assets/vendor/font-awesome/css/font-awesome.css" />
 		<link rel="stylesheet" href="files/assets/vendor/magnific-popup/magnific-popup.css" />
-		<!--<link rel="stylesheet" href="files/assets/vendor/bootstrap-datepicker/css/datepicker3.css" />-->
+		<link rel="stylesheet" href="files/assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
 
 		<!-- Specific Page Vendor CSS -->
 		<link rel="stylesheet" href="files/assets/vendor/select2/select2.css" />
@@ -106,9 +106,6 @@
   										</table>
                       <div>
                         <a href="#" class="redraw">Refresh</a>
-                         <div style="position:fixed; bottom:20px; right:20px;">
-                            <button type="button" class="btn-lg btn-primary novi-dr"><i class="fa fa-plus"></i> Novi liječnik</button>
-                        </div>
                        
                       </div>
 
@@ -152,7 +149,7 @@
                         <div class="col-sm-6">
                           <div class="form-group">
                             <label class="control-label">Posjećen</label>
-                            <input type="date" name="posjecen" class="form-control posjecen">
+                            <input type="text" name="posjecen" class="form-control posjecen">
                           </div>
                         </div>
                         <div class="col-sm-6">
@@ -373,19 +370,19 @@
                         <div class="col-sm-6">
                           <div class="form-group">
                             <label class="control-label">Datum rođ.</label>
-                            <input type="date" name="datum_rod" class="form-control datum_rod">
+                            <input type="text" name="datum_rod" class="form-control datum_rod">
                           </div>
                         </div>
                         <div class="col-sm-6">
                           <div class="form-group">
                             <label class="control-label">E-mail</label>
-                            <input type="email" name="email" class="form-control">
+                            <input type="text" name="email" class="form-control">
                           </div>
                         </div>
                         <div class="col-sm-6">
                           <div class="form-group">
                             <label class="control-label">Telefon</label>
-                            <input  type="tel" name="telefon" class="form-control">
+                            <input  type="text" name="telefon" class="form-control">
                           </div>
                         </div>                       
                      
@@ -515,7 +512,7 @@
                               <option>Karl Storz</option>
                               <option>Krka</option>
                               <option>Lilly</option>
-                              <option>Lohman & Rauscher</option>
+                              <option>Lohman &Rauscher</option>
                               <option>Lundbeck</option>
                               <option>Medilab</option>
                               <option>Medis Adria</option>
@@ -686,8 +683,8 @@
 
 
                   <div style="position:fixed; bottom:20px; right:20px;">
-                        <button class="btn btn-primary btn-sm odustanidetalj">Odustani</button> &nbsp;
-                        <button class="btn btn-primary btn-lg spremidetalj">SPREMI</button>
+                      <button class="btn btn-primary btn-sm odustanidetalj">Odustani</button> &nbsp;
+                      <button class="btn btn-primary btn-lg spremidetalj">SPREMI</button>
                     </div>
 
               </form>
@@ -725,7 +722,7 @@
 		<script src="files/assets/vendor/nanoscroller/nanoscroller.js"></script>
 		<script src="files/assets/vendor/magnific-popup/magnific-popup.js"></script>
 		<script src="files/assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
-    <!--<script src="files/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>-->
+    <script src="files/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
   
 		
 		<!-- Specific Page Vendor -->
@@ -774,9 +771,6 @@
           }else{
 
           }
-          $('#detaljforma option:selected').removeAttr('selected');
-          $('#detaljforma input').val('');
-          $('#detaljforma textarea').val('');
           return false;
         });
 
@@ -786,13 +780,6 @@
           $('.popis').hide();
           $('.detalji').show();
         });
-
-        $('.novi-dr').on('click tap', function(){
-          $('.popis').hide();
-          $('.detalji').show();
-        });
-
-
 
         $('.redraw').click(function(){
         	obrada();
@@ -815,7 +802,7 @@
              $('select[name=emedikus] option:selected').attr('value'),
              $('select[name=segment] option:selected').html(),
              $('input[name=posjecen]').val(),
-             $('select[name=spol] option:selected').val(),
+             $('select[name=spol] option').val(),
              $('input[name=email]').val(),
              $('input[name=telefon]').val(),
              $('input[name=datum_rod]').val(),
@@ -833,13 +820,13 @@
           return false;
         });
 
-        /* datepickeri 
+        /* datepickeri */
         $('.posjecen').datepicker({
                   format: 'yyyy-mm-dd'
               });
         $('.datum_rod').datepicker({
                   format: 'yyyy-mm-dd'
-              });*/
+              });
     });
 
     function obrada(){
@@ -884,7 +871,9 @@
     			        }
     			});
 
-          
+          $('#detaljforma option:selected').removeAttr('selected');
+          $('#detaljforma input').val('');
+          $('#detaljforma textarea').val('');
     }
 
 
@@ -892,7 +881,6 @@
       ajdi=parseInt(ajdi);
       if (localStorage.getItem("dr"+(-1+ajdi)) !== null) {
            redak=JSON.parse(localStorage.getItem("dr"+(-1+ajdi)));
-           //alert(localStorage.getItem("dr"+(-1+ajdi)));
         }else{
           redak=jsonPop.aaData[-1+parseInt(ajdi)];
         }
@@ -908,7 +896,7 @@
               $('input[name=prezime]').val(izlaz);
               break;
           case 3:
-              $('select[name=zupanija] option').filter(function () { return $(this).val() == izlaz; }).prop('selected',true);
+              $('select[name=zupanija] option').filter(function () { return $(this).val() == izlaz; }).attr('selected','selected').prop('selected','selected');
               break;
            case 4:
               $('input[name=grad]').val(izlaz);
@@ -920,28 +908,28 @@
               $('input[name=ustanova]').val(izlaz);
               break;
            case 7:
-              $('select[name=ugovorni] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+              $('select[name=ugovorni] option').filter(function () { return $(this).html() == izlaz; }).attr('selected','selected').prop('selected','selected');
               break;
            case 8:
-              $('select[name=radnovrijeme] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+              $('select[name=radnovrijeme] option').filter(function () { return $(this).html() == izlaz; }).attr('selected','selected').prop('selected','selected');
               break;
            case 9:
-               $('select[name=zanimanje] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+               $('select[name=zanimanje] option').filter(function () { return $(this).html() == izlaz; }).attr('selected','selected').prop('selected','selected');
               break;
            case 10:
-               $('select[name=specijalizacija] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+               $('select[name=specijalizacija] option').filter(function () { return $(this).html() == izlaz; }).attr('selected','selected').prop('selected','selected');
               break;
            case 11:
-               $('select[name=emedikus] option').filter(function () { return $(this).val() == izlaz; }).prop('selected',true);
+               $('select[name=emedikus] option').filter(function () { return $(this).val() == izlaz; }).attr('selected','selected').prop('selected','selected');
               break;
            case 12:
-               $('select[name=segment] option').filter(function () { return $(this).val() == izlaz; }).prop('selected',true);
+               $('select[name=segment] option').filter(function () { return $(this).val() == izlaz; }).attr('selected','selected').prop('selected','selected');
               break;
            case 13:
                $('input[name=posjecen]').val(izlaz);
               break;
            case 14:
-               $('select[name=spol] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+               $('select[name=spol] option').filter(function () { return $(this).val() == izlaz; }).attr('selected','selected').prop('selected','selected');
               break;
            case 15:
                $('input[name=email]').val(izlaz);
@@ -959,13 +947,13 @@
                $('input[name=sestra]').val(izlaz);
               break;
            case 20:
-               $('select[name=podrucja_interesa] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+               $('select[name=podrucja_interesa] option').filter(function () { return $(this).html() == izlaz; }).attr('selected','selected').prop('selected','selected');
               break;
            case 21:
-               $('select[name=kanal] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+               $('select[name=kanal] option').filter(function () { return $(this).html() == izlaz; }).attr('selected','selected').prop('selected','selected');
               break;
            case 22:
-               $('select[name=konkurencija_ord] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+               $('select[name=konkurencija_ord] option').filter(function () { return $(this).html() == izlaz; }).attr('selected','selected').prop('selected','selected');
               break;
            case 23:
                $('textarea[name=napomene]').val(izlaz);
