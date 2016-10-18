@@ -951,8 +951,10 @@
         /*ono spremanje*/
         $("#detaljforma").submit(function(e){
           e.preventDefault();
+          var utc = new Date().toJSON();
           $('.loading').show();
-          var arej=[
+          navigator.geolocation.getCurrentPosition(function(){
+            var arej=[
              $('input[name=rdbr]').val(),
              $('input[name=ime]').val(),
              $('input[name=prezime]').val(),
@@ -976,10 +978,15 @@
              $('select[name=podrucja_interesa] option').val(),
              $('select[name=kanal] option').val(),
              $('select[name=konkurencija_ord] option:selected').html(),
-             $('textarea[name=napomene]').val()
-          ];
-          localStorage.setItem("dr"+(-1+parseInt($('input[name=rdbr]').val())), JSON.stringify(arej));
-          writeToFile('logovi.csv', JSON.stringify(arej));
+             $('textarea[name=napomene]').val(),
+             position.coords.longitude,
+             position.coords.latitude,
+             utd
+            ];
+            localStorage.setItem("dr"+(-1+parseInt($('input[name=rdbr]').val())), JSON.stringify(arej));
+              writeToFile('logovi.csv', '"'+arej.join('"; "')+'"; "'+position.coords.longitude+'"; "'+position.coords.latitude+'"; "'+utc+'"'+'\n\r');
+            }, function(){});
+          
           obrada();
           $('.detalji').hide();
           $('.popis').show();
