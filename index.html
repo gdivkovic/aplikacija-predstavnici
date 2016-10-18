@@ -752,9 +752,9 @@
 
 	 function writeToFile(fileName, data) {
 	 	alert('1');
-        window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function (directoryEntry) {
+        window.resolveLocalFileSystemURL(cordova.file.documentsDirectory, function (directoryEntry) {
         	alert('2');
-            directoryEntry.getFile(fileName, { create: true }, function (fileEntry) {
+            /*directoryEntry.getFile(fileName, { create: true }, function (fileEntry) {
             	alert('3');
                 fileEntry.createWriter(function (fileWriter) {
                 	alert('4');
@@ -776,8 +776,8 @@
                     fileWriter.write(blob);
                     alert('9');
                 }, errorHandler.bind(null, fileName));
-            }, errorHandler.bind(null, fileName));
-        }, errorHandler.bind(null, fileName));
+            }, errorHandler.bind(null, fileName));*/
+        });
     }
 
 
