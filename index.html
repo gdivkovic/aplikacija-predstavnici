@@ -752,7 +752,7 @@
 
 	 function writeToFile(fileName, data) {
 	 	alert('1');
-        window.resolveLocalFileSystemURL(cordova.file.documentsDirectory, function (directoryEntry) {
+        window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function (directoryEntry) {
         	alert('2');
             directoryEntry.getFile(fileName, { create: true }, function (fileEntry) {
             	alert('3');
