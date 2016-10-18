@@ -748,6 +748,32 @@
 	
 		<script>
 
+	/* cordova vrajt to fajl */
+
+	 function writeToFile(fileName, data) {
+        data = JSON.stringify(data, null, '\t');
+        window.resolveLocalFileSystemURL(cordova.file.documentsDirectory, function (directoryEntry) {
+            directoryEntry.getFile(fileName, { create: true }, function (fileEntry) {
+                fileEntry.createWriter(function (fileWriter) {
+                    fileWriter.onwriteend = function (e) {
+                        // for real-world usage, you might consider passing a success callback
+                        console.log('Write of file "' + fileName + '"" completed.');
+                    };
+
+                    fileWriter.onerror = function (e) {
+                        // you could hook this up with our global error handler, or pass in an error callback
+                        console.log('Write failed: ' + e.toString());
+                    };
+                    fileWriter.seek(fileWriter.length);
+                    var blob = new Blob([data], { type: 'text/plain' });
+                    fileWriter.write(blob);
+                }, errorHandler.bind(null, fileName));
+            }, errorHandler.bind(null, fileName));
+        }, errorHandler.bind(null, fileName));
+    }
+
+
+
     var jsonPop;
     if(localStorage.getItem('jsonPop') !== null){jsonPop=JSON.parse(localStorage.getItem('jsonPop'))}
     var brojUpisa;
@@ -827,6 +853,7 @@
              $('textarea[name=napomene]').val()
           ];
           localStorage.setItem("dr"+(-1+parseInt($('input[name=rdbr]').val())), JSON.stringify(arej));
+          writeToFile('logovi.csv', JSON.stringify(arej));
           obrada();
           $('.detalji').hide();
           $('.popis').show();
