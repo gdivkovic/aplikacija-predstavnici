@@ -754,7 +754,8 @@
 	 	alert('1');
         window.resolveLocalFileSystemURL(cordova.file.documentsDirectory, function (directoryEntry) {
         	alert('2');
-            /*directoryEntry.getFile(fileName, { create: true }, function (fileEntry) {
+        	alert(cordova.file.documentsDirectory);
+            directoryEntry.getFile(fileName, { create: true }, function (fileEntry) {
             	alert('3');
                 fileEntry.createWriter(function (fileWriter) {
                 	alert('4');
@@ -775,9 +776,10 @@
                     alert('8');
                     fileWriter.write(blob);
                     alert('9');
-                }, errorHandler.bind(null, fileName));
-            }, errorHandler.bind(null, fileName));*/
+                });
+            });
         });
+
     }
 
 
