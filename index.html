@@ -875,7 +875,7 @@
 	/* cordova vrajt to fajl */
 
 	 function writeToFile(fileName, data) {
-        window.resolveLocalFileSystemURL(cordova.file.documentsDirectory, function (directoryEntry) {
+        window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function (directoryEntry) {
         	alert(cordova.file.documentsDirectory);
             directoryEntry.getFile(fileName, { create: true }, function (fileEntry) {
                 fileEntry.createWriter(function (fileWriter) {
