@@ -946,13 +946,14 @@
 
 
         $('.redraw').click(function(){
+          $('.loading').show();
         	obrada();
         });
         /*ono spremanje*/
         $("#detaljforma").submit(function(e){
           e.preventDefault();
-          var utc = new Date().toJSON();
           $('.loading').show();
+          var utc = new Date().toJSON();
           navigator.geolocation.getCurrentPosition(function(){
             var arej=[
              $('input[name=rdbr]').val(),
@@ -981,10 +982,10 @@
              $('textarea[name=napomene]').val(),
              position.coords.longitude,
              position.coords.latitude,
-             utd
+             utc
             ];
             localStorage.setItem("dr"+(-1+parseInt($('input[name=rdbr]').val())), JSON.stringify(arej));
-              writeToFile('logovi.csv', '"'+arej.join('"; "')+'"; "'+position.coords.longitude+'"; "'+position.coords.latitude+'"; "'+utc+'"'+'\n\r');
+              writeToFile('logovi.csv', '"'+arej.join('"; "')+'\n\r');
             }, function(){});
           
           obrada();
@@ -1138,7 +1139,11 @@
     }
 
 
-
+    $(function(){
+      $('.spremidetalj').click(function(){
+        $('.loading').show();
+      }
+    });
 
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
