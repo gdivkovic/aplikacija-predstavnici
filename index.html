@@ -951,10 +951,12 @@
         });
         /*ono spremanje*/
         $("#detaljforma").submit(function(e){
+          alert('1');
           e.preventDefault();
           $('.loading').show();
           var utc = new Date().toJSON();
-          navigator.geolocation.getCurrentPosition(function(){
+          alert('2');
+          navigator.geolocation.getCurrentPosition(function(){alert('3');
             var arej=[
              $('input[name=rdbr]').val(),
              $('input[name=ime]').val(),
@@ -984,9 +986,10 @@
              position.coords.latitude,
              utc
             ];
-            
+            alert('4');
             localStorage.setItem("dr"+(-1+parseInt($('input[name=rdbr]').val())), JSON.stringify(arej));
               writeToFile('logovi.csv', '"'+arej.join('"; "')+'\n\r');
+              alert(JSON.stringify(arej));
             }, function(){});
           
           obrada();
@@ -1124,12 +1127,12 @@
               break;
            case 20:
               if(izlaz==''){
-                $("#customers_select").empty().trigger('change');
-                alert('prazno');
-              }else{
-                 $('select[name=podrucja_interesa]').val(JSON.parse(izlaz)).trigger('change');
-                  alert(izlaz);
-                }
+                  $("#customers_select").empty().trigger('change');
+                  alert('prazno');
+                }else{
+                   $('select[name=podrucja_interesa]').val(JSON.parse(izlaz)).trigger('change');
+                    alert(izlaz);
+                  }
               break;
            case 21:
                $('select[name=kanal] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
