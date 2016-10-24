@@ -955,6 +955,35 @@
           e.preventDefault();
           $('.loading').show();
           var utc = new Date().toJSON();
+          /*tmp*/
+ var arej=[
+             $('input[name=rdbr]').val(),
+             $('input[name=ime]').val(),
+             $('input[name=prezime]').val(),
+             $('select[name=zupanija]').val(),
+             $('input[name=grad]').val(),
+             $('input[name=adresa]').val(),
+             $('input[name=ustanova]').val(),
+             $('select[name=ugovorni] option:selected').html(),
+             $('select[name=radnovrijeme] option:selected').html(),
+             $('select[name=zanimanje] option').val(),
+             $('select[name=specijalizacija] option').val(),
+             $('select[name=emedikus] option:selected').attr('value'),
+             $('select[name=segment] option:selected').html(),
+             $('input[name=posjecen]').val(),
+             $('select[name=spol] option:selected').val(),
+             $('input[name=email]').val(),
+             $('input[name=telefon]').val(),
+             $('input[name=datum_rod]').val(),
+             $('input[name=br_pacijenata]').val(),
+             $('input[name=sestra]').val(),
+             $('select[name=podrucja_interesa]').val(),
+             $('select[name=kanal] option').val(),
+             $('select[name=konkurencija_ord] option:selected').html(),
+             $('textarea[name=napomene]').val(),
+             utc];
+             alert(JSON.stringify(arej));
+          /* tmp*/
           alert('2');
           navigator.geolocation.getCurrentPosition(function(){alert('3');
             var arej=[
@@ -990,11 +1019,12 @@
             localStorage.setItem("dr"+(-1+parseInt($('input[name=rdbr]').val())), JSON.stringify(arej));
               writeToFile('logovi.csv', '"'+arej.join('"; "')+'\n\r');
               alert(JSON.stringify(arej));
-            }, function(){});
+              
           
           obrada();
           $('.detalji').hide();
           $('.popis').show();
+            }, function(msg){alert('error:' +msg);});
           return false;
         });
 
