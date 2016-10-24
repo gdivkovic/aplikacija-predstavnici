@@ -406,7 +406,7 @@
                        <div class="col-sm-6">
                           <div class="form-group">
                             <label class="control-label">Kanali komunikacije</label>
-                            <select name="kanali_kom" class="form-control">
+                            <select multiple name="kanali_kom" data-plugin-selectTwo class="form-control populate">
                               <option></option>
                               <option>F2F</option>
                               <option>telefon</option>
@@ -423,7 +423,7 @@
                         <div class="col-sm-6">
                           <div class="form-group">
                             <label class="control-label">Područja interesa</label>
-                            <select name="podrucja_interesa" class="form-control">
+                            <select multiple name="podrucja_interesa" data-plugin-selectTwo class="form-control populate">
                               <option></option>
                                 <option>Alergologija i imunologija</option>                 
                                 <option>Citologija</option>                 
@@ -976,7 +976,7 @@
              $('input[name=datum_rod]').val(),
              $('input[name=br_pacijenata]').val(),
              $('input[name=sestra]').val(),
-             $('select[name=podrucja_interesa] option').val(),
+             $('select[name=podrucja_interesa]').val(),
              $('select[name=kanal] option').val(),
              $('select[name=konkurencija_ord] option:selected').html(),
              $('textarea[name=napomene]').val(),
@@ -984,6 +984,7 @@
              position.coords.latitude,
              utc
             ];
+            
             localStorage.setItem("dr"+(-1+parseInt($('input[name=rdbr]').val())), JSON.stringify(arej));
               writeToFile('logovi.csv', '"'+arej.join('"; "')+'\n\r');
             }, function(){});
@@ -1121,7 +1122,7 @@
                $('input[name=sestra]').val(izlaz);
               break;
            case 20:
-               $('select[name=podrucja_interesa] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+               $('select[name=podrucja_interesa]').select2({val: izlaz});
               break;
            case 21:
                $('select[name=kanal] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
