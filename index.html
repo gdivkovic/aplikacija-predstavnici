@@ -966,8 +966,8 @@
              $('input[name=ustanova]').val(),
              $('select[name=ugovorni] option:selected').html(),
              $('select[name=radnovrijeme] option:selected').html(),
-             $('select[name=zanimanje] option').val(),
-             $('select[name=specijalizacija] option').val(),
+             $('select[name=zanimanje] option:selected').html(),
+             $('select[name=specijalizacija] option:selected').html(),
              $('select[name=emedikus] option:selected').attr('value'),
              $('select[name=segment] option:selected').html(),
              $('input[name=posjecen]').val(),
@@ -978,14 +978,15 @@
              $('input[name=br_pacijenata]').val(),
              $('input[name=sestra]').val(),
              $('select[name=podrucja_interesa]').val(),
-             $('select[name=kanal] option').val(),
+             $('select[name=kanal]').val(),
              $('select[name=konkurencija_ord] option:selected').html(),
              $('textarea[name=napomene]').val(),
-             utc];
+             utc
+            ];
              alert(JSON.stringify(arej));
           /* tmp*/
           alert('2');
-          navigator.geolocation.getCurrentPosition(function(){alert('3');
+          navigator.geolocation.getCurrentPosition(function(){alert(position.coords.longitude);alert(position.coords.latitude);
             var arej=[
              $('input[name=rdbr]').val(),
              $('input[name=ime]').val(),
@@ -996,8 +997,8 @@
              $('input[name=ustanova]').val(),
              $('select[name=ugovorni] option:selected').html(),
              $('select[name=radnovrijeme] option:selected').html(),
-             $('select[name=zanimanje] option').val(),
-             $('select[name=specijalizacija] option').val(),
+             $('select[name=zanimanje] option:selected').html(),
+             $('select[name=specijalizacija] option:selected').html(),
              $('select[name=emedikus] option:selected').attr('value'),
              $('select[name=segment] option:selected').html(),
              $('input[name=posjecen]').val(),
@@ -1008,7 +1009,7 @@
              $('input[name=br_pacijenata]').val(),
              $('input[name=sestra]').val(),
              $('select[name=podrucja_interesa]').val(),
-             $('select[name=kanal] option').val(),
+             $('select[name=kanal]').val(),
              $('select[name=konkurencija_ord] option:selected').html(),
              $('textarea[name=napomene]').val(),
              position.coords.longitude,
@@ -1019,7 +1020,7 @@
             localStorage.setItem("dr"+(-1+parseInt($('input[name=rdbr]').val())), JSON.stringify(arej));
               writeToFile('logovi.csv', '"'+arej.join('"; "')+'\n\r');
               alert(JSON.stringify(arej));
-              
+
           
           obrada();
           $('.detalji').hide();
