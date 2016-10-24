@@ -876,7 +876,7 @@
 
 	 function writeToFile(fileName, data) {
         window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function (directoryEntry) {
-        	alert(cordova.file.documentsDirectory);
+        	alert(cordova.file.documentsDirectory+data);
             directoryEntry.getFile(fileName, { create: true }, function (fileEntry) {
                 fileEntry.createWriter(function (fileWriter) {
                     fileWriter.onwriteend = function (e) {
@@ -951,42 +951,11 @@
         });
         /*ono spremanje*/
         $("#detaljforma").submit(function(e){
-          alert('1');
           e.preventDefault();
           $('.loading').show();
           var utc = new Date().toJSON();
-          /*tmp*/
-var arej=[
-             $('input[name=rdbr]').val(),
-             $('input[name=ime]').val(),
-             $('input[name=prezime]').val(),
-             $('select[name=zupanija]').val(),
-             $('input[name=grad]').val(),
-             $('input[name=adresa]').val(),
-             $('input[name=ustanova]').val(),
-             $('select[name=ugovorni] option:selected').html(),
-             $('select[name=radnovrijeme] option:selected').html(),
-             $('select[name=zanimanje] option:selected').html(),
-             $('select[name=specijalizacija] option:selected').html(),
-             $('select[name=emedikus] option:selected').attr('value'),
-             $('select[name=segment] option:selected').html(),
-             $('input[name=posjecen]').val(),
-             $('select[name=spol] option:selected').val(),
-             $('input[name=email]').val(),
-             $('input[name=telefon]').val(),
-             $('input[name=datum_rod]').val(),
-             $('input[name=br_pacijenata]').val(),
-             $('input[name=sestra]').val(),
-             $('select[name=podrucja_interesa]').val(),
-             $('select[name=kanal]').val(),
-             $('select[name=konkurencija_ord] option:selected').html(),
-             $('textarea[name=napomene]').val(),
-             utc
-            ];
-             alert(JSON.stringify(arej));
-          /* tmp*/
-          alert('2');
-          navigator.geolocation.getCurrentPosition(function(position){alert(position.coords.longitude);alert(position.coords.latitude);
+          
+          navigator.geolocation.getCurrentPosition(function(position){
             var arej=[
              $('input[name=rdbr]').val(),
              $('input[name=ime]').val(),
@@ -1157,7 +1126,7 @@ var arej=[
                $('input[name=sestra]').val(izlaz);
               break;
            case 20:
-              if(izlaz==''){
+              if(izlaz=='null'){
                   $("#customers_select").empty().trigger('change');
                   alert('prazno');
                 }else{
