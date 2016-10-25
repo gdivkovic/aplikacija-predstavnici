@@ -881,15 +881,18 @@
                     fileWriter.onwriteend = function (e) {
                         // for real-world usage, you might consider passing a success callback
                         console.log('Write of file "' + fileName + '"" completed.');
+                        alert('napisano');
                     };
 
                     fileWriter.onerror = function (e) {
                         // you could hook this up with our global error handler, or pass in an error callback
                         console.log('Write failed: ' + e.toString());
+                        alert('nenapisano: ' + e.toString());
                     };
                     fileWriter.seek(fileWriter.length);
                     var blob = new Blob([data], { type: 'text/plain' });
                     fileWriter.write(blob);
+                    alert('kraj');
                 });
             });
         });
