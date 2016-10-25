@@ -929,12 +929,9 @@
 
         $('.spremi').click(function(){
           var data;
-          alert('spremi');
-          alert(brojUpisa);
           for(x=0;x<brojUpisa;x++){alert(x);
             if (localStorage.getItem("dr"+x) !== null) {
-              alert(localStorage.getItem("dr"+x));
-               data[x]=JSON.parse(localStorage.getItem("dr"+x));
+               data[x]=localStorage.getItem("dr"+x);
             }
           }
           alert('ready to save');
