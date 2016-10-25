@@ -927,8 +927,10 @@
 
         /* sejvanje */
 
-        $('.spremi').click(function(){alert('spremi');
+        $('.spremi').click(function(){
           var data;
+          alert('spremi');
+          alert(brojUpisa);
           for(x=0;x<brojUpisa;x++){
             if (localStorage.getItem("dr"+x) !== null) {
                data[x]=JSON.parse(localStorage.getItem("dr"+x));
