@@ -876,32 +876,35 @@
 
 	 function writeToFile(fileName, data) {
         window.resolveLocalFileSystemURL(cordova.file.documentsDirectory, function (directoryEntry) {
-          alert('1');
             directoryEntry.getFile(fileName, { create: true }, function (fileEntry) {
-              alert('2');
                 fileEntry.createWriter(function (fileWriter) {
-                  alert('3');
                     fileWriter.onwriteend = function (e) {
                         // for real-world usage, you might consider passing a success callback
                         console.log('Write of file "' + fileName + '"" completed.');
-                        alert('napisano');
                     };
 
                     fileWriter.onerror = function (e) {
                         // you could hook this up with our global error handler, or pass in an error callback
                         console.log('Write failed: ' + e.toString());
-                        alert('nenapisano: ' + e.toString());
                     };
-                    alert('4');
                     fileWriter.seek(fileWriter.length);
-                    alert(fileWriter.length);
                     var blob = new Blob([data], { type: 'text/plain' });
                     fileWriter.write(blob);
-                    alert('kraj');
                 });
             });
         });
 
+    }
+
+    function saveToDedal(data){
+      $.ajax({
+          url: 'http://dedal.hr/predstavnici/upload.php',
+          type: 'POST',
+          data: { value: data, id:ajdiTableta},
+          success: function(result) {
+              alert('Odgovor sa servera: ' + result);
+          }
+      });
     }
 
 
@@ -920,6 +923,20 @@
             } else {
             }
         });
+
+        /* sejvanje */
+
+        $('.spremi').click(function(){
+          var data;
+          for(x=0;x<brojUpisa;x++){
+            if (localStorage.getItem("dr"+x) !== null) {
+               data[x]=JSON.parse(localStorage.getItem("dr"+x));
+            }
+          }
+          saveToDedal(data);
+        });
+
+
         function start(){
           localStorage.clear();
           $('#exe').load('https://www.dedal.hr/predstavnici/popis.php');
@@ -993,7 +1010,7 @@
              utc
             ];
             localStorage.setItem("dr"+(-1+parseInt($('input[name=rdbr]').val())), JSON.stringify(arej));
-              writeToFile('logovi.csv', '"'+arej.join('"; "')+'"\n\r');
+              writeToFile('logovi.csv', ''+arej.join('; ')+'\n\r');
 
           
           obrada();
@@ -1160,12 +1177,13 @@
         $('.loading').show();
       });
     });
-
+    var ajdiTableta;
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
         $(function(){
           obrada();
         });
+        ajdiTableta==device.uuid;
     }
 		</script>
 
