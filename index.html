@@ -987,6 +987,7 @@
             ];
             alert('4');
             localStorage.setItem("dr"+(-1+parseInt($('input[name=rdbr]').val())), JSON.stringify(arej));
+            alert(arej.join('"; "'));
               writeToFile('logovi.csv', '"'+arej.join('"; "')+'\n\r');
               alert(JSON.stringify(arej));
 
@@ -1061,7 +1062,7 @@
            //alert(localStorage.getItem("dr"+(-1+ajdi)));
         }else{
           redak=jsonPop.aaData[-1+parseInt(ajdi)];
-          alert('iz baze');
+          console.log(redak);
         }
       $.each(redak, function(ulaz, izlaz){
         switch(ulaz) {
@@ -1126,8 +1127,8 @@
                $('input[name=sestra]').val(izlaz);
               break;
            case 20:
-              if(izlaz=='null'){
-                  $("#customers_select").empty().trigger('change');
+              if(izlaz=='null'||izlaz==''){
+                  $("select[name=podrucja_interesa]").val([]).trigger('change');
                   alert('prazno');
                 }else{
                    $('select[name=podrucja_interesa]').val(JSON.parse(izlaz)).trigger('change');
