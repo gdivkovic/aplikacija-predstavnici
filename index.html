@@ -875,8 +875,7 @@
 	/* cordova vrajt to fajl */
 
 	 function writeToFile(fileName, data) {
-        window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function (directoryEntry) {
-        	alert(cordova.file.documentsDirectory+data);
+        window.resolveLocalFileSystemURL(cordova.file.documentsDirectory, function (directoryEntry) {
             directoryEntry.getFile(fileName, { create: true }, function (fileEntry) {
                 fileEntry.createWriter(function (fileWriter) {
                     fileWriter.onwriteend = function (e) {
@@ -985,11 +984,8 @@
              position.coords.latitude,
              utc
             ];
-            alert('4');
             localStorage.setItem("dr"+(-1+parseInt($('input[name=rdbr]').val())), JSON.stringify(arej));
-            alert(arej.join('"; "'));
               writeToFile('logovi.csv', '"'+arej.join('"; "')+'\n\r');
-              alert(JSON.stringify(arej));
 
           
           obrada();
@@ -1129,9 +1125,7 @@
            case 20:
               if(izlaz=='null'||izlaz==''){
                   $("select[name=podrucja_interesa]").val([]).trigger('change');
-                  alert('prazno');
                 }else{
-                  alert(izlaz);
                    /*$('select[name=podrucja_interesa]').val(JSON.parse(izlaz)).trigger('change');*/
                    $('select[name=podrucja_interesa]').val(izlaz).trigger('change');
                     
