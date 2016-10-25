@@ -897,6 +897,7 @@
     }
 
     function saveToDedal(data){
+      alert(JSON.stringify(data));
       $.ajax({
           url: 'http://dedal.hr/predstavnici/upload.php',
           type: 'POST',
@@ -933,6 +934,7 @@
                data[x]=JSON.parse(localStorage.getItem("dr"+x));
             }
           }
+          alert(JSON.stringify(data));
           saveToDedal(data);
         });
 
@@ -1009,7 +1011,12 @@
              position.coords.latitude,
              utc
             ];
+            if (localStorage.getItem("dr"+(-1+parseInt($('input[name=rdbr]').val()))) == null) {
+               brojUpisa=1+brojUpisa;
+               localStorage.setItem('brojUpisa', brojUpisa);
+            }
             localStorage.setItem("dr"+(-1+parseInt($('input[name=rdbr]').val())), JSON.stringify(arej));
+            
               writeToFile('logovi.csv', ''+arej.join('; ')+'\n\r');
 
           
