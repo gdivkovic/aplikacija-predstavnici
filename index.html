@@ -1131,8 +1131,10 @@
                   $("select[name=podrucja_interesa]").val([]).trigger('change');
                   alert('prazno');
                 }else{
-                   $('select[name=podrucja_interesa]').val(JSON.parse(izlaz)).trigger('change');
-                    alert(izlaz);
+                  alert(izlaz);
+                   /*$('select[name=podrucja_interesa]').val(JSON.parse(izlaz)).trigger('change');*/
+                   $('select[name=podrucja_interesa]').val(izlaz).trigger('change');
+                    
                   }
               break;
            case 21:
