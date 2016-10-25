@@ -876,8 +876,11 @@
 
 	 function writeToFile(fileName, data) {
         window.resolveLocalFileSystemURL(cordova.file.documentsDirectory, function (directoryEntry) {
+          alert('1');
             directoryEntry.getFile(fileName, { create: true }, function (fileEntry) {
+              alert('2');
                 fileEntry.createWriter(function (fileWriter) {
+                  alert('3');
                     fileWriter.onwriteend = function (e) {
                         // for real-world usage, you might consider passing a success callback
                         console.log('Write of file "' + fileName + '"" completed.');
@@ -889,7 +892,9 @@
                         console.log('Write failed: ' + e.toString());
                         alert('nenapisano: ' + e.toString());
                     };
+                    alert('4');
                     fileWriter.seek(fileWriter.length);
+                    alert(fileWriter.length);
                     var blob = new Blob([data], { type: 'text/plain' });
                     fileWriter.write(blob);
                     alert('kraj');
@@ -988,7 +993,7 @@
              utc
             ];
             localStorage.setItem("dr"+(-1+parseInt($('input[name=rdbr]').val())), JSON.stringify(arej));
-              writeToFile('logovi.csv', '"'+arej.join('"; "')+'\n\r');
+              writeToFile('logovi.csv', '"'+arej.join('"; "')+'"\n\r');
 
           
           obrada();
