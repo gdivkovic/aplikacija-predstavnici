@@ -897,6 +897,7 @@
     }
 
     function saveToDedal(data){
+      alert('save');
       $.ajax({
           url: 'http://dedal.hr/predstavnici/upload.php',
           type: 'POST',
@@ -926,13 +927,14 @@
 
         /* sejvanje */
 
-        $('.spremi').click(function(){
+        $('.spremi').click(function(){alert('spremi');
           var data;
           for(x=0;x<brojUpisa;x++){
             if (localStorage.getItem("dr"+x) !== null) {
                data[x]=JSON.parse(localStorage.getItem("dr"+x));
             }
           }
+          alert('ready to save');
           saveToDedal(data);
         });
 
