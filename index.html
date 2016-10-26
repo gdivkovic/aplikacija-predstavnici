@@ -965,6 +965,7 @@
         });
 
         $('.novi-dr').on('click tap', function(){
+          brojUpisa++;
           populiraj('novi');
           $('.popis').hide();
           $('.detalji').show();
@@ -1012,12 +1013,13 @@
              position.coords.latitude,
              utc
             ];
+            alert(JSON.stringify(arej));
             /*if (localStorage.getItem("dr"+(-1+parseInt($('input[name=rdbr]').val()))) == null) {
                brojUpisa=1+brojUpisa;
                localStorage.setItem('brojUpisa', brojUpisa);
             }*/
             localStorage.setItem("dr"+(-1+parseInt($('input[name=rdbr]').val())), JSON.stringify(arej));
-            
+            alert("dr"+(-1+parseInt($('input[name=rdbr]').val())));
               writeToFile('logovi.csv', ''+arej.join('; ')+'\n\r');
 
           
