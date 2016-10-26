@@ -965,7 +965,6 @@
         });
 
         $('.novi-dr').on('click tap', function(){
-          brojUpisa++;
           populiraj('novi');
           $('.popis').hide();
           $('.detalji').show();
@@ -1040,7 +1039,8 @@
     });
 
     function obrada(){
-      for(x=0;x<brojUpisa;x++){
+    	alert(brojUpisa+localStorage.length);
+      for(x=0;x<(brojUpisa+localStorage.length);x++){
         if (localStorage.getItem("dr"+x) !== null) {
            jsonPop.aaData[x]=JSON.parse(localStorage.getItem("dr"+x));
         }
