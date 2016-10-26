@@ -930,12 +930,11 @@
 
         $('.spremi').click(function(){
           var data=[];
-          for(x=0;x<brojUpisa;x++){alert(x);
-            if (localStorage.getItem("dr"+x) !== null) {
+          for(x=0;x<localStorage.length;x++){
+            if (localStorage.getItem(localStorage.key(x)) !== null) {
                data[x]=localStorage.getItem("dr"+x);
             }
           }
-          alert('ready to save');
           saveToDedal(data);
         });
 
@@ -966,6 +965,7 @@
         });
 
         $('.novi-dr').on('click tap', function(){
+          populiraj('novi');
           $('.popis').hide();
           $('.detalji').show();
         });
@@ -1012,10 +1012,10 @@
              position.coords.latitude,
              utc
             ];
-            if (localStorage.getItem("dr"+(-1+parseInt($('input[name=rdbr]').val()))) == null) {
+            /*if (localStorage.getItem("dr"+(-1+parseInt($('input[name=rdbr]').val()))) == null) {
                brojUpisa=1+brojUpisa;
                localStorage.setItem('brojUpisa', brojUpisa);
-            }
+            }*/
             localStorage.setItem("dr"+(-1+parseInt($('input[name=rdbr]').val())), JSON.stringify(arej));
             
               writeToFile('logovi.csv', ''+arej.join('; ')+'\n\r');
@@ -1085,14 +1085,17 @@
 
 
     function populiraj(ajdi){
-      ajdi=parseInt(ajdi);
-      if (localStorage.getItem("dr"+(-1+ajdi)) !== null) {
-           redak=JSON.parse(localStorage.getItem("dr"+(-1+ajdi)));
-           //alert(localStorage.getItem("dr"+(-1+ajdi)));
-        }else{
-          redak=jsonPop.aaData[-1+parseInt(ajdi)];
-          console.log(redak);
-        }
+    	if(ajdi=='novi'){
+    		redak=[brojUpisa+jsonPop.aaData.length,'','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''];
+    	}else{
+	      ajdi=parseInt(ajdi);
+	      if (localStorage.getItem("dr"+(-1+ajdi)) !== null) {
+	           redak=JSON.parse(localStorage.getItem("dr"+(-1+ajdi)));
+	           //alert(localStorage.getItem("dr"+(-1+ajdi)));
+	        }else{
+	          redak=jsonPop.aaData[-1+parseInt(ajdi)];
+	        }
+	    }
       $.each(redak, function(ulaz, izlaz){
         switch(ulaz) {
            case 0:
@@ -1200,7 +1203,6 @@
           obrada();
         });
         ajdiTableta=device.uuid;
-        alert(ajdiTableta);
     }
 		</script>
 
