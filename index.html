@@ -574,7 +574,7 @@
                         <div class="col-sm-6">
                           <div class="form-group">
                             <label class="control-label">Kanal</label>
-                            <select name="kanal" class="form-control">
+                            <select multiple data-plugin-selectTwo name="kanal" class="form-control">
                               <option></option>
                               <option>F2F</option>
                               <option>telefon</option>
@@ -899,11 +899,10 @@
     }
 
     function saveToDedal(data){
-      alert('save');
       $.ajax({
           url: 'http://dedal.hr/predstavnici/upload.php',
           type: 'POST',
-          data: { value: data, id:ajdiTableta},
+          data: { value: data, id: ajdiTableta},
           success: function(result) {
               alert('Odgovor sa servera: ' + result);
           }
@@ -1165,7 +1164,11 @@
                   /* ! treba primijeniti ovdje, očigledno u selekt box HTML-u, ali i u sejvanju umjesto: selected ostaviti samo selektor za input - DAKLE TRI MJESTA DA BI BIO MULTISELEKT!!!!!!!!! */
               break;
            case 21:
-               $('select[name=kanal] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+               if(izlaz=='null'||izlaz==''){
+                  $("select[name=kanal]").val([]).trigger('change');
+                }else{
+                  $('select[name=kanal]').val(izlaz).trigger('change');                    
+                  }
               break;
            case 22:
            		if(izlaz=='null'||izlaz==''){
@@ -1196,7 +1199,8 @@
         $(function(){
           obrada();
         });
-        ajdiTableta==device.uuid;
+        ajdiTableta=device.uuid;
+        alert(ajdiTableta);
     }
 		</script>
 
@@ -1212,10 +1216,6 @@
 	}
 	.select2-search-choice-close {width:30px;}
 		</style>
-	}
-	}
-    }
-
 
 	</body>
 </html>
