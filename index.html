@@ -1007,7 +1007,7 @@
              $('input[name=sestra]').val(),
              $('select[name=podrucja_interesa]').val(),
              $('select[name=kanal]').val(),
-             $('select[name=konkurencija_ord] option:selected').html(),
+             $('select[name=konkurencija_ord]').html(),
              $('textarea[name=napomene]').val(),
              position.coords.longitude,
              position.coords.latitude,
@@ -1160,10 +1160,9 @@
               if(izlaz=='null'||izlaz==''){
                   $("select[name=podrucja_interesa]").val([]).trigger('change');
                 }else{
-                   /*$('select[name=podrucja_interesa]').val(JSON.parse(izlaz)).trigger('change');*/
-                   $('select[name=podrucja_interesa]').val(izlaz).trigger('change');
-                    
+                  $('select[name=podrucja_interesa]').val(izlaz).trigger('change');                    
                   }
+                  /* ! treba primijeniti ovdje, očigledno u selekt box HTML-u, ali i u sejvanju umjesto: selected ostaviti samo selektor za input - DAKLE TRI MJESTA DA BI BIO MULTISELEKT!!!!!!!!! */
               break;
            case 21:
                $('select[name=kanal] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
@@ -1171,9 +1170,7 @@
            case 22:
            		if(izlaz=='null'||izlaz==''){
                   $("select[name=konkurencija_ord]").val([]).trigger('change');
-                }else{
-                   /*$('select[name=podrucja_interesa]').val(JSON.parse(izlaz)).trigger('change');*/
-                   $('select[name=konkurencija_ord]').val(izlaz).trigger('change');
+                }else{ $('select[name=konkurencija_ord]').val(izlaz).trigger('change');
                   }
               break;
            case 23:
