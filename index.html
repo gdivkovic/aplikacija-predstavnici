@@ -1190,6 +1190,12 @@
       $('.spremidetalj').click(function(){
         $('.loading').show();
       });
+
+      // Hide focusser and search when not needed so virtual keyboard is not shown
+		$('.select2-container').each(function () {
+		    $(this).find('.select2-focusser').hide();
+		    $(this).find('.select2-drop').not('.select2-with-searchbox').find('.select2-search').hide();
+		});
     });
     var ajdiTableta;
     document.addEventListener("deviceready", onDeviceReady, false);
