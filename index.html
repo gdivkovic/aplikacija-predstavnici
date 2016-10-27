@@ -932,7 +932,9 @@
           var data=[];
           for(x=0;x<localStorage.length;x++){
             if (localStorage.getItem(localStorage.key(x)) !== null) {
-               data[x]=localStorage.getItem("dr"+x);
+            	alert(localStorage.key(x));
+               data[x]=localStorage.getItem(localStorage.key(x));
+               alert(data[x]);
             }
           }
           saveToDedal(data);
