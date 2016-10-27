@@ -932,8 +932,8 @@
         $('.spremi').click(function(){
           var data=[];
           for(x=0;x<localStorage.length;x++){
-          	alert(localStorage.key(x).substring(0,3));
-            if (localStorage.key(x).substring(0,3)!='dr'&&localStorage.getItem(localStorage.key(x)) !== null) {
+          	alert(localStorage.key(x).substring(0,2));
+            if (localStorage.key(x).substring(0,2)!='dr'&&localStorage.getItem(localStorage.key(x)) !== null) {
                data[x]=localStorage.getItem(localStorage.key(x));
                alert(data[x]);
             }
