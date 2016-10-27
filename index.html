@@ -709,7 +709,7 @@
 						<div class="sidebar-right-wrapper">
               <h4>Za sljedeće radnje iPad mora biti spojen na internet ili ništa neće raditi (učitava popis sa servera ili sejva napravljeno, opet na server).</h4>
               <p><a href="#" class="btn btn-lg btn-primary spremi">Spremi na server</a></p>
-              <p><a href="#" class="btn btn-lg btn-primary nemoj">SVE IZBRIŠI<br> i počni ispočetka!</a></p>
+              <p style="position:absolute;bottom:20px;">Ovo nemoj uopće klikati: <a href="#" class="btn btn-lg btn-primary nemoj">SVE IZBRIŠI<br> i počni ispočetka!</a></p>
               
 						</div>
 					</div>
@@ -941,6 +941,7 @@
 
         function start(){
           localStorage.clear();
+          localStorage.setItem('ajdiTableta',device.uuid);
           $('#exe').load('https://www.dedal.hr/predstavnici/popis.php');
         }
         $('.odustanidetalj').click(function(e){
@@ -1202,7 +1203,6 @@
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {    	
         localStorage.setItem('ajdiTableta',device.uuid);
-        alert(localStorage.getItem('ajdiTableta'));
         $(function(){
           obrada();
         });

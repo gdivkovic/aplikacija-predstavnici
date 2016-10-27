@@ -14,10 +14,10 @@ html {
 }
 
 body {
-	color: #777;
+	color: #999;
 	font-family: "Open Sans", Arial, sans-serif;
 	line-height: 22px;
-	margin: 0;
+	margin: 20px 0 0 0;
 	font-size: 13px;
 	overflow-x: scroll;
 	overflow-y: scroll;
@@ -197,7 +197,7 @@ a:active {
 		position: fixed;
 		left:0;
 		right: 0;
-		top:0;
+		top:20px;
 	}
 
 	/* Layout Fixed - Sidebar Left */
