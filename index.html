@@ -903,7 +903,7 @@
       $.ajax({
           url: 'http://dedal.hr/predstavnici/upload.php',
           type: 'POST',
-          data: { value: data},
+          data: { value: data, id:localStorage.getItem('ajdiTableta')},
           success: function(result) {
               alert('Odgovor sa servera: ' + result);
           }
@@ -932,7 +932,8 @@
         $('.spremi').click(function(){
           var data=[];
           for(x=0;x<localStorage.length;x++){
-            if (localStorage.getItem(localStorage.key(x)) !== null) {
+          	alert(localStorage.key(x).substring(0,3));
+            if (localStorage.key(x).substring(0,3)!='dr'&&localStorage.getItem(localStorage.key(x)) !== null) {
                data[x]=localStorage.getItem(localStorage.key(x));
                alert(data[x]);
             }
