@@ -1008,7 +1008,7 @@
              $('select[name=podrucja_interesa]').val(),
              $('select[name=kanali_kom]').val(),
              $('select[name=konkurencija_ord]').val(),
-             $('textarea[name=napomene]').val(),
+             $('textarea[name=napomene]').val(),/*dalje je kampanja*/
              $('select[name=kanal]').val(),
              $('select[name=zainteresiran] option:selected').html(),
              $('select[name=poznati_l] option:selected').html(),
@@ -1194,6 +1194,7 @@
            case 23:
                $('textarea[name=napomene]').val(izlaz);
               break;
+              /* dalje je kampanja !!!!!!!!!!!!!!!!!!!!1 */
             case 24:
                 if(izlaz=='null'||izlaz==''){
                   $("select[name=kanal]").val([]).trigger('change');
