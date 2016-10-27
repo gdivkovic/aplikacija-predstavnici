@@ -1014,13 +1014,12 @@
              position.coords.latitude,
              utc
             ];
-            alert(JSON.stringify(arej));
             /*if (localStorage.getItem("dr"+(-1+parseInt($('input[name=rdbr]').val()))) == null) {
                brojUpisa=1+brojUpisa;
                localStorage.setItem('brojUpisa', brojUpisa);
             }*/
             localStorage.setItem("dr"+(-1+parseInt($('input[name=rdbr]').val())), JSON.stringify(arej));
-            alert("dr"+(-1+parseInt($('input[name=rdbr]').val())));
+          
               writeToFile('logovi.csv', ''+arej.join('; ')+'\n\r');
 
           
@@ -1041,23 +1040,18 @@
     });
 
     function obrada(){
-    	alert(brojUpisa+localStorage.length);
-    	alert('ukupno: ' + jsonPop.aaData.length );
-    	alert('top korisnik: ' + jsonPop.aaData[jsonPop.aaData.length-1])
+    	
       for(x=0;x<(brojUpisa+localStorage.length);x++){
         if (localStorage.getItem("dr"+x) !== null) {
-        	alert(localStorage.getItem("dr"+x));
-        	alert(x);
+        	
            jsonPop.aaData[x]=JSON.parse(localStorage.getItem("dr"+x));
-           alert(JSON.stringify(jsonPop.aaData[x-20]));
-           alert(JSON.stringify(jsonPop.aaData[x-1]));
-           alert(JSON.stringify(jsonPop.aaData[x]));
+        
         }
       }
       kolbekica();  
     }
 
-    function kolbekica(){alert('u kolbeku sam');
+    function kolbekica(){
     			var $table = $('#datatable-ajax');
     			$table.dataTable().fnDestroy();
     			$table.children('th').removeAttr('style');
