@@ -899,10 +899,11 @@
     }
 
     function saveToDedal(data){
+    	alert(JSON.stringify(data));
       $.ajax({
           url: 'http://dedal.hr/predstavnici/upload.php',
           type: 'POST',
-          data: { value: data, id: ajdiTableta},
+          data: { value: data},
           success: function(result) {
               alert('Odgovor sa servera: ' + result);
           }
@@ -932,7 +933,6 @@
           var data=[];
           for(x=0;x<localStorage.length;x++){
             if (localStorage.getItem(localStorage.key(x)) !== null) {
-            	alert(localStorage.key(x));
                data[x]=localStorage.getItem(localStorage.key(x));
                alert(data[x]);
             }
@@ -1201,13 +1201,12 @@
 
 
     });
-    var ajdiTableta;
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
         $(function(){
           obrada();
         });
-        ajdiTableta=device.uuid;
+        localStorage.setItem('ajdiTableta',device.uuid);
     }
 		</script>
 
