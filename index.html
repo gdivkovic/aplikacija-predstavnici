@@ -403,7 +403,7 @@
                           </div>
                         </div>
                       
-                       <!--<div class="col-sm-6">
+                       <div class="col-sm-6">
                           <div class="form-group">
                             <label class="control-label">Kanali komunikacije</label>
                             <select multiple name="kanali_kom" data-plugin-selectTwo class="form-control populate">
@@ -419,7 +419,7 @@
                               <option>mobilne aplikacije</option>
                             </select>
                           </div>
-                        </div>-->
+                        </div>
                         <div class="col-sm-6">
                           <div class="form-group">
                             <label class="control-label">Područja interesa</label>
@@ -1006,9 +1006,17 @@
              $('input[name=br_pacijenata]').val(),
              $('input[name=sestra]').val(),
              $('select[name=podrucja_interesa]').val(),
-             $('select[name=kanal]').val(),
+             $('select[name=kanali_kom]').val(),
              $('select[name=konkurencija_ord]').val(),
              $('textarea[name=napomene]').val(),
+             $('select[name=kanal]').val(),
+             $('select[name=zainteresiran] option:selected').html(),
+             $('select[name=poznati_l] option:selected').html(),
+             $('select[name=povezuje_komp] option:selected').html(),
+             $('select[name=tritace_poruke] option:selected').html(),
+             $('select[name=tritace_komentar]').val(),
+             $('select[name=lasix_poruke] option:selected').html(),
+             $('select[name=lasix_komentar]').val(),
              position.coords.longitude,
              position.coords.latitude,
              utc
@@ -1090,7 +1098,7 @@
 
     function populiraj(ajdi){
     	if(ajdi=='novi'){
-    		redak=[jsonPop.aaData.length+1,'','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''];
+    		redak=[jsonPop.aaData.length+1,'','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''];
     	}else{
 	      ajdi=parseInt(ajdi);
 	      if (localStorage.getItem("dr"+(-1+ajdi)) !== null) {
@@ -1174,7 +1182,7 @@
                if(izlaz=='null'||izlaz==''){
                   $("select[name=kanal]").val([]).trigger('change');
                 }else{
-                  $('select[name=kanal]').val(izlaz).trigger('change');                    
+                  $('select[name=kanali_kom]').val(izlaz).trigger('change');                    
                   }
               break;
            case 22:
@@ -1185,6 +1193,34 @@
               break;
            case 23:
                $('textarea[name=napomene]').val(izlaz);
+              break;
+            case 24:
+                if(izlaz=='null'||izlaz==''){
+                  $("select[name=kanal]").val([]).trigger('change');
+                }else{
+                  $('select[name=kanal]').val(izlaz).trigger('change');                    
+                  }
+              break;
+            case 25:
+              $('select[name=zainteresiran] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+              break;
+            case 26:
+              $('select[name=poznati_l] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+              break;
+            case 27:
+              $('select[name=povezuje_komp] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+              break;
+            case 28:
+              $('select[name=tritace_poruke] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+              break;
+           case 29:
+               $('textarea[name=tritace_komentar]').val(izlaz);
+              break;
+            case 30:
+              $('select[name=lasix_poruke] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+              break;
+           case 31:
+               $('textarea[name=lasix_komentar]').val(izlaz);
               break;
       
       }
