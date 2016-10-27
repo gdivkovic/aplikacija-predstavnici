@@ -1040,6 +1040,8 @@
 
     function obrada(){
     	alert(brojUpisa+localStorage.length);
+    	alert('najveci broj trenutno: ' + jsonPop.aaData.length );
+    	alert('top korisnik: ' + jsonPop.aaData[jsonPop.aaData.length-1])
       for(x=0;x<(brojUpisa+localStorage.length);x++){
         if (localStorage.getItem("dr"+x) !== null) {
         	alert(localStorage.getItem("dr"+x));
@@ -1093,7 +1095,7 @@
 
     function populiraj(ajdi){
     	if(ajdi=='novi'){
-    		redak=[brojUpisa+localStorage.length,'','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''];
+    		redak=[jsonPop.aaData.length,'','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''];
     	}else{
 	      ajdi=parseInt(ajdi);
 	      if (localStorage.getItem("dr"+(-1+ajdi)) !== null) {
