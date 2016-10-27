@@ -899,7 +899,6 @@
     }
 
     function saveToDedal(data){
-    	alert(JSON.stringify(data));
       $.ajax({
           url: 'http://dedal.hr/predstavnici/upload.php',
           type: 'POST',
@@ -932,10 +931,8 @@
         $('.spremi').click(function(){
           var data=[];
           for(x=0;x<localStorage.length;x++){
-          	alert(localStorage.key(x).substring(0,2));
             if (localStorage.key(x).substring(0,2)=='dr') {
-               data[x]=localStorage.getItem(localStorage.key(x));
-               alert(data[x]);
+               data.push(localStorage.getItem(localStorage.key(x)));
             }
           }
           saveToDedal(data);
@@ -1203,11 +1200,12 @@
 
     });
     document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
+    function onDeviceReady() {    	
+        localStorage.setItem('ajdiTableta',device.uuid);
+        alert(localStorage.getItem('ajdiTableta'));
         $(function(){
           obrada();
         });
-        localStorage.setItem('ajdiTableta',device.uuid);
     }
 		</script>
 
