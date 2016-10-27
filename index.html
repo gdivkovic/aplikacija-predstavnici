@@ -1043,8 +1043,9 @@
       for(x=0;x<(brojUpisa+localStorage.length);x++){
         if (localStorage.getItem("dr"+x) !== null) {
         	alert(localStorage.getItem("dr"+x));
+        	alert(x);
            jsonPop.aaData[x]=JSON.parse(localStorage.getItem("dr"+x));
-           alert(JSON.stringify(jsonPop.aaData[x-2]));
+           alert(JSON.stringify(jsonPop.aaData[x-20]));
            alert(JSON.stringify(jsonPop.aaData[x-1]));
            alert(JSON.stringify(jsonPop.aaData[x]));
         }
@@ -1052,7 +1053,7 @@
       kolbekica();  
     }
 
-    function kolbekica(){
+    function kolbekica(){alert('u kolbeku sam');
     			var $table = $('#datatable-ajax');
     			$table.dataTable().fnDestroy();
     			$table.children('th').removeAttr('style');
