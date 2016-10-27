@@ -1042,6 +1042,7 @@
     	alert(brojUpisa+localStorage.length);
       for(x=0;x<(brojUpisa+localStorage.length);x++){
         if (localStorage.getItem("dr"+x) !== null) {
+        	alert(localStorage.getItem("dr"+x));
            jsonPop.aaData[x]=JSON.parse(localStorage.getItem("dr"+x));
         }
       }
