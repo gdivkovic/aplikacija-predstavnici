@@ -682,7 +682,7 @@
 
 
                   <div style="position:fixed; bottom:20px; right:20px;">
-                        <button class="btn btn-primary btn-sm odustanidetalj">Odustani</button> &nbsp;
+                        <a class="btn btn-primary btn-sm odustanidetalj">Odustani</a> &nbsp;
                         <button class="btn btn-primary btn-lg spremidetalj">SPREMI</button>
                     </div>
 
@@ -944,12 +944,9 @@
             $('.detalji').hide();
             $('.popis').show();
           }else{
-
+ 			return false;
           }
-          $('#detaljforma option:selected').removeAttr('selected');
-          $('#detaljforma input').val('');
-          $('#detaljforma textarea').val('');
-          return false;
+         
         });
 
          /* klikanje */
@@ -1176,7 +1173,7 @@
 	              break;
 	           case 21:
 	               if(izlaz=='null'||izlaz==''){
-	                  $("select[name=kanal]").val([]).trigger('change');
+	                  $("select[name=kanali_kom]").val([]).trigger('change');
 	                }else{
 	                  $('select[name=kanali_kom]').val(izlaz).trigger('change');                    
 	                  }
