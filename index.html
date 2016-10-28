@@ -1092,7 +1092,7 @@
 
     function populiraj(ajdi){
     	if(ajdi=='novi'){
-    		redak=[jsonPop.aaData.length+1,'','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''];
+    		redak=[jsonPop.aaData.length+1];
     	}else{
 	      ajdi=parseInt(ajdi);
 	      if (localStorage.getItem("dr"+(-1+ajdi)) !== null) {
@@ -1104,7 +1104,9 @@
 	    }
       /*$.each(redak, function(ulaz, izlaz){*/
       for(ulaz=0;ulaz<50;ulaz++){
+      	alert(ulaz);
       	if(isset(redak[ulaz])){izlaz=redak[ulaz];}else{izlaz='';}
+      	alert(izlaz);
 	      	switch(ulaz) {
 	           case 0:
 	              $('input[name=rdbr]').val(izlaz);
@@ -1220,7 +1222,8 @@
 	               $('textarea[name=lasix_komentar]').val(izlaz);
 	              break;
 	      
-	      		}
+	      		
+	      	}
       }
         
     /*  });*/
