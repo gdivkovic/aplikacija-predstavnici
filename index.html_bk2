@@ -1102,128 +1102,124 @@
 	          redak=jsonPop.aaData[-1+parseInt(ajdi)];
 	        }
 	    }
-      /*$.each(redak, function(ulaz, izlaz){*/
-      for(ulaz=0;ulaz<50;ulaz++){
-      	if(isset(redak[ulaz])){izlaz=redak[ulaz];}else{izlaz='';}
-	      	switch(ulaz) {
-	           case 0:
-	              $('input[name=rdbr]').val(izlaz);
-	              break;
-	          case 1:
-	              $('input[name=ime]').val(izlaz);
-	              break;
-	          case 2:
-	              $('input[name=prezime]').val(izlaz);
-	              break;
-	          case 3:
-	              $('select[name=zupanija] option').filter(function () { return $(this).val() == izlaz; }).prop('selected',true);
-	              break;
-	           case 4:
-	              $('input[name=grad]').val(izlaz);
-	              break;
-	           case 5:
-	              $('input[name=adresa]').val(izlaz);
-	              break;
-	           case 6:
-	              $('input[name=ustanova]').val(izlaz);
-	              break;
-	           case 7:
-	              $('select[name=ugovorni] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
-	              break;
-	           case 8:
-	              $('select[name=radnovrijeme] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
-	              break;
-	           case 9:
-	               $('select[name=zanimanje] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
-	              break;
-	           case 10:
-	               $('select[name=specijalizacija] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
-	              break;
-	           case 11:
-	               $('select[name=emedikus] option').filter(function () { return $(this).val() == izlaz; }).prop('selected',true);
-	              break;
-	           case 12:
-	               $('select[name=segment] option').filter(function () { return $(this).val() == izlaz; }).prop('selected',true);
-	              break;
-	           case 13:
-	               $('input[name=posjecen]').val(izlaz);
-	              break;
-	           case 14:
-	               $('select[name=spol] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
-	              break;
-	           case 15:
-	               $('input[name=email]').val(izlaz);
-	              break;
-	           case 16:
-	               $('input[name=telefon]').val(izlaz);
-	              break;
-	           case 17:
-	               $('input[name=datum_rod]').val(izlaz);
-	              break;
-	           case 18:
-	               $('input[name=br_pacijenata]').val(izlaz);
-	              break;
-	           case 19:
-	               $('input[name=sestra]').val(izlaz);
-	              break;
-	           case 20:
-	              if(izlaz=='null'||izlaz==''){
-	                  $("select[name=podrucja_interesa]").val([]).trigger('change');
-	                }else{
-	                  $('select[name=podrucja_interesa]').val(izlaz).trigger('change');                    
-	                  }
-	                  /* ! treba primijeniti ovdje, očigledno u selekt box HTML-u, ali i u sejvanju umjesto: selected ostaviti samo selektor za input - DAKLE TRI MJESTA DA BI BIO MULTISELEKT!!!!!!!!! */
-	              break;
-	           case 21:
-	               if(izlaz=='null'||izlaz==''){
-	                  $("select[name=kanal]").val([]).trigger('change');
-	                }else{
-	                  $('select[name=kanali_kom]').val(izlaz).trigger('change');                    
-	                  }
-	              break;
-	           case 22:
-	           		if(izlaz=='null'||izlaz==''){
-	                  $("select[name=konkurencija_ord]").val([]).trigger('change');
-	                }else{ $('select[name=konkurencija_ord]').val(izlaz).trigger('change');
-	                  }
-	              break;
-	           case 23:
-	               $('textarea[name=napomene]').val(izlaz);
-	              break;
-	              /* dalje je kampanja !!!!!!!!!!!!!!!!!!!!1 */
-	            case 24:
-	                if(izlaz=='null'||izlaz==''){
-	                  $("select[name=kanal]").val([]).trigger('change');
-	                }else{
-	                  $('select[name=kanal]').val(izlaz).trigger('change');                    
-	                  }
-	              break;
-	            case 25:
-	              $('select[name=zainteresiran] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
-	              break;
-	            case 26:
-	              $('select[name=poznati_l] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
-	              break;
-	            case 27:
-	              $('select[name=povezuje_komp] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
-	              break;
-	            case 28:
-	              $('select[name=tritace_poruke] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
-	              break;
-	           case 29:
-	               $('textarea[name=tritace_komentar]').val(izlaz);
-	              break;
-	            case 30:
-	              $('select[name=lasix_poruke] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
-	              break;
-	           case 31:
-	               $('textarea[name=lasix_komentar]').val(izlaz);
-	              break;
-	      
-	      		}
-      }
-        
-    /*  });*/
+      $.each(redak, function(ulaz, izlaz){
+        switch(ulaz) {
+           case 0:
+              $('input[name=rdbr]').val(izlaz);
+              break;
+          case 1:
+              $('input[name=ime]').val(izlaz);
+              break;
+          case 2:
+              $('input[name=prezime]').val(izlaz);
+              break;
+          case 3:
+              $('select[name=zupanija] option').filter(function () { return $(this).val() == izlaz; }).prop('selected',true);
+              break;
+           case 4:
+              $('input[name=grad]').val(izlaz);
+              break;
+           case 5:
+              $('input[name=adresa]').val(izlaz);
+              break;
+           case 6:
+              $('input[name=ustanova]').val(izlaz);
+              break;
+           case 7:
+              $('select[name=ugovorni] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+              break;
+           case 8:
+              $('select[name=radnovrijeme] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+              break;
+           case 9:
+               $('select[name=zanimanje] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+              break;
+           case 10:
+               $('select[name=specijalizacija] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+              break;
+           case 11:
+               $('select[name=emedikus] option').filter(function () { return $(this).val() == izlaz; }).prop('selected',true);
+              break;
+           case 12:
+               $('select[name=segment] option').filter(function () { return $(this).val() == izlaz; }).prop('selected',true);
+              break;
+           case 13:
+               $('input[name=posjecen]').val(izlaz);
+              break;
+           case 14:
+               $('select[name=spol] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+              break;
+           case 15:
+               $('input[name=email]').val(izlaz);
+              break;
+           case 16:
+               $('input[name=telefon]').val(izlaz);
+              break;
+           case 17:
+               $('input[name=datum_rod]').val(izlaz);
+              break;
+           case 18:
+               $('input[name=br_pacijenata]').val(izlaz);
+              break;
+           case 19:
+               $('input[name=sestra]').val(izlaz);
+              break;
+           case 20:
+              if(izlaz=='null'||izlaz==''){
+                  $("select[name=podrucja_interesa]").val([]).trigger('change');
+                }else{
+                  $('select[name=podrucja_interesa]').val(izlaz).trigger('change');                    
+                  }
+                  /* ! treba primijeniti ovdje, očigledno u selekt box HTML-u, ali i u sejvanju umjesto: selected ostaviti samo selektor za input - DAKLE TRI MJESTA DA BI BIO MULTISELEKT!!!!!!!!! */
+              break;
+           case 21:
+               if(izlaz=='null'||izlaz==''){
+                  $("select[name=kanal]").val([]).trigger('change');
+                }else{
+                  $('select[name=kanali_kom]').val(izlaz).trigger('change');                    
+                  }
+              break;
+           case 22:
+           		if(izlaz=='null'||izlaz==''){
+                  $("select[name=konkurencija_ord]").val([]).trigger('change');
+                }else{ $('select[name=konkurencija_ord]').val(izlaz).trigger('change');
+                  }
+              break;
+           case 23:
+               $('textarea[name=napomene]').val(izlaz);
+              break;
+              /* dalje je kampanja !!!!!!!!!!!!!!!!!!!!1 */
+            case 24:
+                if(izlaz=='null'||izlaz==''){
+                  $("select[name=kanal]").val([]).trigger('change');
+                }else{
+                  $('select[name=kanal]').val(izlaz).trigger('change');                    
+                  }
+              break;
+            case 25:
+              $('select[name=zainteresiran] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+              break;
+            case 26:
+              $('select[name=poznati_l] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+              break;
+            case 27:
+              $('select[name=povezuje_komp] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+              break;
+            case 28:
+              $('select[name=tritace_poruke] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+              break;
+           case 29:
+               $('textarea[name=tritace_komentar]').val(izlaz);
+              break;
+            case 30:
+              $('select[name=lasix_poruke] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+              break;
+           case 31:
+               $('textarea[name=lasix_komentar]').val(izlaz);
+              break;
+      
+      		}
+      });
       
     }
 
