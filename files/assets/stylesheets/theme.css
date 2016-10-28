@@ -78,7 +78,7 @@ a:active {
 	border-bottom: none;
 	border-left: 1px solid #3a3a3a;
 	box-shadow: 1px 3px 0 1px #cccccc;
-	height: 50px;
+	height: 70px;
 	margin: -40px -40px 40px -40px;
 	padding: 0;
 }
@@ -197,7 +197,8 @@ a:active {
 		position: fixed;
 		left:0;
 		right: 0;
-		top:20px;
+		top:0px;
+		border-top: 20px solid #ecedf0;
 	}
 
 	/* Layout Fixed - Sidebar Left */
