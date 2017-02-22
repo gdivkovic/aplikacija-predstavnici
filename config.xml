@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.dedal.takedaanketa"
+        version     = "1.0.0" >
+		
+		
+
+    <name>Dedal predstavnik</name>
+
+    <description>
+       On site survey by Takeda.
+    </description>
+
+    <author href="https://dedal.hr" email="info@dedal.hr">
+        Zoran Milas
+    </author>
+	
+	<platform name="ios" />
+	
+	<preference name="orientation" value="landscape" />
+	
+	<icon src="icon.png" />
+	<splash src="splash.png" />
+
+	<plugin name="cordova-plugin-file" source="npm" />
+	<plugin name="cordova-plugin-geolocation" source="npm" />	
+	<plugin name="cordova-plugin-itunesfilesharing" source="npm" />	
+	<plugin name="cordova-plugin-device" source="npm" />	
+	
+	<meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no' />
+	<preference name="AllowInlineMediaPlayback" value="true"/>
+	<preference name="KeyboardDisplayRequiresUserAction" value="false"/>
+	<preference name="Fullscreen" value="true" />
+	<preference name="DisallowOverscroll" value="true"/>
+	<preference name="BackgroundColor" value="0xffffffff"/>
+	<preference name="HideKeyboardFormAccessoryBar" value="true"/>
+	
+
+</widget>

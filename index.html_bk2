@@ -1,0 +1,1257 @@
+<!doctype html>
+<html class="fixed">
+	<head>
+
+		<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+		<title>Predstavnici</title>
+		<!-- Mobile Metas 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />-->
+
+		<!-- Web Fonts  -->
+		<link href="files/assets/font.css" rel="stylesheet" type="text/css">
+
+		<!-- Vendor CSS -->
+		<link rel="stylesheet" href="files/assets/vendor/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="files/assets/vendor/font-awesome/css/font-awesome.css" />
+		<link rel="stylesheet" href="files/assets/vendor/magnific-popup/magnific-popup.css" />
+		<!--<link rel="stylesheet" href="files/assets/vendor/bootstrap-datepicker/css/datepicker3.css" />-->
+
+		<!-- Specific Page Vendor CSS -->
+		<link rel="stylesheet" href="files/assets/vendor/select2/select2.css" />
+		<link rel="stylesheet" href="files/assets/vendor/jquery-datatables-bs3/assets/css/datatables.css" />
+
+
+		<!-- Theme CSS -->
+		<link rel="stylesheet" href="files/assets/stylesheets/theme.css" />
+
+		<!-- Skin CSS -->
+		<link rel="stylesheet" href="files/assets/stylesheets/skins/default.css" />
+
+		<!-- Theme Custom CSS -->
+		<link rel="stylesheet" href="files/assets/stylesheets/theme-custom.css">
+
+		<!-- Head Libs -->
+		<script src="files/assets/vendor/modernizr/modernizr.js"></script>
+    <script src="files/assets/vendor/jquery/jquery.js"></script>    
+    <script src="phonegap.js"></script>
+    <script type='application/javascript' src='files/assets/fastclick.js'></script>
+    <script>
+       window.addEventListener('load', function() {
+            FastClick.attach(document.body);
+        }, false);
+    </script>
+
+    <style>
+    td {cursor: pointer;}
+    </style>
+  
+	</head>
+	<body>
+		<section class="body">
+
+			
+
+			<div class="inner-wrapper">
+				
+
+				<section role="main" class="content-body">
+					<header class="page-header">
+						<h2>Sanofi kampanja</h2>
+					
+						<div class="right-wrapper pull-right">
+							<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
+						</div>
+					</header>
+
+					<!-- start: page -->
+						<div class="row  popis">
+							<div class="col-lg-12">
+								<section class="panel">
+									<header class="panel-heading">
+										<div class="panel-actions">
+											<a href="#" class="fa fa-caret-down"></a>
+										</div>
+						
+										<h2 class="panel-title">Kontakti</h2>
+									</header>
+									<div class="panel-body">
+									<div>Filteri: <br><span class="filteri"></span></div>
+										<div style="width:900px; overflow:auto;"><br>
+                      <table class="table table-bordered table-striped" id="datatable-ajax">
+  											<thead>
+  												<tr>
+  													<th>Rb</th>
+                            <th>Ime</th>
+                            <th>Prezime</th>
+  													<th>Županija</th>
+  													<th>Grad</th>
+  													<th>Adresa</th>
+                            <th>Ustanova</th>
+                            <th>Ugovor./Privat.</th>
+  													<th>Radno vrijeme</th>
+                            <th>Zanimanje</th>
+                            <th>Specijalizacija</th>
+                            <th>E-medikus</th>
+                            <th>Segment</th>
+                            <th>Posjećen</th>
+  												</tr>
+  											</thead>
+  											<tbody>
+  											</tbody>
+  										</table>
+                      <div>
+                        <a href="#" class="redraw">Refresh</a>
+                         <div style="position:fixed; bottom:20px; right:20px;">
+                            <button type="button" class="btn-lg btn-primary novi-dr"><i class="fa fa-plus"></i> Novi liječnik</button>
+                        </div>
+                       
+                      </div>
+
+                    </div>
+
+
+
+									</div>
+								</section>
+						
+							
+						
+							</div>
+						</div>
+
+            <span class="detalji" style="display:none;"><aside>
+              <form class="form-horizontal form-bordered" method="get" action="." id="detaljforma">
+                <input type="hidden" name="rdbr" val="0">
+                <div class="col-md-6">
+                  <section class="panel">
+                    <header class="panel-heading">
+                      <div class="panel-actions">
+                        <a href="#" class="fa fa-caret-down"></a>
+                      </div>
+                      <h2 class="panel-title">1. o doktoru</h2>
+                    </header>
+                    <div class="panel-body">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Ime</label>
+                            <input type="text" name="ime" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Prezime</label>
+                            <input type="text" name="prezime" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Posjećen</label>
+                            <input type="date" name="posjecen" class="form-control posjecen">
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Segment</label>
+                            <select name="segment" class="form-control">
+                              <option></option>
+                              <option>A</option>
+                              <option>B</option>
+                              <option>C</option>
+                              <option>D</option>
+                              <option>0</option>                              
+                            </select>
+                          </div>
+                        </div>                       
+                      </div>
+                      <div class="row">
+                       <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Emedikus član</label>
+                            <select name="emedikus" class="form-control">
+                              <option></option>
+                              <option value="1">DA</option>
+                              <option value="0">NE</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>                  
+                  </section>
+                </div>
+
+
+                <div class="col-md-6">
+                 <section class="panel">
+                    <header class="panel-heading">
+                      <div class="panel-actions">
+                        <a href="#" class="fa fa-caret-down"></a>
+                      </div>
+                      <h2 class="panel-title">2. o doktoru</h2>
+                    </header>
+                    <div class="panel-body">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Županija</label>
+                            <select name="zupanija" class="form-control">
+                              <option value=""></option>
+                              <option value="Bjelovarsko-bilogorska - 043">Bjelovarsko-bilogorska - 043</option>
+                              <option value="Brodsko-posavska - 035">Brodsko-posavska - 035</option>
+                              <option value="Dubrovačko-neretvanska - 020">Dubrovačko-neretvanska - 020</option>
+                              <option value="Grad Zagreb - 01">Grad Zagreb - 01</option>
+                              <option value="Istarska - 052">Istarska - 052</option>
+                              <option value="Karlovačka - 047">Karlovačka - 047</option>
+                              <option value="Koprivničko-križevačka - 048">Koprivničko-križevačka - 048</option>
+                              <option value="Krapinsko-zagorska - 049">Krapinsko-zagorska - 049</option>
+                              <option value="Ličko-senjska - 053">Ličko-senjska - 053</option>
+                              <option value="Međimurska - 040">Međimurska - 040</option>
+                              <option value="Osječko-baranjska - 031">Osječko-baranjska - 031</option>
+                              <option value="Požeško-slavonska - 034">Požeško-slavonska - 034</option>
+                              <option value="Primorsko-goranska - 051">Primorsko-goranska - 051</option>
+                              <option value="Sisačko-moslavačka - 044">Sisačko-moslavačka - 044</option>
+                              <option value="Splitsko-dalmatinska - 021">Splitsko-dalmatinska - 021</option>
+                              <option value="Varaždinska - 042">Varaždinska - 042</option>
+                              <option value="Virovitičko-podravska - 033">Virovitičko-podravska - 033</option>
+                              <option value="Vukovarsko-srijemska - 032">Vukovarsko-srijemska - 032</option>
+                              <option value="Zadarska - 023">Zadarska - 023</option>
+                              <option value="Zagrebačka - 01">Zagrebačka - 01</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Grad</label>
+                            <input type="text" name="grad" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Adresa</label>
+                            <input  type="text" name="adresa" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Ustanova</label>
+                            <input  type="text" name="ustanova" class="form-control">
+                          </div>
+                        </div> 
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Radno vrijeme</label>
+                            <select name="radnovrijeme" class="form-control">
+                              <option value=""></option>                              
+                              <option value="Parni popodne / Neparni ujutro">Parni popodne / Neparni ujutro</option>
+                              <option value="Parni ujutro / Neparni popodne">Parni ujutro / Neparni popodne</option>
+                              <option value="Pon / Sri / Pet - Popodne">Pon / Sri / Pet - Popodne</option>
+                              <option value="Pon / Sri / Pet - Ujutro">Pon / Sri / Pet - Ujutro</option>
+                              <option value="Tjedan ujutro / Tjedan popodne">Tjedan ujutro / Tjedan popodne</option>
+                              <option value="Ostalo">Ostalo</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Ugovorni</label>
+                            <select name="ugovorni" class="form-control">
+                              <option></option>
+                              <option>Ugovor s HZZO</option>
+                              <option>Bez ugovora</option>
+                              <option>Privatna praksa sa ugovorom</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Zanimanje</label>
+                            <select class="form-control" name="zanimanje">
+                                    <option></option>
+                                    <option>liječnik</option>
+                                    <option>med.sestra/tehničar</option>
+                                    <option>ljekarnik</option>
+                                    <option>medicinski biokemičar</option>
+                                    <option>stomatolog</option>
+                                    <option>psiholog</option>
+                                    <option>patronažna sestra</option>
+                                    <option>zaposlenik farma industrije</option>
+                             </select>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Specijalizacija</label>
+                            <select  name="specijalizacija" class="form-control">
+                              <option> </option>
+                              <option>Abdominalna kirurgija</option>
+                              <option>Alergologija i klinička imunologija</option>
+                              <option>Anesteziologija, reanimatologija i intenzivna medicina</option>
+                              <option>Citologija</option>
+                              <option>Dermatologija i venerologija</option>
+                              <option>Dječja i adolescentna psihijatrija</option>
+                              <option>Dječja kirurgija</option>
+                              <option>Endokrinologija i dijabetologija</option>
+                              <option>Epidemiologija</option>
+                              <option>Farmacija</option>
+                              <option>Fizikalna medicina i rehabilitacija</option>
+                              <option>Gastroenterologija</option>
+                              <option>Ginekologija i opstetricija</option>
+                              <option>Hematologija</option>
+                              <option>Hitna medicina</option>
+                              <option>Infektologija</option>
+                              <option>Internistička onkologija</option>
+                              <option>Javnozdravstvena medicina</option>
+                              <option>Kardiologija</option>
+                              <option>Kardiotorakalna kirurgija</option>
+                              <option>Kirurgija i anesteziologija</option>
+                              <option>Klinička farmakologija s toksikologijom</option>
+                              <option>Klinička mikrobiologija</option>
+                              <option>Klinička radiologija</option>
+                              <option>Laboratorijska imunologija</option>
+                              <option>Maksilofacijalna kirurgija</option>
+                              <option>Medicina rada i športa</option>
+                              <option>Medicinska biokemija</option>
+                              <option>Nefrologija</option>
+                              <option>Neurokirurgija</option>
+                              <option>Neurologija</option>
+                              <option>Nuklearna medicina</option>
+                              <option>Oftalmologija</option>
+                              <option>Oftalmologija i optometrija</option>
+                              <option>Onkologija i radioterapija</option>
+                              <option>Opća interna medicina</option>
+                              <option>Opća kirurgija</option>
+                              <option>Opća/Obiteljska medicina</option>
+                              <option>Ortopedija i traumatologija</option>
+                              <option>Otorinolaringologija</option>
+                              <option>Patologija</option>
+                              <option>Pedijatrija</option>
+                              <option>Plastična, rekonstrukcijska i estetska kirurgija</option>
+                              <option>Psihijatrija</option>
+                              <option>Psihologija</option>
+                              <option>Pulmologija</option>
+                              <option>Radiologija</option>
+                              <option>Reumatologija</option>
+                              <option>Stomatologija</option>
+                              <option>Sudska medicina</option>
+                              <option>Školska i adolescentna medicina</option>
+                              <option>Transfuzijska medicina</option>
+                              <option>Urologija</option>
+                              <option>Vaskularna kirurgija</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>                  
+                  </section>
+                </div>
+
+                <div class="col-md-6">
+                  <section class="panel">
+                    <header class="panel-heading">
+                      <div class="panel-actions">
+                        <a href="#" class="fa fa-caret-down"></a>
+                      </div>
+                      <h2 class="panel-title">3. o doktoru</h2>
+                    </header>
+                    <div class="panel-body">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Spol</label>
+                            <select name="spol" class="form-control">
+                              <option></option>
+                              <option>Muško</option>
+                              <option>Žensko</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Datum rođ.</label>
+                            <input type="date" name="datum_rod" class="form-control datum_rod">
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">E-mail</label>
+                            <input type="email" name="email" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Telefon</label>
+                            <input  type="tel" name="telefon" class="form-control">
+                          </div>
+                        </div>                       
+                     
+                       <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Ime sestre</label>
+                            <input  type="text" name="sestra" class="form-control">
+                          </div>
+                        </div>
+                      
+                       <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Broj pacijenata</label>
+                            <input  type="text" name="br_pacijenata" class="form-control">
+                          </div>
+                        </div>
+                      
+                       <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Kanali komunikacije</label>
+                            <select multiple name="kanali_kom" data-plugin-selectTwo class="form-control">
+                              <option>F2F</option>
+                              <option>telefon</option>
+                              <option>SMS</option>
+                              <option>e-mail</option>
+                              <option>web stranica</option>
+                              <option>društvene mreže</option>
+                              <option>Viber/WhatsApp</option>
+                              <option>direktna pošta</option>
+                              <option>mobilne aplikacije</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Područja interesa</label>
+                            <select multiple name="podrucja_interesa" data-plugin-selectTwo class="form-control">
+                                <option>Alergologija i imunologija</option>                 
+                                <option>Citologija</option>                 
+                                <option>Dermatologija</option>                  
+                                <option>Endokrinologija</option>                  
+                                <option>Epidemiologija i javno zdravstvo</option>                 
+                                <option>Farmacija</option>                  
+                                <option>Fizikalna medicina i reumatologija</option>                 
+                                <option>Gastroenterologija</option>                 
+                                <option>Ginekologija i porodništvo</option>                 
+                                <option>Hitna medicina</option>                  
+                                <option>Infektologija i mikrobiologija</option>                  
+                                <option>Kardiologija</option>                  
+                                <option>Kirurgija i anesteziologija</option>                 
+                                <option>Klinička farmakologija</option>                  
+                                <option>Medicina rada i športa</option>                  
+                                <option>Medicinska biokemija</option>                  
+                                <option>Nefrologija</option>                 
+                                <option>Neurologija</option>                 
+                                <option>Nuklearna medicina</option>                  
+                                <option>Obiteljska medicina</option>                 
+                                <option>Oftalmologija</option>                 
+                                <option>Onkologija i hematologija</option>                 
+                                <option>Ortopedija i sportska medicina</option>                  
+                                <option>Otorinolaringologija</option>                  
+                                <option>Patologija</option>                  
+                                <option>Pedijatrija</option>                 
+                                <option>Psihijatrija</option>                  
+                                <option>Pulmologija</option>                 
+                                <option>Radiologija</option>                 
+                                <option>Školska medicina</option>                  
+                                <option>Stomatologija</option>                 
+                                <option>Urologija</option>                 
+                              
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>                  
+                  </section>
+                </div>
+
+
+
+                <div class="col-md-6">
+                  <section class="panel">
+                    <header class="panel-heading">
+                      <div class="panel-actions">
+                        <a href="#" class="fa fa-caret-down"></a>
+                      </div>
+                      <h2 class="panel-title">4. o doktoru</h2>
+                    </header>
+                    <div class="panel-body">
+                      <div class="row">
+                      <div class="col-md-12">
+
+                          <div class="form-group">
+                            <label class="control-label">Konkurencija u ordinaciji</label>
+                            <select multiple name="konkurencija_ord" data-plugin-selectTwo class="form-control">
+                              <option>Abbott</option>
+                              <option>AbbVie</option>
+                              <option>Actavis</option>
+                              <option>Alcon</option>
+                              <option>Alkaloid</option>
+                              <option>Amgen</option>
+                              <option>Astellas</option>
+                              <option>AstraZeneca</option>
+                              <option>Bauerfeind</option>
+                              <option>Baxter</option>
+                              <option>Bayer</option>
+                              <option>Belupo</option>
+                              <option>Berlin Chemie</option>
+                              <option>Biogen Idec</option>
+                              <option>Boehringer Ingelheim</option>
+                              <option>Bristol-Myers Squibb</option>
+                              <option>Daiichi Sankyo</option>
+                              <option>Eisai</option>
+                              <option>EvoPharma</option>
+                              <option>Farmal</option>
+                              <option>Fresenius Kabi</option>
+                              <option>Genera</option>
+                              <option>Genzyme</option>
+                              <option>Gilead Sciences</option>
+                              <option>GlaxoSmithKline</option>
+                              <option>GM Pharma</option>
+                              <option>Hartmann</option>
+                              <option>Jadran Galenski Laboratorij</option>
+                              <option>Janssen Cilag</option>
+                              <option>Johnson &amp; Johnson</option>
+                              <option>Karl Storz</option>
+                              <option>Krka</option>
+                              <option>Lilly</option>
+                              <option>Lohman &amp; Rauscher</option>
+                              <option>Lundbeck</option>
+                              <option>Medilab</option>
+                              <option>Medis Adria</option>
+                              <option>Merck &amp; Co.</option>
+                              <option>Merck KGaA</option>
+                              <option>Mylan</option>
+                              <option>Novartis</option>
+                              <option>Novo Nordisk</option>
+                              <option>Oktal Pharma</option>
+                              <option>Otsuka</option>
+                              <option>Pfizer</option>
+                              <option>PharmaS</option>
+                              <option>PharmaSwiss</option>
+                              <option>Pliva</option>
+                              <option>Roche</option>
+                              <option>Salvus</option>
+                              <option>Sandoz</option>
+                              <option>Sanofi</option>
+                              <option>Servier</option>
+                              <option>Shire</option>
+                              <option>Stada</option>
+                              <option>Stoma Medical</option>
+                              <option>Takeda</option>
+                              <option>Teva</option>
+                              <option>Unimed Pharma</option>
+
+                            </select>
+                          </div>
+                        
+                          <div class="form-group">
+                            <label class="control-label">Napomene</label>
+                            <textarea name="napomene" class="form-control"></textarea>
+                          </div>
+                          </div>
+                      </div>  
+                                            
+                    </div>
+                  
+                  </section>
+                </div>
+
+
+
+                <div class="col-md-12">
+                  <section class="panel">
+                    <header class="panel-heading">
+                      <div class="panel-actions">
+                        <a href="#" class="fa fa-caret-down"></a>
+                      </div>
+                      <h2 class="panel-title">O kampanji</h2>
+                    </header>
+                    <div class="panel-body">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Kanal</label>
+                            <select multiple data-plugin-selectTwo name="kanal" class="form-control">
+                              <option>F2F</option>
+                              <option>telefon</option>
+                              <option>SMS</option>
+                              <option>e-mail</option>
+                              <option>web stranica</option>
+                              <option>društvene mreže</option>
+                              <option>Viber/WhatsApp</option>
+                              <option>direktna pošta</option>
+                              <option>mobilne aplikacije</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Zainteresiran</label>
+                            <select name="zainteresiran" class="form-control">
+                              <option></option>
+                              <option>DA</option>
+                              <option>NE</option>
+                            </select>
+                          </div>
+                        </div>
+                                          
+                      </div>
+
+
+                      <div class="row">
+                       <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Poznati lijekovi</label>
+                            <select name="poznati_l" class="form-control">
+                              <option></option>
+                              <option>DA</option>
+                              <option>NE</option>
+                            </select>
+                          </div>
+                        </div>
+                    
+                       <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Povezuje s kompanijom</label>
+                            <select name="povezuje_komp" class="form-control">
+                              <option></option>
+                              <option>DA</option>
+                              <option>NE</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>                  
+                  </section>
+                </div>
+
+                 <div class="col-md-12">
+                  <section class="panel">
+                    <header class="panel-heading">
+                      <div class="panel-actions">
+                        <a href="#" class="fa fa-caret-down"></a>
+                      </div>
+                      <h2 class="panel-title">O lijekovima</h2>
+                    </header>
+                    <div class="panel-body">
+                      
+
+
+                      <div class="row">
+                       <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Tritace poruke</label>
+                            <select name="tritace_poruke" class="form-control">
+                              <option></option>
+                              <option>DA</option>
+                              <option>NE</option>
+                            </select>
+                          </div>
+                        </div>
+                     
+                       <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Lasix poruke</label>
+                            <select name="lasix_poruke" class="form-control">
+                              <option></option>
+                              <option>DA</option>
+                              <option>NE</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                        <div class="row">
+                       <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Tritace komentar</label>
+                            <textarea name="tritace_komentar" class="form-control"></textarea>
+                          </div>
+                        </div>
+                     
+                       <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="control-label">Lasix komentar</label>
+                            <textarea name="lasix_komentar" class="form-control"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>                  
+                  </section>
+                </div>
+
+
+                  <div style="position:fixed; bottom:20px; right:20px;">
+                        <button class="btn btn-primary btn-sm odustanidetalj">Odustani</button> &nbsp;
+                        <button class="btn btn-primary btn-lg spremidetalj">SPREMI</button>
+                    </div>
+
+              </form>
+            </aside>
+            </span>
+						
+				</section>
+			</div>
+
+			<aside id="sidebar-right" class="sidebar-right">
+				<div class="nano">
+					<div class="nano-content">
+						<a href="#" class="mobile-close visible-xs">
+							Collapse <i class="fa fa-chevron-right"></i>
+						</a>
+			       
+						<div class="sidebar-right-wrapper">
+              <h4>Za sljedeće radnje iPad mora biti spojen na internet ili ništa neće raditi (učitava popis sa servera ili sejva napravljeno, opet na server).</h4>
+              <p><a href="#" class="btn btn-lg btn-primary spremi">Spremi na server</a></p>
+              <p style="position:absolute;bottom:20px;">Ovo nemoj uopće klikati: <a href="#" class="btn btn-lg btn-primary nemoj">SVE IZBRIŠI<br> i počni ispočetka!</a></p>
+              
+						</div>
+					</div>
+				</div>
+			</aside>
+		</section>
+
+    <div id="exe" style="display:none;"></div>
+
+    <div class="loading">Loading&#8230;</div>
+    <style>
+      /* Absolute Center Spinner */
+.loading {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* Transparent Overlay */
+.loading:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+.loading:not(:required) {
+  /* hide "loading..." text */
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.loading:not(:required):after {
+  content: '';
+  display: block;
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  -webkit-animation: spinner 1500ms infinite linear;
+  -moz-animation: spinner 1500ms infinite linear;
+  -ms-animation: spinner 1500ms infinite linear;
+  -o-animation: spinner 1500ms infinite linear;
+  animation: spinner 1500ms infinite linear;
+  border-radius: 0.5em;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+  box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+}
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+    </style>
+		
+
+		<!-- Vendor -->
+		
+		<!--<script src="files/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>-->
+		<script src="files/assets/vendor/bootstrap/js/bootstrap.js"></script>
+		<script src="files/assets/vendor/nanoscroller/nanoscroller.js"></script>
+		<script src="files/assets/vendor/magnific-popup/magnific-popup.js"></script>
+		<script src="files/assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+    <!--<script src="files/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>-->
+  
+		
+		<!-- Specific Page Vendor -->
+		<script src="files/assets/vendor/jquery-autosize/jquery.autosize.js"></script>
+		<script src="files/assets/vendor/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
+		<script src="files/assets/vendor/select2/select2.js"></script>
+		<script src="files/assets/vendor/jquery-datatables/media/js/jquery.dataTables.js"></script>
+		<script src="files/assets/vendor/jquery-datatables-bs3/assets/js/datatables.js"></script>
+
+		
+		<!-- Theme Base, Components and Settings -->
+		<script src="files/assets/javascripts/theme.js"></script>
+		
+		<!-- Theme Custom -->
+		<script src="files/assets/javascripts/theme.custom.js"></script>
+		
+		<!-- Theme Initialization Files -->
+		<script src="files/assets/javascripts/theme.init.js"></script>
+
+	
+		<script>
+
+	/* cordova vrajt to fajl */
+
+	 function writeToFile(fileName, data) {
+        window.resolveLocalFileSystemURL(cordova.file.documentsDirectory, function (directoryEntry) {
+            directoryEntry.getFile(fileName, { create: true }, function (fileEntry) {
+                fileEntry.createWriter(function (fileWriter) {
+                    fileWriter.onwriteend = function (e) {
+                        // for real-world usage, you might consider passing a success callback
+                        console.log('Write of file "' + fileName + '"" completed.');
+                    };
+
+                    fileWriter.onerror = function (e) {
+                        // you could hook this up with our global error handler, or pass in an error callback
+                        console.log('Write failed: ' + e.toString());
+                    };
+                    fileWriter.seek(fileWriter.length);
+                    var blob = new Blob([data], { type: 'text/plain' });
+                    fileWriter.write(blob);
+                });
+            });
+        });
+
+    }
+
+    function saveToDedal(data){
+      $.ajax({
+          url: 'http://dedal.hr/predstavnici/upload.php',
+          type: 'POST',
+          data: { value: data, id:localStorage.getItem('ajdiTableta')},
+          success: function(result) {
+              alert('Odgovor sa servera: ' + result);
+          }
+      });
+    }
+
+
+
+    var jsonPop;
+    if(localStorage.getItem('jsonPop') !== null){jsonPop=JSON.parse(localStorage.getItem('jsonPop'))}
+    var brojUpisa;
+    //localStorage.setItem("dr2", '["2", "Ime", "Prezime", "gdje", "tko", "ušto", "lalal", "asd"]');
+     brojUpisa=localStorage.getItem("brojUpisa");
+
+    $(document).ready(function () {
+        /* prvo učitavanje */
+        $('.nemoj').click(function(){
+          if (confirm("OPREZ!!! Izbrisat ćeš SVE podatke i bit će kao da ništa nisi radio/radila! Klikaj samo ako si 110% siguran/sigurna da znaš što radiš!") == true) {
+              start();
+            } else {
+            }
+        });
+
+        /* sejvanje */
+
+        $('.spremi').click(function(){
+          var data=[];
+          for(x=0;x<localStorage.length;x++){
+            if (localStorage.key(x).substring(0,2)=='dr') {
+               data.push(localStorage.getItem(localStorage.key(x)));
+            }
+          }
+          saveToDedal(data);
+        });
+
+
+        function start(){
+          localStorage.clear();
+          localStorage.setItem('ajdiTableta',device.uuid);
+          $('#exe').load('https://www.dedal.hr/predstavnici/popis.php');
+        }
+        $('.odustanidetalj').click(function(e){
+          e.preventDefault();
+          if(confirm("Jesi li siguran/sigurna da ne želiš sačuvati unesene podatke?") == true){
+            $('.detalji').hide();
+            $('.popis').show();
+          }else{
+
+          }
+          $('#detaljforma option:selected').removeAttr('selected');
+          $('#detaljforma input').val('');
+          $('#detaljforma textarea').val('');
+          return false;
+        });
+
+         /* klikanje */
+        $('#datatable-ajax').on('click tap', 'td', function(){
+          populiraj($(this).parent().children('td:first').html());
+          $('.popis').hide();
+          $('.detalji').show();
+        });
+
+        $('.novi-dr').on('click tap', function(){
+          populiraj('novi');
+          $('.popis').hide();
+          $('.detalji').show();
+        });
+
+
+
+        $('.redraw').click(function(){
+          $('.loading').show();
+        	obrada();
+        });
+        /*ono spremanje*/
+        $("#detaljforma").submit(function(e){
+          e.preventDefault();
+          $('.loading').show();
+          var utc = new Date().toJSON();
+          
+          navigator.geolocation.getCurrentPosition(function(position){
+            var arej=[
+             $('input[name=rdbr]').val(),
+             $('input[name=ime]').val(),
+             $('input[name=prezime]').val(),
+             $('select[name=zupanija]').val(),
+             $('input[name=grad]').val(),
+             $('input[name=adresa]').val(),
+             $('input[name=ustanova]').val(),
+             $('select[name=ugovorni] option:selected').html(),
+             $('select[name=radnovrijeme] option:selected').html(),
+             $('select[name=zanimanje] option:selected').html(),
+             $('select[name=specijalizacija] option:selected').html(),
+             $('select[name=emedikus] option:selected').attr('value'),
+             $('select[name=segment] option:selected').html(),
+             $('input[name=posjecen]').val(),
+             $('select[name=spol] option:selected').val(),
+             $('input[name=email]').val(),
+             $('input[name=telefon]').val(),
+             $('input[name=datum_rod]').val(),
+             $('input[name=br_pacijenata]').val(),
+             $('input[name=sestra]').val(),
+             $('select[name=podrucja_interesa]').val(),
+             $('select[name=kanali_kom]').val(),
+             $('select[name=konkurencija_ord]').val(),
+             $('textarea[name=napomene]').val(),/*dalje je kampanja*/
+             $('select[name=kanal]').val(),
+             $('select[name=zainteresiran] option:selected').html(),
+             $('select[name=poznati_l] option:selected').html(),
+             $('select[name=povezuje_komp] option:selected').html(),
+             $('select[name=tritace_poruke] option:selected').html(),
+             $('textarea[name=tritace_komentar]').val(),
+             $('select[name=lasix_poruke] option:selected').html(),
+             $('textarea[name=lasix_komentar]').val(),
+             position.coords.longitude,
+             position.coords.latitude,
+             utc
+            ];
+            /*if (localStorage.getItem("dr"+(-1+parseInt($('input[name=rdbr]').val()))) == null) {
+               brojUpisa=1+brojUpisa;
+               localStorage.setItem('brojUpisa', brojUpisa);
+            }*/
+            localStorage.setItem("dr"+(-1+parseInt($('input[name=rdbr]').val())), JSON.stringify(arej));
+          
+              writeToFile('logovi.csv', ''+arej.join('; ')+'\r\n');
+
+          
+          obrada();
+          $('.detalji').hide();
+          $('.popis').show();
+            }, function(msg){alert('error:' +msg);});
+          return false;
+        });
+
+        /* datepickeri 
+        $('.posjecen').datepicker({
+                  format: 'yyyy-mm-dd'
+              });
+        $('.datum_rod').datepicker({
+                  format: 'yyyy-mm-dd'
+              });*/
+    });
+
+    function obrada(){
+    	
+      for(x=0;x<(brojUpisa+localStorage.length);x++){
+        if (localStorage.getItem("dr"+x) !== null) {
+        	
+           jsonPop.aaData[x]=JSON.parse(localStorage.getItem("dr"+x));
+        
+        }
+      }
+      kolbekica();  
+    }
+
+    function kolbekica(){
+    			var $table = $('#datatable-ajax');
+    			$table.dataTable().fnDestroy();
+    			$table.children('th').removeAttr('style');
+    			$('.filteri').html('');
+    			$table.dataTable({
+    				bProcessing: true,
+    				bDestroy: true,
+    				aaData: jsonPop.aaData,
+    				initComplete: function () {
+    			            this.api().columns().every( function (a) {
+                        if(a==3||a==4||a==8||a==12||a==13){
+    			                var column = this;
+    			                var select = $('<select><option value=""></option></select>')
+    			                    .appendTo( $('.filteri') ) /*$(column.footer()).empty()*/
+    			                    .on( 'change', function () {
+    			                        var val = $.fn.dataTable.util.escapeRegex(
+    			                            $(this).val()
+    			                        );
+    			 
+    			                        column
+    			                            .search( val ? '^'+val+'$' : '', true, false )
+    			                            .draw();
+    			                    } );
+    			 
+    			                column.data().unique().sort().each( function ( d, j ) {
+    			                    select.append( '<option value="'+d+'">'+d+'</option>' )
+    			                } );
+                        }
+    			            } );
+                      $('.loading').hide();
+    			        }
+    			});
+
+          
+    }
+
+
+    function populiraj(ajdi){
+    	if(ajdi=='novi'){
+    		redak=[jsonPop.aaData.length+1,'','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''];
+    	}else{
+	      ajdi=parseInt(ajdi);
+	      if (localStorage.getItem("dr"+(-1+ajdi)) !== null) {
+	           redak=JSON.parse(localStorage.getItem("dr"+(-1+ajdi)));
+	           //alert(localStorage.getItem("dr"+(-1+ajdi)));
+	        }else{
+	          redak=jsonPop.aaData[-1+parseInt(ajdi)];
+	        }
+	    }
+      $.each(redak, function(ulaz, izlaz){
+        switch(ulaz) {
+           case 0:
+              $('input[name=rdbr]').val(izlaz);
+              break;
+          case 1:
+              $('input[name=ime]').val(izlaz);
+              break;
+          case 2:
+              $('input[name=prezime]').val(izlaz);
+              break;
+          case 3:
+              $('select[name=zupanija] option').filter(function () { return $(this).val() == izlaz; }).prop('selected',true);
+              break;
+           case 4:
+              $('input[name=grad]').val(izlaz);
+              break;
+           case 5:
+              $('input[name=adresa]').val(izlaz);
+              break;
+           case 6:
+              $('input[name=ustanova]').val(izlaz);
+              break;
+           case 7:
+              $('select[name=ugovorni] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+              break;
+           case 8:
+              $('select[name=radnovrijeme] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+              break;
+           case 9:
+               $('select[name=zanimanje] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+              break;
+           case 10:
+               $('select[name=specijalizacija] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+              break;
+           case 11:
+               $('select[name=emedikus] option').filter(function () { return $(this).val() == izlaz; }).prop('selected',true);
+              break;
+           case 12:
+               $('select[name=segment] option').filter(function () { return $(this).val() == izlaz; }).prop('selected',true);
+              break;
+           case 13:
+               $('input[name=posjecen]').val(izlaz);
+              break;
+           case 14:
+               $('select[name=spol] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+              break;
+           case 15:
+               $('input[name=email]').val(izlaz);
+              break;
+           case 16:
+               $('input[name=telefon]').val(izlaz);
+              break;
+           case 17:
+               $('input[name=datum_rod]').val(izlaz);
+              break;
+           case 18:
+               $('input[name=br_pacijenata]').val(izlaz);
+              break;
+           case 19:
+               $('input[name=sestra]').val(izlaz);
+              break;
+           case 20:
+              if(izlaz=='null'||izlaz==''){
+                  $("select[name=podrucja_interesa]").val([]).trigger('change');
+                }else{
+                  $('select[name=podrucja_interesa]').val(izlaz).trigger('change');                    
+                  }
+                  /* ! treba primijeniti ovdje, očigledno u selekt box HTML-u, ali i u sejvanju umjesto: selected ostaviti samo selektor za input - DAKLE TRI MJESTA DA BI BIO MULTISELEKT!!!!!!!!! */
+              break;
+           case 21:
+               if(izlaz=='null'||izlaz==''){
+                  $("select[name=kanal]").val([]).trigger('change');
+                }else{
+                  $('select[name=kanali_kom]').val(izlaz).trigger('change');                    
+                  }
+              break;
+           case 22:
+           		if(izlaz=='null'||izlaz==''){
+                  $("select[name=konkurencija_ord]").val([]).trigger('change');
+                }else{ $('select[name=konkurencija_ord]').val(izlaz).trigger('change');
+                  }
+              break;
+           case 23:
+               $('textarea[name=napomene]').val(izlaz);
+              break;
+              /* dalje je kampanja !!!!!!!!!!!!!!!!!!!!1 */
+            case 24:
+                if(izlaz=='null'||izlaz==''){
+                  $("select[name=kanal]").val([]).trigger('change');
+                }else{
+                  $('select[name=kanal]').val(izlaz).trigger('change');                    
+                  }
+              break;
+            case 25:
+              $('select[name=zainteresiran] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+              break;
+            case 26:
+              $('select[name=poznati_l] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+              break;
+            case 27:
+              $('select[name=povezuje_komp] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+              break;
+            case 28:
+              $('select[name=tritace_poruke] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+              break;
+           case 29:
+               $('textarea[name=tritace_komentar]').val(izlaz);
+              break;
+            case 30:
+              $('select[name=lasix_poruke] option').filter(function () { return $(this).html() == izlaz; }).prop('selected',true);
+              break;
+           case 31:
+               $('textarea[name=lasix_komentar]').val(izlaz);
+              break;
+      
+      		}
+      });
+      
+    }
+
+
+    $(function(){
+      $('.spremidetalj').click(function(){
+        $('.loading').show();
+      });
+
+
+    });
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {    	
+        localStorage.setItem('ajdiTableta',device.uuid);
+        $(function(){
+          obrada();
+        });
+    }
+		</script>
+
+   
+		<style>
+		th{width:auto !important;}
+    .form-control, .control-label {width:80%; margin-left:10px;}
+    .select2-search-choice-close:after, .select2-search-choice-close {
+	    font-size: 20px;
+	}
+	li.select2-search-field {
+		padding-bottom:50px !important;
+	}
+	.select2-search-choice-close {width:30px;}
+		</style>
+
+	</body>
+</html>
